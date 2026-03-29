@@ -1,0 +1,541 @@
+/*
+Theme Name: Onsen Theme
+Author: 千翔
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #1f1f1f;
+}
+
+/*
+header
+*/
+#header-top {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 60px;
+    font-family: "Yuji Boku", serif;
+    background-color: #00000000;
+    z-index: 30;
+}
+
+#header-top .main-logo {
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 15px;
+}
+
+#header-top .main-logo:visited {
+    color: #fff;
+}
+
+.header-top-list {
+    display: flex;
+}
+
+.header-top-list li {
+    width: 150px;
+    text-align: center;
+    position: relative;
+}
+
+.header-top-list li::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 25px;
+    background-color: #fff;
+    top: 0;
+    left: 10%;
+}
+
+.header-top-list li:first-child::before {
+    display: none;
+}
+
+.header-top-list li::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    background-color: #fff;
+    bottom: -5px;
+    left: 30px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.5s ease;
+}
+
+.header-top-list li:hover::after {
+    transform: scaleX(1);
+}
+
+.header-top-list a {
+    color: #fff;
+    margin-left: 30px;
+}
+
+.header-top-list a:visited {
+    color: #fff;
+}
+
+
+/*
+header-vew
+*/
+#header-vew {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 60px;
+    background-color: #1f1f1f9f;
+    font-family: "Yuji Boku", serif;
+    z-index: 20;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.4s ease;
+}
+
+#header-vew.active {
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+#header-vew .main-logo {
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 15px;
+}
+
+#header-vew .main-logo:visited {
+    color: #fff;
+}
+
+
+.header-nav-list {
+    display: flex;
+    font-size: 20px;
+}
+
+.header-nav-list li {
+    position: relative;
+}
+
+.header-nav-list li::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background-color: #fff;
+    top: 0;
+    right: -20%;
+}
+
+.header-nav-list li:last-child::before {
+    display: none;
+}
+
+.header-nav-list li::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: -20px;
+    left: 65%;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.header-nav-list li:hover::after {
+    opacity: 1;
+    top: -10px;
+}
+
+.header-nav-list a {
+    color: #fff;
+    margin-left: 30px;
+}
+
+.header-nav-list a:visited {
+    color: #fff;
+}
+
+/*
+main
+*/
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 11;
+}
+
+.main-imges {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.img-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.main-imges .img-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-position: center bottom;
+    animation: img-change 15s infinite;
+    opacity: 0;
+}
+
+.img-item:nth-child(1) img {
+    animation-delay: 0s;
+}
+
+.img-item:nth-child(2) img {
+    animation-delay: 5s;
+}
+
+.img-item:nth-child(3) img {
+    animation-delay: 10s;
+}
+
+.main-nav {
+    position: absolute;
+    width: 20%;
+    top: 70%;
+    left: 5%;
+    font-family: "Yuji Boku", serif;
+    color: #fff;
+    font-size: 20px;
+    line-height: 2;
+    z-index: 20;
+}
+
+.main-nav-list a{
+    color: #fff;
+}
+
+.main-nav-list li {
+    position: relative;
+}
+
+.main-nav-list li::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+.main-nav-list li:hover::before {
+    opacity: 1;
+}
+
+@keyframes img-change {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.main-text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.main-catch {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 30px;
+    margin-bottom: 20px;
+    font-family: "Yuji Boku", serif;
+}
+
+.main-logo {
+    text-align: center;
+    letter-spacing: 40px;
+    font-size: 3rem;
+    font-family: "Yuji Boku", serif;
+}
+
+/*
+intro*/
+.intro {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(31, 31, 31));
+    width: 100%;
+    height: 300px;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+}
+
+/*
+intro-title
+*/
+#intro-title {
+    color: #fff;
+    background-color: #1f1f1f;
+    width: 100%;
+    height: 190vh;
+    display: flex;
+    align-items: center;
+    padding-top: 600px;
+    font-size: 1.1rem;
+    font-family: "Noto Serif JP", serif;
+    writing-mode: vertical-rl;
+    letter-spacing: 5px;
+    line-height: 3.5;
+}
+
+.intro-title-text {
+    transition: all 3s ease;
+    opacity: 0;
+}
+
+.intro-title-text.active {
+    opacity: 1;
+}
+
+/*
+future
+*/
+.feature {
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    background-color: antiquewhite;
+    padding-top: 150px;
+}
+
+.feature-wappaer {
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    transform: translateY(200px);
+    transition: all 2.0s;
+    opacity: 0;
+}
+
+.feature-wappaer.active {
+    opacity: 1;
+    transform: translatey(0px);
+    transform: all 1.1s;
+}
+
+.feature-img {
+    position: absolute;
+    margin-top: 300px;
+    left: 5%;
+    width: 70%;
+    height: 70vh;
+}
+
+.feature-section.room .feature-img {
+    left: inherit;
+    right: 5%;
+}
+
+.feature-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.feature-text {
+    background-color: #fff;
+    height: 80vh;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    text-align: center;
+    padding: 20px 60px;
+}
+
+.feature-section.room .feature-text {
+    top: 10%;
+    left: 10%;
+    right: inherit;
+}
+
+.logo {
+    font-size: 50px;
+    width: 90px;
+    height: 90px;
+    border: 2px groove #00688c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.feature-title {
+    font-size: 90px;
+    letter-spacing: 50px;
+    text-indent: 50px;
+    font-family: "Ma Shan Zheng", cursive;
+    font-weight: 100;
+}
+
+.catch {
+    font-size: 20px;
+    margin-top: 30px;
+    font-family: "Noto Serif JP", serif;
+    color: #00688c;
+    font-weight: 700;
+}
+
+.description {
+    margin-top: 60px;
+    font-size: 18px;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 300;
+    line-height: 2;
+}
+
+.link {
+    margin: 60px auto;
+    width: 200px;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
+    border: 2px groove #00688c;
+    font-size: 14px;
+    padding: 20px 10px;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+.link a {
+    color: #1f1f1f;
+}
+
+.link:hover {
+    background-color: #aaa7d367;
+}
+
+.kari {
+    margin-top: 500px;
+}
+
+
+
+/*
+footer
+*/
+#footer {
+    background-image: url(./img/footerintroimg.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 150vh;
+    position: relative;
+    color: #1f1f1f;
+}
+
+
+#footer::before {
+    content: "";
+    width: 100%;
+    height: 5%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(antiquewhite, rgba(149, 141, 141, 0.207));
+}
+
+#info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 100px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(rgba(149, 141, 141, 0), antiquewhite);
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer a {
+    color: #1f1f1f;
+}
+
+.nav-v {
+    writing-mode: vertical-lr;
+}
+
+#footer #nav {
+    text-align: left;
+    font-size: 18px;
+}
+
+.nav-v {
+    line-height: 60px;
+    margin-bottom: 50px;
+}
+
+.nav-w {
+    text-align: center;
+    line-height: 2.0;
+}
