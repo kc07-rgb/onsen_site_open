@@ -17,10 +17,9 @@
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="../style.css">
-    <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body>
     
     <!--header-->
     <header id="header">
