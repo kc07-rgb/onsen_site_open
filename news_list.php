@@ -62,7 +62,7 @@ $pdo = null;
         rel="stylesheet">
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./news_ver1.css">
+    <link rel="stylesheet" href="css/news_list.css">
 </head>
 
 <body>
