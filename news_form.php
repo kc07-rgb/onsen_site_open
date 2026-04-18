@@ -12,7 +12,7 @@ try {
 }
 
 session_start();
-if(!isset($_SESSION["user_id"])){
+if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
 }
@@ -45,7 +45,15 @@ if(!isset($_SESSION["user_id"])){
         <input type="text" name="title" id="title">
         <label for="text">テキスト</label>
         <textarea name="comment" id="text"></textarea>
-         <input type="file" name="image">
+        <input type="file" name="image">
+        <select name="category" id="category">
+            <option value="" disabled selected>カテゴリー</option>
+            <option value="all">すべて</option>
+            <option value="info">お知らせ</option>
+            <option value="event">イベント</option>
+            <option value="facility">施設情報</option>
+            <option value="campaign">キャンペーン</option>
+        </select>
         <input type="submit" value="投稿" name="submitbtn">
     </form>
 
