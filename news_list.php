@@ -91,7 +91,7 @@ $pdo = null;
                         </a>
                         <?php if (isset($_SESSION["user_id"])): ?>
                             <a href="news_edit.php?id=<?=$news["id"] ?>">編集</a>
-                            <a>削除</a>
+                            <a href="news_delete.php?id=<?= $news["id"] ?>">削除</a>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>

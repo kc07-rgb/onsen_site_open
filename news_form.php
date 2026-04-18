@@ -39,6 +39,7 @@ if(!isset($_SESSION["user_id"])){
 </head>
 
 <body>
+    <a href="./news_list.php">ニュースリストへ</a>
     <form action="news_post.php" class="formwrraper" method="POST" enctype="multipart/form-data">
         <label for="title">タイトル</label>
         <input type="text" name="title" id="title">
