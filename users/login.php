@@ -23,7 +23,7 @@ if (isset($_POST["login"])) {
             $_SESSION["username"] = $user["username"];
 
             echo "ログイン成功";
-            header("Location: news_form.php");
+            header("Location: /温泉/news/news_form.php");
             exit;
         }else{
             echo "ユーザーネームまたはパスワードが違います";

@@ -72,7 +72,7 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <a href="./news_list.php">戻る</a>
+    <a href="/温泉/news/news_list.php">戻る</a>
     <form method="POST">
         <label for="username">ユーザーネーム</label>
         <input type="text" name="username" id="username">
