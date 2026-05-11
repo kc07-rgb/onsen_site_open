@@ -70,8 +70,18 @@
             <p>合計金額</p>
             <p id="total_price">￥0</p>
         </div>
-
     </div>
+
+    <form action="" method="POST">
+        <label for="nema">お名前</label>
+        <input type="text" name="name" id="name" required>
+        <label for="tel">お電話番号</label>
+        <input type="tel" name="tel" id="tel" required>
+        <label for="email">メールアドレス</label>
+        <input type="email" name="email" id="email" required>
+        <label for="message">ご要望・アレルギーなど</label>
+        <textarea name="message" id="message" cols="50" rows="20"></textarea>
+    </form>
 </body>
 
 <script>
