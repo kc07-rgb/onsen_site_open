@@ -1,4 +1,31 @@
 <?php
+try {
+    $pdo = new PDO(
+        'mysql:host=localhost;dbname=onsen_hotel_site',
+        'root',
+        '',
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+} catch (PDOException $e) {
+    exit("DB接続エラー");
+}
+
+//検索
+$checkin = $_POST["checkin"];
+$checkout = $_POST["checkout"];
+$plan = $_POST["plan"];
+
+//在庫
+$stocks = [
+    "sudomari" => 3,
+    "standard" => 3,
+    "premium" => 2
+];
+
+$stock = $stocks[$plan];
+
+//重複確認
+
 
 ?>
 
@@ -15,7 +42,7 @@
 
 <body>
 
-    <form action="confirm.php" method="POST">
+    <form action="display.php" method="POST">
         <div class="day_people">
             <label for="checkin">チェックイン</label>
             <input type="date" name="checkin" id="checkin" required>
@@ -72,6 +99,7 @@
                 <p>合計金額</p>
                 <p id="total_price">￥0</p>
             </div>
+            <input type="hidden" name="total_price" id="hidden_total_price">
         </div>
 
 
@@ -172,6 +200,7 @@
         const children = parseInt(document.getElementById("children").value);
         const total = (prices[plan.value].adult * adult + prices[plan.value].children * children) * night;
         document.getElementById("total_price").textContent = "￥" + total.toLocaleString();
+        document.getElementById("hidden_total_price").value = total;
     }
     document.querySelectorAll('input[name="plan"]').forEach(radio => {
         radio.addEventListener("change", updateTotal);

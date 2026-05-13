@@ -10,5 +10,6 @@ CREATE TABLE reservation (
     email VARCHAR(255) NOT NULL,
     message TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    total_price  INT UNSIGNED
 )
