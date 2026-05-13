@@ -14,66 +14,68 @@
 </head>
 
 <body>
-    <div class="day_people">
-        <label for="checkin">チェックイン</label>
-        <input type="date" name="checkin" id="checkin">
 
-        <label for="checkout">チェックアウト</label>
-        <input type="date" name="checkout" id="checkout">
-    </div>
+    <form action="confirm.php" method="POST">
+        <div class="day_people">
+            <label for="checkin">チェックイン</label>
+            <input type="date" name="checkin" id="checkin" required>
 
-    <div class="people">
-        <label for="adult">大人</label>
-        <select name="adult" id="adult">
-            <option value="1">1名</option>
-            <option value="2">2名</option>
-            <option value="3">3名</option>
-            <option value="4">4名</option>
-            <option value="5">5名</option>
-        </select>
-
-        <label for="children">子ども</label>
-        <select name="children" id="children">
-            <option value="0">0名</option>
-            <option value="1">1名</option>
-            <option value="2">2名</option>
-            <option value="3">3名</option>
-            <option value="4">4名</option>
-            <option value="5">5名</option>
-        </select>
-    </div>
-
-    <div class="plan">
-        <label class="plan_card">
-            <input type="radio" name="plan" value="sudomari" checked>
-            <div>
-                <p>素泊まりプラン</p>
-                <p>夕食・朝食なし ￥6,000~/人</p>
-            </div>
-        </label>
-        <label class="plan_card">
-            <input type="radio" name="plan" value="standard">
-            <div>
-                <p>スタンダードプラン</p>
-                <p>夕食・朝食付き ￥18,000~/人</p>
-            </div>
-        </label>
-        <label class="plan_card">
-            <input type="radio" name="plan" value="premium">
-            <div>
-                <p>プレミアムプラン</p>
-                <p>個室料理・個室露天風呂付き ￥32,000~/人</p>
-            </div>
-        </label>
-
-        <div class="total">
-            <p>合計金額</p>
-            <p id="total_price">￥0</p>
+            <label for="checkout">チェックアウト</label>
+            <input type="date" name="checkout" id="checkout" required>
         </div>
-    </div>
 
-    <form action="" method="POST">
-        <label for="nema">お名前</label>
+        <div class="people">
+            <label for="adult">大人</label>
+            <select name="adult" id="adult">
+                <option value="1">1名</option>
+                <option value="2">2名</option>
+                <option value="3">3名</option>
+                <option value="4">4名</option>
+                <option value="5">5名</option>
+            </select>
+
+            <label for="children">子ども</label>
+            <select name="children" id="children">
+                <option value="0">0名</option>
+                <option value="1">1名</option>
+                <option value="2">2名</option>
+                <option value="3">3名</option>
+                <option value="4">4名</option>
+                <option value="5">5名</option>
+            </select>
+        </div>
+
+        <div class="plan">
+            <label class="plan_card">
+                <input type="radio" name="plan" value="sudomari" checked>
+                <div>
+                    <p>素泊まりプラン</p>
+                    <p>夕食・朝食なし ￥6,000~/人</p>
+                </div>
+            </label>
+            <label class="plan_card">
+                <input type="radio" name="plan" value="standard">
+                <div>
+                    <p>スタンダードプラン</p>
+                    <p>夕食・朝食付き ￥18,000~/人</p>
+                </div>
+            </label>
+            <label class="plan_card">
+                <input type="radio" name="plan" value="premium">
+                <div>
+                    <p>プレミアムプラン</p>
+                    <p>個室料理・個室露天風呂付き ￥32,000~/人</p>
+                </div>
+            </label>
+
+            <div class="total">
+                <p>合計金額</p>
+                <p id="total_price">￥0</p>
+            </div>
+        </div>
+
+
+        <label for="name">お名前</label>
         <input type="text" name="name" id="name" required>
         <label for="tel">お電話番号</label>
         <input type="tel" name="tel" id="tel" required>
@@ -81,6 +83,8 @@
         <input type="email" name="email" id="email" required>
         <label for="message">ご要望・アレルギーなど</label>
         <textarea name="message" id="message" cols="50" rows="20"></textarea>
+
+        <button type="submit" name="submit">予約内容を確認</button>
     </form>
 </body>
 
@@ -148,16 +152,25 @@
 
     //合計金額表示
     const prices = {
-        sudomari: { adult: 6000, children: 3000},
-        standard: { adult: 10000, children: 7000},
-        premium: { adult: 20000, children: 15000},
+        sudomari: {
+            adult: 6000,
+            children: 3000
+        },
+        standard: {
+            adult: 10000,
+            children: 7000
+        },
+        premium: {
+            adult: 20000,
+            children: 15000
+        },
     };
 
     function updateTotal() {
         const plan = document.querySelector('input[name="plan"]:checked');
         const adult = parseInt(document.getElementById("adult").value);
         const children = parseInt(document.getElementById("children").value);
-        const total = (prices[plan.value].adult * adult + prices[plan.value].children * children)  * night;
+        const total = (prices[plan.value].adult * adult + prices[plan.value].children * children) * night;
         document.getElementById("total_price").textContent = "￥" + total.toLocaleString();
     }
     document.querySelectorAll('input[name="plan"]').forEach(radio => {
