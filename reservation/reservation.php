@@ -9,23 +9,58 @@ try {
 } catch (PDOException $e) {
     exit("DB接続エラー");
 }
+$remaining = null;
+$error = "";
 
-//検索
-$checkin = $_POST["checkin"];
-$checkout = $_POST["checkout"];
-$plan = $_POST["plan"];
+if (isset($_GET["submit"])) {
+    //検索
+    $checkin = $_GET["checkin"];
+    $checkout = $_GET["checkout"];
+    $plan = $_GET["plan"];
 
-//在庫
-$stocks = [
-    "sudomari" => 3,
-    "standard" => 3,
-    "premium" => 2
-];
+    //在庫
+    $stocks = [
+        "sudomari" => 3,
+        "standard" => 3,
+        "premium" => 2
+    ];
 
-$stock = $stocks[$plan];
+    $stock = $stocks[$plan];
 
-//重複確認
+    //人数
+    $adult = (int)$_GET["adult"];
+    $children = (int)$_GET["children"];
+    $totalPeople = $adult + $children;
+    $capacity = [
+        "sudomari" => 5,
+        "standard" => 5,
+        "premium" => 4
+    ];
+    $maxPeople = $capacity[$plan];
 
+    //人数制限
+    if ($totalPeople > $maxPeople) {
+        $error = "このプランは最大{$maxPeople}名までです";
+    } else {
+        //重複確認
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservation WHERE plan = ? AND checkin < ? AND checkout > ?");
+        $stmt->execute([
+            $plan,
+            $checkout,
+            $checkin
+        ]);
+
+        $reserved = $stmt->fetchColumn();
+
+        //残客室数
+        $remaining =  $stock - $reserved;
+
+        //満室確認
+        if ($remaining <= 0) {
+            exit("満室です");
+        }
+    }
+}
 
 ?>
 
@@ -42,81 +77,98 @@ $stock = $stocks[$plan];
 
 <body>
 
-    <form action="display.php" method="POST">
+    <form method="GET">
         <div class="day_people">
             <label for="checkin">チェックイン</label>
-            <input type="date" name="checkin" id="checkin" required>
+            <input type="date" name="checkin" id="checkin" value="<?= htmlspecialchars($_GET["checkin"] ?? "",  ENT_QUOTES, "UTF-8") ?>" required>
 
             <label for="checkout">チェックアウト</label>
-            <input type="date" name="checkout" id="checkout" required>
+            <input type="date" name="checkout" id="checkout" value="<?= htmlspecialchars($_GET["checkout"] ?? "", ENT_QUOTES, "UTF-8") ?>" required>
         </div>
 
         <div class="people">
             <label for="adult">大人</label>
             <select name="adult" id="adult">
-                <option value="1">1名</option>
-                <option value="2">2名</option>
-                <option value="3">3名</option>
-                <option value="4">4名</option>
-                <option value="5">5名</option>
+                <option value="1" <?= (($_GET["adult"] ?? "") == 1) ? "selected" : "" ?>>1名</option>
+                <option value="2" <?= (($_GET["adult"] ?? "") == 2) ? "selected" : "" ?>>2名</option>
+                <option value="3" <?= (($_GET["adult"] ?? "") == 3) ? "selected" : "" ?>>3名</option>
+                <option value="4" <?= (($_GET["adult"] ?? "") == 4) ? "selected" : "" ?>>4名</option>
+                <option value="5" <?= (($_GET["adult"] ?? "") == 5) ? "selected" : "" ?>>5名</option>
             </select>
 
             <label for="children">子ども</label>
             <select name="children" id="children">
-                <option value="0">0名</option>
-                <option value="1">1名</option>
-                <option value="2">2名</option>
-                <option value="3">3名</option>
-                <option value="4">4名</option>
-                <option value="5">5名</option>
+                <option value="0" <?= (($_GET["children"] ?? "") == 0) ? "selected" : "" ?>>0名</option>
+                <option value="1" <?= (($_GET["children"] ?? "") == 1) ? "selected" : "" ?>>1名</option>
+                <option value="2" <?= (($_GET["children"] ?? "") == 2) ? "selected" : "" ?>>2名</option>
+                <option value="3" <?= (($_GET["children"] ?? "") == 3) ? "selected" : "" ?>>3名</option>
+                <option value="4" <?= (($_GET["children"] ?? "") == 4) ? "selected" : "" ?>>4名</option>
+                <option value="5" <?= (($_GET["children"] ?? "") == 5) ? "selected" : "" ?>>5名</option>
             </select>
         </div>
 
         <div class="plan">
             <label class="plan_card">
-                <input type="radio" name="plan" value="sudomari" checked>
+                <input type="radio" name="plan" value="sudomari" value="sudomari" <?= (($_GET["plan"] ?? "sudomari") == "sudomari") ? "checked" : "" ?> checked>
                 <div>
                     <p>素泊まりプラン</p>
                     <p>夕食・朝食なし ￥6,000~/人</p>
                 </div>
             </label>
             <label class="plan_card">
-                <input type="radio" name="plan" value="standard">
+                <input type="radio" name="plan" value="standard" value="standard" <?= (($_GET["plan"] ?? "") == "standard") ? "checked" : "" ?>>
                 <div>
                     <p>スタンダードプラン</p>
                     <p>夕食・朝食付き ￥18,000~/人</p>
                 </div>
             </label>
             <label class="plan_card">
-                <input type="radio" name="plan" value="premium">
+                <input type="radio" name="plan" value="premium" <?= (($_GET["plan"] ?? "") == "premium") ? "checked" : "" ?>>
                 <div>
                     <p>プレミアムプラン</p>
                     <p>個室料理・個室露天風呂付き ￥32,000~/人</p>
                 </div>
             </label>
-
-            <div class="total">
-                <p>合計金額</p>
-                <p id="total_price">￥0</p>
-            </div>
-            <input type="hidden" name="total_price" id="hidden_total_price">
         </div>
 
+        <div class="total">
+            <p>合計金額</p>
+            <p id="total_price">￥0</p>
+        </div>
+        <input type="hidden" name="total_price" id="hidden_total_price">
+        </div>
 
-        <label for="name">お名前</label>
-        <input type="text" name="name" id="name" required>
-        <label for="tel">お電話番号</label>
-        <input type="tel" name="tel" id="tel" required>
-        <label for="email">メールアドレス</label>
-        <input type="email" name="email" id="email" required>
-        <label for="message">ご要望・アレルギーなど</label>
-        <textarea name="message" id="message" cols="50" rows="20"></textarea>
-
-        <button type="submit" name="submit">予約内容を確認</button>
+        <button type="submit" name="submit">空室確認</button>
     </form>
+
+    <?php if (!empty($error)): ?>
+        <p>
+            <?= htmlspecialchars($error, ENT_QUOTES, "UTF-8") ?>
+        </p>
+    <?php endif; ?>
+
+    <?php if ($remaining !== null && $remaining > 0): ?>
+        <p>
+            空室あり(残り<?= htmlspecialchars($remaining, ENT_QUOTES, "UTF-8") ?>室)
+        </p>
+    <?php endif; ?>
 </body>
 
 <script>
+    function updateTotal() {
+        const plan = document.querySelector('input[name="plan"]:checked');
+        const adult = parseInt(document.getElementById("adult").value);
+        const children = parseInt(document.getElementById("children").value);
+        const total = (prices[plan.value].adult * adult + prices[plan.value].children * children) * night;
+        document.getElementById("total_price").textContent = "￥" + total.toLocaleString();
+        document.getElementById("hidden_total_price").value = total;
+    }
+    document.querySelectorAll('input[name="plan"]').forEach(radio => {
+        radio.addEventListener("change", updateTotal);
+    });
+    document.getElementById("adult").addEventListener("change", updateTotal);
+    document.getElementById("children").addEventListener("change", updateTotal);
+
     //カレンダー設定
     const checkin = document.getElementById("checkin");
     const checkout = document.getElementById("checkout");
@@ -194,19 +246,6 @@ $stock = $stocks[$plan];
         },
     };
 
-    function updateTotal() {
-        const plan = document.querySelector('input[name="plan"]:checked');
-        const adult = parseInt(document.getElementById("adult").value);
-        const children = parseInt(document.getElementById("children").value);
-        const total = (prices[plan.value].adult * adult + prices[plan.value].children * children) * night;
-        document.getElementById("total_price").textContent = "￥" + total.toLocaleString();
-        document.getElementById("hidden_total_price").value = total;
-    }
-    document.querySelectorAll('input[name="plan"]').forEach(radio => {
-        radio.addEventListener("change", updateTotal);
-    });
-    document.getElementById("adult").addEventListener("change", updateTotal);
-    document.getElementById("children").addEventListener("change", updateTotal);
 
     updateTotal();
 </script>
