@@ -11,5 +11,10 @@ CREATE TABLE reservation (
     message TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    total_price  INT UNSIGNED
+    total_price  INT UNSIGNED,
+    ADD zipcode VARCHAR(8),
+ADD address1 VARCHAR(100),
+ADD address2 VARCHAR(100),
+ADD address3 VARCHAR(100),
+ADD address4 VARCHAR(100);
 )

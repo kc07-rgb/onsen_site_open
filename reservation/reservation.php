@@ -11,56 +11,63 @@ try {
 }
 $remaining = null;
 $error = "";
+$availablePlans = [];
 
-if (isset($_GET["submit"])) {
-    //検索
-    $checkin = $_GET["checkin"];
-    $checkout = $_GET["checkout"];
-    $plan = $_GET["plan"];
+//検索
+$checkin = $_GET["checkin"] ?? "";
+$checkout = $_GET["checkout"] ?? "";
+$plan = $_GET["plan"] ?? "sudomari";
 
-    //在庫
-    $stocks = [
-        "sudomari" => 3,
-        "standard" => 3,
-        "premium" => 2
-    ];
 
-    $stock = $stocks[$plan];
+//在庫
+$stocks = [
+    "sudomari" => 3,
+    "standard" => 3,
+    "premium" => 2
+];
 
-    //人数
-    $adult = (int)$_GET["adult"];
-    $children = (int)$_GET["children"];
-    $totalPeople = $adult + $children;
-    $capacity = [
-        "sudomari" => 5,
-        "standard" => 5,
-        "premium" => 4
-    ];
-    $maxPeople = $capacity[$plan];
+//人数
+$adult = (int)($_GET["adult"] ?? 1);
+$children = (int)($_GET["children"] ?? 0);
+$totalPeople = $adult + $children;
+$capacity = [
+    "sudomari" => 5,
+    "standard" => 5,
+    "premium" => 4
+];
 
+foreach ($stocks as $planName => $stock) {
     //人数制限
+    $maxPeople = $capacity[$planName];
+
     if ($totalPeople > $maxPeople) {
-        $error = "このプランは最大{$maxPeople}名までです";
-    } else {
-        //重複確認
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservation WHERE plan = ? AND checkin < ? AND checkout > ?");
-        $stmt->execute([
-            $plan,
-            $checkout,
-            $checkin
-        ]);
+        continue;
+    }
 
-        $reserved = $stmt->fetchColumn();
+    //重複確認
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservation WHERE plan = ? AND checkin < ? AND checkout > ?");
+    $stmt->execute([
+        $planName,
+        $checkout,
+        $checkin
+    ]);
 
-        //残客室数
-        $remaining =  $stock - $reserved;
+    $reserved = $stmt->fetchColumn();
 
-        //満室確認
-        if ($remaining <= 0) {
-            exit("満室です");
-        }
+    //残客室数
+    $remaining =  $stock - $reserved;
+
+    if ($remaining > 0) {
+        $availablePlans[] = [
+            "plan" => $planName,
+            "remaining" => $remaining
+        ];
     }
 }
+
+
+
+
 
 ?>
 
@@ -107,145 +114,231 @@ if (isset($_GET["submit"])) {
             </select>
         </div>
 
-        <div class="plan">
-            <label class="plan_card">
-                <input type="radio" name="plan" value="sudomari" value="sudomari" <?= (($_GET["plan"] ?? "sudomari") == "sudomari") ? "checked" : "" ?> checked>
-                <div>
-                    <p>素泊まりプラン</p>
-                    <p>夕食・朝食なし ￥6,000~/人</p>
-                </div>
-            </label>
-            <label class="plan_card">
-                <input type="radio" name="plan" value="standard" value="standard" <?= (($_GET["plan"] ?? "") == "standard") ? "checked" : "" ?>>
-                <div>
-                    <p>スタンダードプラン</p>
-                    <p>夕食・朝食付き ￥18,000~/人</p>
-                </div>
-            </label>
-            <label class="plan_card">
-                <input type="radio" name="plan" value="premium" <?= (($_GET["plan"] ?? "") == "premium") ? "checked" : "" ?>>
-                <div>
-                    <p>プレミアムプラン</p>
-                    <p>個室料理・個室露天風呂付き ￥32,000~/人</p>
-                </div>
-            </label>
-        </div>
-
-        <div class="total">
-            <p>合計金額</p>
-            <p id="total_price">￥0</p>
-        </div>
-        <input type="hidden" name="total_price" id="hidden_total_price">
-        </div>
-
         <button type="submit" name="submit">空室確認</button>
     </form>
 
-    <?php if (!empty($error)): ?>
-        <p>
-            <?= htmlspecialchars($error, ENT_QUOTES, "UTF-8") ?>
-        </p>
-    <?php endif; ?>
+    <div class="plan">
+        <?php foreach ($availablePlans as $room): ?>
+            <?php if ($room["plan"] == "sudomari"): ?>
+                <div class="plan_type">
+                    <form action="display.php" method="POST">
+                        <div>
+                            <p>素泊まりプラン</p>
+                            <p>夕食・朝食なし ￥6,000~/人</p>
 
-    <?php if ($remaining !== null && $remaining > 0): ?>
-        <p>
-            空室あり(残り<?= htmlspecialchars($remaining, ENT_QUOTES, "UTF-8") ?>室)
-        </p>
-    <?php endif; ?>
-</body>
+                            <?php if (isset($_GET["submit"])): ?>
+                                <div class="available">
+                                    <p>空室あり:残り<?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?>室</p>
+                                    <div class="total">
+                                        <p>合計金額</p>
+                                        <p class="total_price" data-plan="sudomari">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                    </div>
 
-<script>
-    function updateTotal() {
-        const plan = document.querySelector('input[name="plan"]:checked');
-        const adult = parseInt(document.getElementById("adult").value);
-        const children = parseInt(document.getElementById("children").value);
-        const total = (prices[plan.value].adult * adult + prices[plan.value].children * children) * night;
-        document.getElementById("total_price").textContent = "￥" + total.toLocaleString();
-        document.getElementById("hidden_total_price").value = total;
-    }
-    document.querySelectorAll('input[name="plan"]').forEach(radio => {
-        radio.addEventListener("change", updateTotal);
-    });
-    document.getElementById("adult").addEventListener("change", updateTotal);
-    document.getElementById("children").addEventListener("change", updateTotal);
+                                </div>
+                            <?php endif ?>
+                        </div>
 
-    //カレンダー設定
-    const checkin = document.getElementById("checkin");
-    const checkout = document.getElementById("checkout");
-    let night = 0;
+                        <input type="hidden" name="plan" value="sudomari">
+                        <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="total_price" class="hidden_total_price" data-plan="sudomari">
 
-    //Dateオブジェクトを使う
-    const date = new Date();
-
-    //時間を深夜0時に揃える
-    date.setHours(0, 0, 0, 0);
-
-    //Dateオブジェクトの時間を使用しない
-    const dateStr = date.toISOString().split("T")[0];
-
-    //チェックインとチェックアウトの最小日数を今日にする
-    checkin.min = dateStr;
-    checkout.min = dateStr;
+                        <button class="plan_card" type="submit" name="plan" value="sudomari">予約する</button>
+                    </form>
+                </div>
+            <?php endif ?>
+        <?php endforeach ?>
+    </div>
 
 
-    //チェックアウトの最小値をチェックインの翌日にする
-    checkin.addEventListener("change", () => {
-        //チェックアウトの値を空にする
-        checkout.value = "";
 
-        //チェックインに値が入っている場合のオブジェクトを定義(cinDate)
-        const cinDate = new Date(checkin.value);
+    <?php foreach ($availablePlans as $room): ?>
+        <?php if ($room["plan"] == "standard"): ?>
+            <div class="plan_type">
+                <form action="display.php" method="POST">
+                    <div>
+                        <p>スタンダードプラン</p>
+                        <p>夕食・朝食付き ￥18,000~/人</p>
 
-        //cinDateをコピー(next)
-        const next = new Date(cinDate);
+                        <?php if (isset($_GET["submit"])): ?>
+                            <div class="available">
+                                <p>空室あり:残り<?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?>室</p>
+                                <div class="total">
+                                    <p>合計金額</p>
+                                    <p class="total_price" data-plan="standard">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                </div>
+                            </div>
+                        <?php endif ?>
+                    </div>
 
-        //nextの日付を取得した日付に1足す
-        next.setDate(next.getDate() + 1);
+                    <input type="hidden" name="plan" value="standard">
+                    <input type="hidden" name="checkin" value="<?=htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="checkout" value="<?=htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="adult" value="<?=htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="children" value="<?=htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
 
-        //チェックアウトの最小日を定義
-        checkout.min = next.toISOString().split("T")[0];
+                    <button class="plan_card" type="submit" name="plan" value="standard">予約する</button>
+                </form>
+            </div>
+        <?php endif ?>
+    <?php endforeach ?>
 
-    });
+    <?php foreach ($availablePlans as $room): ?>
+        <?php if ($room["plan"] == "premium"): ?>
+            <div class="plan_type">
+                <form action="display.php" method="POST">
+                    <div>
+                        <p>プレミアムプラン</p>
+                        <p>個室料理・個室露天風呂付き ￥32,000~/人</p>
 
-    checkout.addEventListener("change", () => {
-        const cin = new Date(checkin.value);
-        const cout = new Date(checkout.value);
-        night = Math.round((cout - cin) / 86400000); //Dateを引き算するとミリ秒で求められる 1日の86400000秒で割ることで何日になるか計算。 Matheは計算のために使うオブジェクト。
+                        <?php if (isset($_GET["submit"])): ?>
+                            <div class="available">
+                                <p>空室あり:残り<?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?>室</p>
+                                <div class="total">
+                                    <p>合計金額</p>
+                                    <p class="total_price" data-plan="premium">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                </div>
+                                <input type="hidden" name="plan" value="standard">
+                                <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                                <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                                <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                                <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                                <button class="plan_card" type="submit" name="plan" value="premium">予約する</button>
+                            </div>
+                        <?php endif ?>
+                    </div>
+                </form>
+            </div>
+        <?php endif ?>
+    <?php endforeach ?>
+    </div>
 
-        if (night < 1) {
-            console.log("日付が正しくありません");
-        } else if (night > 30) {
-            console.log("最大宿泊可能日数を超えています");
-        } else {
-            console.log(night);
+
+    <script>
+        //プラン表示    
+        document.querySelectorAll('input[name="plan"]').forEach(radio => {
+            radio.addEventListener("change", () => {
+                const plan = document.querySelector('input[name="plan"]:checked');
+                console.log(plan.value);
+            })
+        });
+
+        //合計金額表示
+        const prices = {
+            sudomari: {
+                adult: 6000,
+                children: 3000
+            },
+            standard: {
+                adult: 10000,
+                children: 7000
+            },
+            premium: {
+                adult: 20000,
+                children: 15000
+            },
+        };
+
+        //カレンダー設定
+        const checkin = document.getElementById("checkin");
+        const checkout = document.getElementById("checkout");
+        let night = 0;
+        if (checkin.value && checkout.value) {
+
+            const cin = new Date(checkin.value);
+            const cout = new Date(checkout.value);
+
+            night = Math.floor((cout - cin) / 86400000);
         }
-    });
+
+        //Dateオブジェクトを使う
+        const date = new Date();
+
+        //時間を深夜0時に揃える
+        date.setHours(0, 0, 0, 0);
+
+        //Dateオブジェクトの時間を使用しない
+        const dateStr = date.toISOString().split("T")[0];
+
+        //チェックインとチェックアウトの最小日数を今日にする
+        checkin.min = dateStr;
+        checkout.min = dateStr;
 
 
-    //プラン表示    
-    document.querySelectorAll('input[name="plan"]').forEach(radio => {
-        radio.addEventListener("change", () => {
-            const plan = document.querySelector('input[name="plan"]:checked');
-            console.log(plan.value);
+        //チェックアウトの最小値をチェックインの翌日にする
+        checkin.addEventListener("change", () => {
+            //チェックアウトの値を空にする
+            checkout.value = "";
+
+            //チェックインに値が入っている場合のオブジェクトを定義(cinDate)
+            const cinDate = new Date(checkin.value);
+
+            //cinDateをコピー(next)
+            const next = new Date(cinDate);
+
+            //nextの日付を取得した日付に1足す
+            next.setDate(next.getDate() + 1);
+
+            //チェックアウトの最小日を定義
+            checkout.min = next.toISOString().split("T")[0];
+
+        });
+
+        //金額計算
+        function updateTotal() {
+            if (night <= 0) {
+                document.querySelectorAll(".total_price").forEach(price => {
+                    price.textContent = "￥0";
+                });
+                return;
+            }
+
+            const adult = parseInt(document.getElementById("adult").value);
+            const children = parseInt(document.getElementById("children").value);
+
+            document.querySelectorAll(".total_price").forEach(priceElement => {
+                const plan = priceElement.dataset.plan;
+
+                const total = (prices[plan].adult * adult + prices[plan].children * children) * night;
+
+                priceElement.textContent = "￥" + total.toLocaleString();
+
+                const hiddenInput = document.querySelector(
+                    `.hidden_total_price[data-plan="${plan}"]`
+                );
+
+                hiddenInput.value = total;
+            });
+        }
+
+        //日数
+        checkout.addEventListener("change", () => {
+            const cin = new Date(checkin.value);
+            const cout = new Date(checkout.value);
+            night = Math.round((cout - cin) / 86400000); //Dateを引き算するとミリ秒で求められる 1日の86400000秒で割ることで何日になるか計算。 Matheは計算のために使うオブジェクト。
+
+            if (night < 1) {
+                console.log("日付が正しくありません");
+            } else if (night > 30) {
+                console.log("最大宿泊可能日数を超えています");
+            } else {
+                console.log(night);
+            }
+            if (checkin.value && checkout.value) {
+
+                const cin = new Date(checkin.value);
+                const cout = new Date(checkout.value);
+
+                night = Math.floor((cout - cin) / 86400000);
+            }
+
+            updateTotal();
         })
-    });
 
-    //合計金額表示
-    const prices = {
-        sudomari: {
-            adult: 6000,
-            children: 3000
-        },
-        standard: {
-            adult: 10000,
-            children: 7000
-        },
-        premium: {
-            adult: 20000,
-            children: 15000
-        },
-    };
-
-
-    updateTotal();
-</script>
+        document.getElementById("adult").addEventListener("change", updateTotal);
+        document.getElementById("children").addEventListener("change", updateTotal);
+        updateTotal();
+    </script>
+</body>
