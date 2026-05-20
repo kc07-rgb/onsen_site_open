@@ -4,9 +4,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require "src/Exception.php";
-require "src/PHPMailer.php";
-require "src/SMTP.php";
+require __DIR__ . '/../mailer/src/Exception.php';
+require __DIR__ . '/../mailer/src/PHPMailer.php';
+require __DIR__ . '/../mailer/src/SMTP.php';
 
 $name = $_POST["name"];
 $email = $_POST["email"];

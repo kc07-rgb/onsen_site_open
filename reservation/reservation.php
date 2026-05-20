@@ -36,38 +36,35 @@ $capacity = [
     "premium" => 4
 ];
 
-foreach ($stocks as $planName => $stock) {
-    //人数制限
-    $maxPeople = $capacity[$planName];
+    foreach ($stocks as $planName => $stock) {
+        //人数制限
+        $maxPeople = $capacity[$planName];
 
-    if ($totalPeople > $maxPeople) {
-        continue;
+        if ($totalPeople > $maxPeople) {
+            continue;
+        }
+
+        //重複確認
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservation WHERE plan = ? AND checkin < ? AND checkout > ?");
+        $stmt->execute([
+            $planName,
+            $checkout,
+            $checkin
+        ]);
+
+
+        $reserved = $stmt->fetchColumn();
+
+        //残客室数
+        $remaining =  $stock - $reserved;
+
+        if ($remaining > 0) {
+            $availablePlans[] = [
+                "plan" => $planName,
+                "remaining" => $remaining
+            ];
+        }
     }
-
-    //重複確認
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservation WHERE plan = ? AND checkin < ? AND checkout > ?");
-    $stmt->execute([
-        $planName,
-        $checkout,
-        $checkin
-    ]);
-
-    $reserved = $stmt->fetchColumn();
-
-    //残客室数
-    $remaining =  $stock - $reserved;
-
-    if ($remaining > 0) {
-        $availablePlans[] = [
-            "plan" => $planName,
-            "remaining" => $remaining
-        ];
-    }
-}
-
-
-
-
 
 ?>
 
@@ -174,10 +171,11 @@ foreach ($stocks as $planName => $stock) {
                     </div>
 
                     <input type="hidden" name="plan" value="standard">
-                    <input type="hidden" name="checkin" value="<?=htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="checkout" value="<?=htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="adult" value="<?=htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="children" value="<?=htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                    <input type="hidden" name="total_price" class="hidden_total_price" data-plan="standard">
 
                     <button class="plan_card" type="submit" name="plan" value="standard">予約する</button>
                 </form>
@@ -200,20 +198,22 @@ foreach ($stocks as $planName => $stock) {
                                     <p>合計金額</p>
                                     <p class="total_price" data-plan="premium">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
                                 </div>
-                                <input type="hidden" name="plan" value="standard">
-                                <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
-                                <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
-                                <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
-                                <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
-                                <button class="plan_card" type="submit" name="plan" value="premium">予約する</button>
                             </div>
                         <?php endif ?>
+
+                        <input type="hidden" name="plan" value="premium">
+                        <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                        <input type="hidden" name="total_price" class="hidden_total_price" data-plan="premium">
+
+                        <button class="plan_card" type="submit" name="plan" value="premium">予約する</button>
                     </div>
                 </form>
             </div>
         <?php endif ?>
     <?php endforeach ?>
-    </div>
 
 
     <script>

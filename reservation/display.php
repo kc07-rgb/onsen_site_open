@@ -22,16 +22,22 @@ $plan_names = [
 </head>
 
 <body>
-    <div>
-        <p>大人：<?= htmlspecialchars($adult, ENT_QUOTES, 'UTF-8') ?></p>
-        <p>子ども：<?= htmlspecialchars($children, ENT_QUOTES, 'UTF-8') ?></p>
-        <p>チェックイン：<?= htmlspecialchars($checkin, ENT_QUOTES, 'UTF-8') ?></p>
-        <p>チェックアウト：<?= htmlspecialchars($checkout, ENT_QUOTES, 'UTF-8') ?></p>
-        <p>プラン：<?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
-        <p>合計金額：<?= htmlspecialchars(number_format($total_price), ENT_QUOTES, 'UTF-8') ?>円</p>
-    </div>
-
     <form action="confirm.php" method="POST">
+        <div>
+            <p>大人：<?= (int)$adult ?></p>
+            <input type="hidden" name="adult" value="<?= (int)$adult ?>">
+            <p>子ども：<?= (int)$children ?></p>
+            <input type="hidden" name="children" value="<?= (int)$children ?>">
+            <p>チェックイン：<?= htmlspecialchars($checkin, ENT_QUOTES, 'UTF-8') ?></p>
+            <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_COMPAT, "UTF-8") ?>">
+            <p>チェックアウト：<?= htmlspecialchars($checkout, ENT_QUOTES, 'UTF-8') ?></p>
+            <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_COMPAT, "UTF-8") ?>">
+            <p>プラン：<?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
+            <input type="hidden" name="plan" value="<?= htmlentities($plan, ENT_QUOTES, "UTF-8") ?>">
+            <p>合計金額：<?= htmlspecialchars(number_format($total_price), ENT_QUOTES, 'UTF-8') ?>円</p>
+            <input type="hidden" name="total_price" value="<?= htmlentities($total_price, ENT_QUOTES, "UTF-8") ?>">
+        </div>
+
         <div>
             <p>お客様情報</p>
 
