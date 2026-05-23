@@ -101,34 +101,64 @@ $pdo = null;
         rel="stylesheet">
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./news_list2.css">
 </head>
 
 <body>
+    <!--header-->
     <header id="header">
-        <div class="page_tatile">
-            <h2 class="jp">お知らせ</h2>
-            <p class="em">News</p>
-            <p>鳥沢温泉からみなまへの<br>
-                大切なお知らせをお届けいたします。</p>
-        </div>
-        <div class="nav">
-            <nav>
-                <a href="../header.php">鳥沢温泉</a>
-                <a href="./news_form.php">ニュースフォーム</a>
-                <a href="/温泉/users/user_ registration.php">ユーザー登録</a>
-                <a href="/温泉/users/login.php">ログイン</a>
-                <a href="/温泉/users/logout.php">ログアウト</a>
+        <div id="header-top">
+            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+
+            <nav class="header-top-nav">
+                <ul class="header-top-list">
+                    <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                    <li><a href="">よくあるご質問</a></li>
+                    <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                    <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                    <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+                </ul>
             </nav>
         </div>
 
-        <div class="custom-shape-divider-bottom-1779276235">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-            </svg>
+        <div id="header-vew">
+            <a href="" class="main-logo">鳥沢温泉</a>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li><a href="">温泉</a></li>
+                    <li><a href="">お部屋</a></li>
+                    <li><a href="">お食事</a></li>
+                    <li><a href="">交通案内</a></li>
+                </ul>
+            </nav>
         </div>
+
+        <div id="page">
+            <div class="page_tatile">
+                <h2 class="jp">お知らせ</h2>
+                <p class="em">News</p>
+                <p class="description">鳥沢温泉からみなさまへの<br>
+                    大切なお知らせをお届けいたします。</p>
+            </div>
+            <div class="nav">
+                <nav>
+                    <a href="../header.php">鳥沢温泉</a>
+                    <a href="./news_form.php">ニュースフォーム</a>
+                    <a href="/温泉/users/user_ registration.php">ユーザー登録</a>
+                    <a href="/温泉/users/login.php">ログイン</a>
+                    <a href="/温泉/users/logout.php">ログアウト</a>
+                </nav>
+            </div>
     </header>
+
+
+    <div class="custom-shape-divider-bottom-1779276235">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    </div>
 
     <div class="news_list">
         <div class="category">
@@ -146,14 +176,19 @@ $pdo = null;
 
                         <div class="news_line">
                             <li><a class="news_pieces" href="news_detail.php?id=<?= $news["id"] ?>">
-                                    <?php if (!empty($news["image_name"])): ?>
-                                        <div class="news_box_img"><img src="../upload/<?= $news["image_name"] ?>" alt="">
-                                        </div>
-                                    <?php endif ?>
+                                    <div class="no_img">
+                                        <?php if (!empty($news["image_name"])): ?>
+                                            <div class="news_box_img"><img src="../upload/<?= $news["image_name"] ?>" alt="">
+                                            </div>
+                                        <?php endif ?>
+                                    </div>
                                     <div class="news_box_text">
-                                        <time class="created_at"><?= $news["created_at"]; ?></time>
+                                        <time class="created_at"><?= date("Y.m.d", strtotime($news["created_at"])); ?></time>
                                         <p class="title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></p>
                                     </div>
+                                        <svg class="icon_arrow" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 32px; height: 32px; opacity: 1;" xml:space="preserve">
+                                            <polygon class="st0" points="419.916,71.821 348.084,0 92.084,256.005 348.084,512 419.916,440.178 235.742,256.005"></polygon>
+                                        </svg>
                                 </a>
                                 <div class="edit">
                                     <?php if (isset($_SESSION["user_id"])): ?>

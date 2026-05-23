@@ -37,7 +37,6 @@
             </nav>
         </div>
 
-
         <div id="header-vew">
             <a href="" class="main-logo">鳥沢温泉</a>
             <nav class="header-nav">
