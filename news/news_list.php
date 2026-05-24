@@ -141,23 +141,23 @@ $pdo = null;
                 <p class="description">鳥沢温泉からみなさまへの<br>
                     大切なお知らせをお届けいたします。</p>
             </div>
-            <div class="nav">
-                <nav>
-                    <a href="../header.php">鳥沢温泉</a>
-                    <a href="./news_form.php">ニュースフォーム</a>
-                    <a href="/温泉/users/user_ registration.php">ユーザー登録</a>
-                    <a href="/温泉/users/login.php">ログイン</a>
-                    <a href="/温泉/users/logout.php">ログアウト</a>
-                </nav>
-            </div>
+        </div>
     </header>
 
+    <div class="nav">
+        <nav>
+            <a href="../header.php">鳥沢温泉</a>
+            <a href="./news_form.php">ニュースフォーム</a>
+            <a href="/温泉/users/user_ registration.php">ユーザー登録</a>
+            <a href="../users/login.php">ログイン</a>
+            <a href="/温泉/users/logout.php">ログアウト</a>
+        </nav>
+    </div>
 
     <div class="custom-shape-divider-bottom-1779276235">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
         </svg>
-    </div>
     </div>
 
     <div class="news_list">
@@ -186,9 +186,9 @@ $pdo = null;
                                         <time class="created_at"><?= date("Y.m.d", strtotime($news["created_at"])); ?></time>
                                         <p class="title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></p>
                                     </div>
-                                        <svg class="icon_arrow" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 32px; height: 32px; opacity: 1;" xml:space="preserve">
-                                            <polygon class="st0" points="419.916,71.821 348.084,0 92.084,256.005 348.084,512 419.916,440.178 235.742,256.005"></polygon>
-                                        </svg>
+                                    <svg class="icon_arrow" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 32px; height: 32px; opacity: 1;" xml:space="preserve">
+                                        <polygon class="st0" points="419.916,71.821 348.084,0 92.084,256.005 348.084,512 419.916,440.178 235.742,256.005"></polygon>
+                                    </svg>
                                 </a>
                                 <div class="edit">
                                     <?php if (isset($_SESSION["user_id"])): ?>

@@ -36,8 +36,8 @@
         $tmp = $_FILES["image"]["tmp_name"];
         if (move_uploaded_file($tmp, "../upload/" . $image)) {
             echo "アップロード成功";
-        } else {
-            echo "アップロード失敗";
+        } else{
+            echo "アップロード成功";
         }
 
         $title = $_POST['title'];

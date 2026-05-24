@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #1f1f1f;
+}
+
+/*
+header
+*/
+
+#header{
+    position: relative;
+    height: 150px;
+    background-color: aqua;
+}
+#header-top {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: "Yuji Boku", serif;
+    background-color: #00000000;
+    z-index: 30;
+    overflow: hidden;
+}
+
+
+#header-top .main-logo {
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 15px;
+}
+
+#header-top .main-logo:visited {
+    color: #fff;
+}
+
+.header-top-list {
+    display: flex;
+}
+
+.header-top-list li {
+    width: 150px;
+    text-align: center;
+    position: relative;
+}
+
+.header-top-list li::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 25px;
+    background-color: #fff;
+    top: 0;
+    left: 10%;
+}
+
+.header-top-list li:first-child::before {
+    display: none;
+}
+
+.header-top-list li::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    background-color: #fff;
+    bottom: -5px;
+    left: 30px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.5s ease;
+}
+
+.header-top-list li:hover::after {
+    transform: scaleX(1);
+}
+
+.header-top-list a {
+    color: #fff;
+    margin-left: 30px;
+}
+
+.header-top-list a:visited {
+    color: #fff;
+}
+
+
+/*
+header-vew
+*/
+#header-vew {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 60px;
+    background-color: #1f1f1f9f;
+    font-family: "Yuji Boku", serif;
+    z-index: 20;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.4s ease;
+}
+
+#header-vew.active {
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+#header-vew .main-logo {
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 15px;
+}
+
+#header-vew .main-logo:visited {
+    color: #fff;
+}
+
+
+.header-nav-list {
+    display: flex;
+    font-size: 20px;
+}
+
+.header-nav-list li {
+    position: relative;
+}
+
+.header-nav-list li::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background-color: #fff;
+    top: 0;
+    right: -20%;
+}
+
+.header-nav-list li:last-child::before {
+    display: none;
+}
+
+.header-nav-list li::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: -20px;
+    left: 65%;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.header-nav-list li:hover::after {
+    opacity: 1;
+    top: -10px;
+}
+
+.header-nav-list a {
+    color: #fff;
+    margin-left: 30px;
+}
+
+.header-nav-list a:visited {
+    color: #fff;
+}
