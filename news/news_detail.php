@@ -24,6 +24,17 @@ $categories = [
     "facility" => "施設情報",
     "campaign" => "キャンペーン"
 ];
+
+//前の記事
+$backStmt = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id < :id ORDER BY id DESC LIMIT 1");
+$backStmt->bindParam(':id', $id, PDO::PARAM_INT);
+$backStmt->execute();
+$back = $backStmt->fetch();
+
+//次の記事
+$next = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id > :id ORDER BY id ASC LIMIT 1");
+$next->bindParam(':id', $id, PDO::PARAM_INT);
+$next->execute();
 ?>
 
 <!DOCTYPE html>
@@ -84,16 +95,21 @@ $categories = [
     </div>
 
     <div class="main_news">
-        <h1><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></h1><!--文字列にするため　'も変換するように-->
+        <p class="date"><?= date("Y年m月d日", strtotime($news["created_at"])) ?></p>
+        <h1 class="news_title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></h1><!--文字列にするため　'も変換するように-->
         <div class="img_box <?= empty($news["image_name"]) ? "no_img" : "" ?>">
             <?php if (!empty($news["image_name"])): ?>
                 <img class="img" src="../upload/<?= $news["image_name"] ?>" alt="">
             <?php endif; ?>
         </div>
-        <p><?= htmlspecialchars($news["comment"], ENT_QUOTES, "UTF-8") ?></p>
-        <p><?= date("Y年m月d日", strtotime($news["created_at"])) ?></p>
+        <p class="message"><?= nl2br(htmlspecialchars($news["comment"], ENT_QUOTES, "UTF-8")) ?></p>
+        
+        <?php if($back): ?>
+            <a href="news_detail.php?id=<?= $back["id"] ?>">前の記事へ</a>
+        <?php endif; ?>
+        <a class="button" href="news_list.php">一覧に戻る</a>
     </div>
-    <a href="news_list.php">一覧に戻る</a>
+
 </body>
 
 </html>

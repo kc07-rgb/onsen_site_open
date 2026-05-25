@@ -81,14 +81,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <input type="hidden" name="id" value="<?= $news["id"] ?>">
 
         <label for="title">タイトル</label>
-        <input type="text" id="title" name="title" value="<?= $news["title"] ?>">
+        <textarea id="title" name="title" style="width: 1000px;"><?= $news["title"] ?></textarea>
 
         <label for="comment">コメント</label>
-        <input type="text" name="comment" id="comment" value="<?= $news["comment"] ?>">
+        <textarea name="comment" id="comment" rows="10" style="width: 1000px;"><?= $news["comment"] ?></textarea>
 
         <label for="img"> 画像</label>
         <input type="hidden" name="old_image" value="<?= $news["image_name"] ?>">
-        <img id="preview" class="news_box_img" src="upload/<?= htmlspecialchars($news["image_name"] ?? "") ?>">
+        <img id="preview" class="news_box_img" src="../upload/<?= htmlspecialchars($news["image_name"] ?? "") ?>">
         <input type="file" name="img" id="img">
 
         <button type="submit">更新する</button>

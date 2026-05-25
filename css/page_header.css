@@ -19,7 +19,7 @@ header
 
 #header{
     position: relative;
-    height: 150px;
+    height: 100px;
     background-color: aqua;
 }
 #header-top {
