@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(219, 96, 96);
+    
       overflow-x: hidden;
 }
 
@@ -16,10 +16,15 @@ a {
 }
 
 /* main_news */
+.con_news{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .main_news{
     margin-top: 60px;
     width: 50%;
-    height: 100vh;
+    height: 100%;
     text-align: left;
     background-color: aliceblue;
     margin-left: 5%;
@@ -45,7 +50,7 @@ a {
     line-height: 50px;
     margin-bottom: 120px;
     padding-bottom: 60px;
-    border-bottom: 1px solid #1f1f1f;
+    border-bottom: 1px solid #656565;
     width: 100%;
 }
 
@@ -53,6 +58,7 @@ a {
 .img_box{
     width: 100%;
     height: 500px;
+    margin-bottom: 60px;
 }
 .img_box img{
     display: block;
@@ -68,22 +74,54 @@ a {
     height: 0;
 }
 
-.button{
+/* page_button */
+
+.page_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+    padding-bottom: 60px;
+}
+.turn_button{
     font-size: 1.1rem;
     padding: 10px;
-    border: 1px solid #1f1f1f;
+    border: 1px solid #aaa9a9;
     border-radius: 50px;
     transition: all 0.5s ease;
 }
-.button:hover{
-    background-color: #444444;
+.turn_button:hover{
+    color: #fff;
+    background-color: hsl(120, 62%, 84%);
+    border: 1px solid #656565;    
+}
+.list_button{
+    font-size: 1.1rem;
+    padding: 10px;
+    border: 1px solid #656565;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+.list_button:hover{
+    background-color: #656565;
     color: #fff;
     border: 1px solid #fff;
 }
 
 /* peag_header */
+
 .peage_header{
     text-align: center;
     padding: 60px;
     background-color: aquamarine;
+}
+
+
+/* category_list */
+.category_list{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: #656565;
 }

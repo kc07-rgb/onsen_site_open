@@ -25,6 +25,15 @@ $categories = [
     "campaign" => "キャンペーン"
 ];
 
+$categorySql = "SELECT category , COUNT(*) AS count FROM onsen_hotel_site_table GROUP BY category";
+$categoryStm = $pdo->query($categorySql);
+
+$categoryCounts = [];
+
+while ($row = $categoryStm->fetch(PDO::FETCH_ASSOC)){
+    $categoryCounts[$row["category"]] = $row["count"];
+}
+
 //前の記事
 $backStmt = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id < :id ORDER BY id DESC LIMIT 1");
 $backStmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -32,9 +41,10 @@ $backStmt->execute();
 $back = $backStmt->fetch();
 
 //次の記事
-$next = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id > :id ORDER BY id ASC LIMIT 1");
-$next->bindParam(':id', $id, PDO::PARAM_INT);
-$next->execute();
+$nextStm = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id > :id ORDER BY id ASC LIMIT 1");
+$nextStm->bindParam(':id', $id, PDO::PARAM_INT);
+$nextStm->execute();
+$next = $nextStm->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -87,29 +97,43 @@ $next->execute();
             </nav>
         </div>
     </header>
-
-    <div></div>
-
-    <div class="peage_header">
-        <p class=""><?= htmlspecialchars($categories[$news["category"]] ?? "その他", ENT_QUOTES, "UTF-8") ?></p>
-    </div>
-
-    <div class="main_news">
-        <p class="date"><?= date("Y年m月d日", strtotime($news["created_at"])) ?></p>
-        <h1 class="news_title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></h1><!--文字列にするため　'も変換するように-->
-        <div class="img_box <?= empty($news["image_name"]) ? "no_img" : "" ?>">
-            <?php if (!empty($news["image_name"])): ?>
-                <img class="img" src="../upload/<?= $news["image_name"] ?>" alt="">
-            <?php endif; ?>
+    
+        <div class="peage_header">
+            <p class=""><?= htmlspecialchars($categories[$news["category"]] ?? "その他", ENT_QUOTES, "UTF-8") ?></p>
         </div>
-        <p class="message"><?= nl2br(htmlspecialchars($news["comment"], ENT_QUOTES, "UTF-8")) ?></p>
-        
-        <?php if($back): ?>
-            <a href="news_detail.php?id=<?= $back["id"] ?>">前の記事へ</a>
-        <?php endif; ?>
-        <a class="button" href="news_list.php">一覧に戻る</a>
-    </div>
 
+
+    <div class="con_news">
+
+        <main class="main_news">
+            <p class="date"><?= date("Y年m月d日", strtotime($news["created_at"])) ?></p>
+            <h1 class="news_title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></h1><!--文字列にするため　'も変換するように-->
+            <div class="img_box <?= empty($news["image_name"]) ? "no_img" : "" ?>">
+                <?php if (!empty($news["image_name"])): ?>
+                    <img class="img" src="../upload/<?= $news["image_name"] ?>" alt="">
+                <?php endif; ?>
+            </div>
+            <p class="message"><?= nl2br(htmlspecialchars($news["comment"], ENT_QUOTES, "UTF-8")) ?></p>
+
+            <div class="page_button">
+                <?php if ($back): ?>
+                    <a class="turn_button" href="news_detail.php?id=<?= $back["id"] ?>">前の記事へ</a>
+                <?php endif; ?>
+                <a class="list_button" href="news_list.php">一覧に戻る</a>
+                <?php if ($next): ?>
+                    <a class="turn_button" href="news_detail.php?id=<?= $next["id"] ?>">次の記事へ</a>
+                <?php endif; ?>
+        </main>
+
+        <aside class="category_list">
+            <?php foreach ($categories as $kay => $label): ?>
+                <a class="category" href="?category=<?= htmlspecialchars($kay) ?>">
+                    <?= htmlspecialchars($label) ?>
+                    (<?= htmlspecialchars($categoryCounts[$kay]?? "0" )?>)
+                </a>
+            <?php endforeach; ?>
+        </aside>
+    </div>
 </body>
 
 </html>
