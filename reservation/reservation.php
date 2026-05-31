@@ -121,16 +121,27 @@ foreach ($stocks as $planName => $stock) {
         </div>
     </header>
 
-    <form method="GET">
-        <div class="day_people">
+    <div class="reservation">
+        <h2 class="re_ja">ご宿泊予約</h2>
+        <p class="re_en">Reservation</p>
+        <p class="re_text">ご希望の条件を入力のうえ、空室検索をしてください。<br>
+            下記のプランからお選びいただけます。</p>
+    </div>
+
+    <form class="search" method="GET">
+
+
+        <div class="search_group">
             <label for="checkin">チェックイン</label>
             <input type="date" name="checkin" id="checkin" value="<?= htmlspecialchars($_GET["checkin"] ?? "",  ENT_QUOTES, "UTF-8") ?>" required>
-
+        </div>
+        <div class="search_group">
             <label for="checkout">チェックアウト</label>
             <input type="date" name="checkout" id="checkout" value="<?= htmlspecialchars($_GET["checkout"] ?? "", ENT_QUOTES, "UTF-8") ?>" required>
         </div>
 
-        <div class="people">
+
+        <div class="search_group">
             <label for="adult">大人</label>
             <select name="adult" id="adult">
                 <option value="1" <?= (($_GET["adult"] ?? "") == 1) ? "selected" : "" ?>>1名</option>
@@ -139,7 +150,9 @@ foreach ($stocks as $planName => $stock) {
                 <option value="4" <?= (($_GET["adult"] ?? "") == 4) ? "selected" : "" ?>>4名</option>
                 <option value="5" <?= (($_GET["adult"] ?? "") == 5) ? "selected" : "" ?>>5名</option>
             </select>
+        </div>
 
+        <div class="search_group">
             <label for="children">子ども</label>
             <select name="children" id="children">
                 <option value="0" <?= (($_GET["children"] ?? "") == 0) ? "selected" : "" ?>>0名</option>

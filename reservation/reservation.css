@@ -20,3 +20,32 @@ body{
     background-color: #f4f0e8 !important;
     font-family: "Noto Serif JP", serif;
 }
+
+/*reservation*/
+.reservation{
+    text-align: center;
+    margin-bottom: 120px;
+}
+.re_ja{
+    font-size: 3rem;
+}
+.re_en{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+.re_text{
+    font-size: 1.2rem;
+}
+
+/*search*/
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+.search_group{
+    display: flex;
+    flex-direction: column;
+}
