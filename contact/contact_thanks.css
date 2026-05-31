@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+body{
+    height: 0;
+}
+
+.thanks{
+    padding-top: 150px;
+    text-align: center;
+    background-color: #f4f0e8;
+    padding-bottom: 300px;
+}
+.thanks h2{
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 10px;
+    margin-bottom: 60px;
+}
+.thanks p{
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    line-height: 50px;
+    margin-bottom: 60px;
+}
+
+.thanks a{
+    position: relative;
+    letter-spacing: 5px;
+    padding: 20px;
+    color: #edecec;
+    background-color: #434940;
+    transition: all 0.5s ease;
+    z-index: 20;
+}
+.thanks a:hover{
+    color: #434940;
+    background-color: #edecec;
+    border: #434940 solid 1px;
+}

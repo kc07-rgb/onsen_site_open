@@ -8,9 +8,11 @@ require __DIR__ . '/../mailer/src/Exception.php';
 require __DIR__ . '/../mailer/src/PHPMailer.php';
 require __DIR__ . '/../mailer/src/SMTP.php';
 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$message = $_POST["message"];
+$name = trim($_POST["name"]);
+$kana = trim($_POST["kana"]);
+$email = trim($_POST["email"]);
+$tel = trim($_POST["tel"]);
+$message = trim($_POST["message"]);
 
 $mail = new PHPMailer(true);
 
@@ -38,7 +40,7 @@ try {
     $mail->addAddress('pokemonn0724@gmail.com');   // 受信者を追加
 
     $mail->Subject = "お問い合わせが届きました";
-    $mail->Body = "お名前: {$name}\nメール: {$email}\n\n{$message}";
+    $mail->Body = "お名前: {$name}({$kana}) 様\nお電話番号： {$tel}\nメール: {$email}\n\n{$message}";
 
     $mail->send();
     //自動返信メール
@@ -64,9 +66,10 @@ try {
     $mail2->Subject = 'お問い合わせありがとうございます';
     $mail2->Body    = "{$name} 様\n\nお問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n{$message}\n\n折り返しご連絡いたします。";
     $mail2->send(); 
-    echo "メールを送信しました";
+    header('Location: contact_thanks.php');
+    exit;
 } catch (Exception $e) {
-    echo "メールを送信できませんでした" . $mail->ErrorInfo;
+    echo "メールを送信できませんでした。<br>もう一度お試しください。<br>お電話でのご連絡も承っております。<br>tel:xxx-xxx-xxxx" . $mail->ErrorInfo;
 }
 
 ?>

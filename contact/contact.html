@@ -1,24 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ</title>
+    <link rel="stylesheet" href="../css/page_header.css">
+    <link rel="stylesheet" href="../news/news_list2.css">
+    <link rel="stylesheet" href="./contact.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
 </head>
+
 <body>
-    <form action="./contact.php" method="POST">
+    <!--header-->
+    <header id="header">
+        <div id="header-top">
+            <a href="../header.php" class="main-logo">鳥沢温泉</a>
 
-        <label for="name">お名前</label>
-        <input type="text" name="name" id="name" required>
+            <nav class="header-top-nav">
+                <ul class="header-top-list">
+                    <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                    <li><a href="">よくあるご質問</a></li>
+                    <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                    <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                    <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+                </ul>
+            </nav>
+        </div>
 
-        <label for="email">メールアドレス</label>
-        <input type="email" name="email" id="email" required>
+        <div id="header-vew">
+            <a href="" class="main-logo">鳥沢温泉</a>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li><a href="">温泉</a></li>
+                    <li><a href="">お部屋</a></li>
+                    <li><a href="">お食事</a></li>
+                    <li><a href="">交通案内</a></li>
+                </ul>
+            </nav>
+        </div>
 
-        <label for="message">お問い合わせ内容</label>
-        <textarea name="message" id="message" rows="10" cols="40" required></textarea>
+        <div id="page">
+            <div class="page_tatile">
+                <h2 class="jp">お問い合わせ</h2>
+                <p class="em">Contact</p>
+                <p class="description">ご不明な点やご相談など、お気軽にお問い合わせください。<br>
+                    スタッフが丁寧にご対応させていただきます。</p>
+            </div>
+        </div>
+    </header>
 
-        <button type="submit">送信する</button>
-    </form>
-    
+    <div class="contact">
+        <div class="contact_explanation">
+            <h3>お問い合わせフォーム</h3>
+            <p>下記フォームに必要事項をご入力の上、送信してください。</p>
+        </div>
+
+        <form action="./contact.php" method="POST">
+
+            <div class="form_item">
+                <label for="name">お名前</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+
+            <div class="form_item">
+                <label for="kana">ふりがな</label>
+                <input type="text" name="kana" id="kana" required>
+            </div>
+
+            <div class="form_item">
+                <label for="email">メールアドレス</label>
+                <input type="email" name="email" id="email">
+            </div>
+
+            <div class="form_item">
+                <label for="tel">お電話番号(任意)</label>
+                <input type="tel" name="tel" id="tel">
+            </div>
+
+            <div class="form_item">
+                <label for="message">お問い合わせ内容</label>
+                <textarea name="message" id="message" rows="10" cols="40" required></textarea>
+            </div>
+
+            <button class="contact_btn" type="submit">送信する</button>
+        </form>
+    </div>
+
+    <footer id="page_footer">
+        <div id="page_footer_info">
+            <div class="page_footer_info">
+                <p class="main-logo">鳥沢温泉</p>
+                <address>
+                    <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                    <p>tel.0000-00-0000/9:00~18:00</p>
+                </address>
+            </div>
+
+            <nav id="page_footer_nav">
+                <div class="nav-v">
+                    <ul class="nav-v-list">
+                        <li><a href="">ホーム</a></li>
+                        <li><a href="">温泉</a></li>
+                        <li><a href="">お部屋</a></li>
+                        <li><a href="">お食事</a></li>
+                        <li><a href="">交通案内</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-w">
+                    <ul class="nav-w-list">
+                        <li><a href="">よくある質問</a></li>
+                        <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </footer>
+
 </body>
+
 </html>

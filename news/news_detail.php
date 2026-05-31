@@ -19,7 +19,7 @@ try {
 
 $categories = [
     "all" => "すべて",
-    "news" => "お知らせ",
+    "info" => "お知らせ",
     "event" => "イベント",
     "facility" => "施設情報",
     "campaign" => "キャンペーン"
@@ -30,9 +30,10 @@ $categoryStm = $pdo->query($categorySql);
 
 $categoryCounts = [];
 
-while ($row = $categoryStm->fetch(PDO::FETCH_ASSOC)){
+while ($row = $categoryStm->fetch(PDO::FETCH_ASSOC)) {
     $categoryCounts[$row["category"]] = $row["count"];
 }
+$categoryCounts["all"] = array_sum($categoryCounts);
 
 //前の記事
 $backStmt = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id < :id ORDER BY id DESC LIMIT 1");
@@ -66,6 +67,7 @@ $next = $nextStm->fetch();
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="./news_list2.css">
     <link rel="stylesheet" href="./news_detail.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
 </head>
 
 <body>
@@ -97,16 +99,16 @@ $next = $nextStm->fetch();
             </nav>
         </div>
     </header>
-    
-        <div class="peage_header">
-            <p class=""><?= htmlspecialchars($categories[$news["category"]] ?? "その他", ENT_QUOTES, "UTF-8") ?></p>
-        </div>
-
 
     <div class="con_news">
 
         <main class="main_news">
+            <p class="page_category">
+                <<?= htmlspecialchars($categories[$news["category"]] ?? "お知らせ", ENT_QUOTES, "UTF-8") ?>>
+            </p>
+
             <p class="date"><?= date("Y年m月d日", strtotime($news["created_at"])) ?></p>
+
             <h1 class="news_title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></h1><!--文字列にするため　'も変換するように-->
             <div class="img_box <?= empty($news["image_name"]) ? "no_img" : "" ?>">
                 <?php if (!empty($news["image_name"])): ?>
@@ -126,14 +128,49 @@ $next = $nextStm->fetch();
         </main>
 
         <aside class="category_list">
-            <?php foreach ($categories as $kay => $label): ?>
-                <a class="category" href="?category=<?= htmlspecialchars($kay) ?>">
-                    <?= htmlspecialchars($label) ?>
-                    (<?= htmlspecialchars($categoryCounts[$kay]?? "0" )?>)
-                </a>
-            <?php endforeach; ?>
+            <ul>
+                <?php foreach ($categories as $kay => $label): ?>
+                    <li>
+                        <a class="category_link" href="news_list.php?category=<?= htmlspecialchars($kay) ?>">
+                            <?= htmlspecialchars($label) ?>
+                            (<?= htmlspecialchars($categoryCounts[$kay] ?? "0") ?>)
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </aside>
     </div>
+
+    <footer id="page_footer">
+        <div id="page_footer_info">
+            <div class="page_footer_info">
+                <p class="main-logo">鳥沢温泉</p>
+                <address>
+                    <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                    <p>tel.0000-00-0000/9:00~18:00</p>
+                </address>
+            </div>
+
+            <nav id="page_footer_nav">
+                <div class="nav-v">
+                    <ul class="nav-v-list">
+                        <li><a href="">ホーム</a></li>
+                        <li><a href="">温泉</a></li>
+                        <li><a href="">お部屋</a></li>
+                        <li><a href="">お食事</a></li>
+                        <li><a href="">交通案内</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-w">
+                    <ul class="nav-w-list">
+                        <li><a href="">よくある質問</a></li>
+                        <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -71,6 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./news_edit.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
 </head>
 
 <body>
@@ -94,6 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="submit">更新する</button>
 
     </form>
+
+    
+
 </body>
 
 <script>

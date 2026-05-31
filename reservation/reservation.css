@@ -6,6 +6,7 @@
 }
 
 a {
+    color: #2c241d;
     text-decoration: none;
 }
 
@@ -14,4 +15,8 @@ a {
 .plan_card{
     display: flex;
     align-items: center;
+}
+body{
+    background-color: #f4f0e8 !important;
+    font-family: "Noto Serif JP", serif;
 }

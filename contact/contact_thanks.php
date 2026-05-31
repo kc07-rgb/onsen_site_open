@@ -1,0 +1,96 @@
+<?php
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/page_header.css">
+    <link rel="stylesheet" href="../news/news_list2.css">
+    <link rel="stylesheet" href="./contact.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
+    <link rel="stylesheet" href="./contact_thanks.css">
+</head>
+
+<body>
+    <!--header-->
+    <header id="header">
+        <div id="header-top">
+            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+
+            <nav class="header-top-nav">
+                <ul class="header-top-list">
+                    <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                    <li><a href="">よくあるご質問</a></li>
+                    <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                    <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                    <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="header-vew">
+            <a href="" class="main-logo">鳥沢温泉</a>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li><a href="">温泉</a></li>
+                    <li><a href="">お部屋</a></li>
+                    <li><a href="">お食事</a></li>
+                    <li><a href="">交通案内</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="page">
+            <div class="page_tatile">
+            </div>
+        </div>
+    </header>
+
+        <section class="thanks">
+            <h2>お問い合わせありがとうございました</h2>
+            <p>
+                このたびは当館へお問い合わせいただき、誠にありがとうございます。<br>
+                ご入力いただいたメールアドレス宛に受付確認メールを送信いたしました。<br>
+                内容を確認のうえ、担当者よりご連絡させていただきますので、今しばらくお待ちください。
+            </p>
+            <a href="../header.php">トップページへ戻る</a>
+        </section>
+
+        <footer id="footer">
+            <div id="info">
+                <div class="info">
+                    <p class="main-logo">鳥沢温泉</p>
+                    <address>
+                        <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                        <p>tel.0000-00-0000/9:00~18:00</p>
+                    </address>
+                </div>
+
+                <nav id="nav">
+                    <div class="nav-v">
+                        <ul class="nav-v-list">
+                            <li><a href="">ホーム</a></li>
+                            <li><a href="">温泉</a></li>
+                            <li><a href="">お部屋</a></li>
+                            <li><a href="">お食事</a></li>
+                            <li><a href="">交通案内</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-w">
+                        <ul class="nav-w-list">
+                            <li><a href="">よくある質問</a></li>
+                            <li><a href="">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </footer>
+</body>
+
+</html>

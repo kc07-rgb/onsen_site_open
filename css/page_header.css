@@ -16,22 +16,19 @@ body {
 /*
 header
 */
-
 #header{
-    position: relative;
-    height: 100px;
-    background-color: aqua;
+    display: block;
 }
 #header-top {
-    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     font-family: "Yuji Boku", serif;
-    background-color: #00000000;
+    background-color: #2f2a25;
     z-index: 30;
     overflow: hidden;
+    padding: 10px;
 }
 
 

@@ -16,7 +16,7 @@ try {
 //category
 $categories = [
     "all" => "すべて",
-    "news" => "お知らせ",
+    "info" => "お知らせ",
     "event" => "イベント",
     "facility" => "施設情報",
     "campaign" => "キャンペーン"
@@ -32,6 +32,8 @@ if ($current === "all") {
 } else {
     $where = "where category  = " . $pdo->quote($current);
 }
+
+
 
 $limit = 5;
 
@@ -54,7 +56,7 @@ if ($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
 
 $sql = "
-    SELECT id, image_name, comment, created_at, title
+    SELECT id, image_name, comment, created_at, title, category
     FROM onsen_hotel_site_table
     $where
     ORDER BY created_at DESC
@@ -63,22 +65,6 @@ $sql = "
 // LIMIT $limit OFFSET $offset  OFFSET数飛ばして 次のLIMIT数取得する
 
 $news_array = $pdo->query($sql); //sql は温泉のデータベース　$news_arrayを変数名にして、下で配列を取り出すようにする。
-
-
-//$news_list = getNews($pdo, $current);
-//function GetNews(PDO $pdo, string $category = "all"): array
-//{
-//    if ($category === "all") {
-//        $stmt = $pdo->prepare("SELECT * FROM onsen_hotel_site_table ORDER BY created_at DESC");
-//        $stmt->execute();
-//    } else {
-//        $stmt = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE category = ? ORDER BY created_at DESC");
-//        $stmt->execute([$category]);
-//    }
-//    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-//}
-
-
 
 $pdo = null;
 
@@ -103,6 +89,7 @@ $pdo = null;
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./news_list2.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
 </head>
 
 <body>
@@ -161,14 +148,16 @@ $pdo = null;
     </div>
 
     <div class="news_list">
-        <div class="category">
+        <ul class="category">
             <?php foreach ($categories as $key => $label): ?>
-                <a href="?category=<?= htmlspecialchars($key) ?>"
-                    class="<?= $current === $key ? 'active' : '' ?>">
-                    <?= htmlspecialchars($label) ?>
-                </a>
+                <li>
+                    <a href="?category=<?= htmlspecialchars($key) ?>"
+                        class="<?= $current === $key ? 'active' : '' ?>">
+                        <?= htmlspecialchars($label) ?>
+                    </a>
+                </li>
             <?php endforeach; ?>
-        </div>
+        </ul>
         <div class="fresh_news">
             <div class="news">
                 <ul class="news_box">
@@ -182,8 +171,14 @@ $pdo = null;
                                             </div>
                                         <?php endif ?>
                                     </div>
+
                                     <div class="news_box_text">
-                                        <time class="created_at"><?= date("Y.m.d", strtotime($news["created_at"])); ?></time>
+                                        <div class="day_category">
+                                            <time class="created_at"><?= date("Y.m.d", strtotime($news["created_at"])); ?></time>
+                                            <p class="current_category">
+                                                <<?= htmlspecialchars($categories[$news["category"]]) ?? "" ?>>
+                                            </p>
+                                        </div>
                                         <p class="title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></p>
                                     </div>
                                     <svg class="icon_arrow" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 32px; height: 32px; opacity: 1;" xml:space="preserve">
@@ -225,6 +220,37 @@ $pdo = null;
             <?php endif; ?>
         </div>
     </div>
+
+        <footer id="page_footer">
+            <div id="page_footer_info">
+                <div class="page_footer_info">
+                    <p class="main-logo">鳥沢温泉</p>
+                    <address>
+                        <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                        <p>tel.0000-00-0000/9:00~18:00</p>
+                    </address>
+                </div>
+
+                <nav id="page_footer_nav">
+                    <div class="nav-v">
+                        <ul class="nav-v-list">
+                            <li><a href="">ホーム</a></li>
+                            <li><a href="">温泉</a></li>
+                            <li><a href="">お部屋</a></li>
+                            <li><a href="">お食事</a></li>
+                            <li><a href="">交通案内</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-w">
+                        <ul class="nav-w-list">
+                            <li><a href="">よくある質問</a></li>
+                            <li><a href="">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </footer>
 
 </body>
 

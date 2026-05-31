@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f4f0e8;
+    margin-bottom: 130vh;
+}
+
+
+/*contact*/
+.contact{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 20;
+    font-size: 1.5rem;
+    font-weight: 500;
+    background-color: antiquewhite;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translateZ(-50%);
+    transform: translateX(-50%);
+    padding: 40px;
+}
+
+.contact_explanation{
+    margin-bottom: 100px;
+    text-align: center;
+    line-height: 4rem;
+}
+
+
+.form_item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    position: relative;
+    gap: 60px;
+}
+.form_item::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #9f9f9f;
+    bottom: -50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+.form_item:last-of-type::after{
+    bottom: -12%;
+}
+.form_item:first-of-type::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #9f9f9f;
+    top: -50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.form_item label{
+    width: 20%;
+    text-align: left;
+
+}
+.form_item input,
+.form_item textarea{
+    border: 1px solid #999999;
+    width: 80%;
+    text-align: left;
+    font-size: 1.5rem;
+}
+.form_item input{
+    width: 80%;
+    height: 40px;
+}
+
+.contact_btn{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 20%;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: #434940;
+    color: #dddddd;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.contact_btn:hover{
+    background-color: #edecec;
+    color: #434940;
+}
+
+#page_footer{
+    bottom: -1700px;
+}
