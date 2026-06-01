@@ -10,7 +10,6 @@ a {
     text-decoration: none;
 }
 
-
 /**/
 .plan_card{
     display: flex;
@@ -24,7 +23,7 @@ body{
 /*reservation*/
 .reservation{
     text-align: center;
-    margin-bottom: 120px;
+    margin: 120px 0;
 }
 .re_ja{
     font-size: 3rem;
@@ -42,10 +41,141 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    margin: 0 auto;
+    gap: 4.5rem;
+    height: 150px;
+    width: 60%;
     font-size: 1.5rem;
+    border: #cfc8c2 1px solid;
+    background-color: #f9f7f5;
+    margin-bottom: 120px;
 }
 .search_group{
     display: flex;
     flex-direction: column;
+}
+.search input,
+.search select{
+    height: 50px;
+    font-size: 1rem;
+    min-width: 80px;
+}
+
+.search_button{
+    width: 150px;
+    font-size: 1.2rem;
+    background-color: #2c241d;
+    color: #f4f0e8;
+    padding: 10px;
+    font-family: "Noto Serif JP", serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.search_button:hover{
+    background-color: #493c32;
+}
+.search_button:active{
+    transform: translateY(4px);
+    background-color: #1f1915;
+}
+
+/*plan*/
+.plan_all{
+   
+}
+.plan_box{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 400px;
+    width: 80%;
+    background-color: #f9f7f5;
+    border: 2px solid #cfc8c2;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-bottom: 50px;
+}
+.plan_img{
+    width: 30%;
+}
+.plan_img img{
+    width: 100%;
+}
+.plan_name{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.plan_name::after{
+    content: "";
+    width: 1px;
+    height: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    background-color: #cfc8c2;
+    position: absolute;
+}
+.plan_title{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.plan_descriptin{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.available{
+    font-size: 1.2rem;
+    line-height: 30px;
+}
+.room_count,
+.total_price{
+    font-size: 2rem;
+    color: rgb(195, 10, 10);
+    margin: 0 20px;
+}
+.rest{
+    margin-bottom: 50px;
+}
+
+.submit_box{
+    display: flex;
+    align-items: flex-end;
+    width: 30%;
+    position: relative;
+}
+.submit_box::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background-color: #cfc8c2;
+    position: absolute;
+}
+
+.plan_card{
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    font-size: 1.5rem;
+    background-color: #2c241d;
+    color: #f4f0e8;
+    font-family: "Noto Serif JP", serif;
+    text-align: center;
+    letter-spacing: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}    
+.plan_card:hover{
+    background-color: #493c32;
+}
+.plan_card:active{
+    transform: translateY(4px);
+    background-color: #1f1915;
 }

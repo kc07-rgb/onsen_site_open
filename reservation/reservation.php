@@ -129,8 +129,6 @@ foreach ($stocks as $planName => $stock) {
     </div>
 
     <form class="search" method="GET">
-
-
         <div class="search_group">
             <label for="checkin">チェックイン</label>
             <input type="date" name="checkin" id="checkin" value="<?= htmlspecialchars($_GET["checkin"] ?? "",  ENT_QUOTES, "UTF-8") ?>" required>
@@ -164,141 +162,169 @@ foreach ($stocks as $planName => $stock) {
             </select>
         </div>
 
-        <button type="submit" name="submit">空室確認</button>
+        <button class="search_button" type="submit" name="submit">空室確認</button>
+
     </form>
 
-    <div class="plan">
+    <div class="plan_all">
+        <div class="plan">
+            <?php foreach ($availablePlans as $room): ?>
+                <?php if ($room["plan"] == "sudomari"): ?>
+                    <div class="plan_type">
+                        <form action="display.php" method="POST">
+                            <div class="plan_box">
+                                <div class="plan_img">
+                                    <img src="../img/22403402_m.jpg" alt="">
+                                </div>
+                                <div class="plan_name">
+                                    <p class="plan_title">素泊まりプラン</p>
+                                    <p class="plan_descriptin">夕食・朝食なし ￥6,000~/人</p>
+                                    <p>気軽に温泉を楽しみたい方にお勧めのプランです。</p>
+                                </div>
+                                <?php if (isset($_GET["submit"])): ?>
+                                    <div class="submit_box">
+                                        <div class="available">
+                                            <p>空室あり</p>
+                                            <p class="rest">残り<span class="room_count"><?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?></span>室</p>
+                                            <div class="total">
+                                                <p>合計金額</p>
+                                                <p class="total_price" data-plan="sudomari">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                            </div>
+                                        </div>
+                                        <button class="plan_card" type="submit" name="plan" value="sudomari">予約する</button>
+                                    </div>
+                                <?php endif ?>
+                            </div>
+
+                            <input type="hidden" name="plan" value="sudomari">
+                            <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="total_price" class="hidden_total_price" data-plan="sudomari">
+
+                        </form>
+                    </div>
+                <?php endif ?>
+            <?php endforeach ?>
+        </div>
+
+
+
         <?php foreach ($availablePlans as $room): ?>
-            <?php if ($room["plan"] == "sudomari"): ?>
+            <?php if ($room["plan"] == "standard"): ?>
                 <div class="plan_type">
                     <form action="display.php" method="POST">
-                        <div>
-                            <p>素泊まりプラン</p>
-                            <p>夕食・朝食なし ￥6,000~/人</p>
-
+                        <div class="plan_box">
+                            <div class="plan_img">
+                                <img src="../img/YAMA_DSC1959_TP_V.webp" alt="">
+                            </div>
+                            <div class="plan_name">
+                                <p class="plan_title">スタンダードプラン</p>
+                                <p class="plan_descriptin">夕食・朝食付き ￥18,000~/人</p>
+                                <p>季節の会食料理を楽しめる当館で人気のプランです。</p>
+                            </div>
                             <?php if (isset($_GET["submit"])): ?>
-                                <div class="available">
-                                    <p>空室あり:残り<?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?>室</p>
-                                    <div class="total">
-                                        <p>合計金額</p>
-                                        <p class="total_price" data-plan="sudomari">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                <div class="submit_box">
+                                    <div class="available">
+                                        <p>空室あり</p>
+                                        <p class="rest">残り<span class="room_count"><?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?></span>室</p>
+                                        <div class="total">
+                                            <p>合計金額</p>
+                                            <p class="total_price" data-plan="standard">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                        </div>
                                     </div>
-
+                                    <button class="plan_card" type="submit" name="plan" value="standard">予約する</button>
                                 </div>
                             <?php endif ?>
                         </div>
 
-                        <input type="hidden" name="plan" value="sudomari">
+                        <input type="hidden" name="plan" value="standard">
                         <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
                         <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
                         <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
                         <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
-                        <input type="hidden" name="total_price" class="hidden_total_price" data-plan="sudomari">
+                        <input type="hidden" name="total_price" class="hidden_total_price" data-plan="standard">
 
-                        <button class="plan_card" type="submit" name="plan" value="sudomari">予約する</button>
                     </form>
                 </div>
             <?php endif ?>
         <?php endforeach ?>
-    </div>
 
-
-
-    <?php foreach ($availablePlans as $room): ?>
-        <?php if ($room["plan"] == "standard"): ?>
-            <div class="plan_type">
-                <form action="display.php" method="POST">
-                    <div>
-                        <p>スタンダードプラン</p>
-                        <p>夕食・朝食付き ￥18,000~/人</p>
-
-                        <?php if (isset($_GET["submit"])): ?>
-                            <div class="available">
-                                <p>空室あり:残り<?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?>室</p>
-                                <div class="total">
-                                    <p>合計金額</p>
-                                    <p class="total_price" data-plan="standard">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+        <div class="plan">
+            <?php foreach ($availablePlans as $room): ?>
+                <?php if ($room["plan"] == "premium"): ?>
+                    <div class="plan_type">
+                        <form action="display.php" method="POST">
+                            <div class="plan_box">
+                                <div class="plan_img">
+                                    <img src="../img/istockphoto-186866004-1024x1024 (1).jpg" alt="">
                                 </div>
-                            </div>
-                        <?php endif ?>
-                    </div>
-
-                    <input type="hidden" name="plan" value="standard">
-                    <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
-                    <input type="hidden" name="total_price" class="hidden_total_price" data-plan="standard">
-
-                    <button class="plan_card" type="submit" name="plan" value="standard">予約する</button>
-                </form>
-            </div>
-        <?php endif ?>
-    <?php endforeach ?>
-
-    <?php foreach ($availablePlans as $room): ?>
-        <?php if ($room["plan"] == "premium"): ?>
-            <div class="plan_type">
-                <form action="display.php" method="POST">
-                    <div>
-                        <p>プレミアムプラン</p>
-                        <p>個室料理・個室露天風呂付き ￥32,000~/人</p>
-
-                        <?php if (isset($_GET["submit"])): ?>
-                            <div class="available">
-                                <p>空室あり:残り<?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?>室</p>
-                                <div class="total">
-                                    <p>合計金額</p>
-                                    <p class="total_price" data-plan="premium">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                <div class="plan_name">
+                                    <p class="plan_title">プレミアムプラン</p>
+                                    <p class="plan_descriptin">個室料理・個室露天風呂付き ￥32,000~/人</p>
+                                    <p>個室料理・個室露天風呂付き<br>
+                                        特別な時間を過ごしたい方へ、贅沢なひとときをご提供します。</p>
                                 </div>
+                                <?php if (isset($_GET["submit"])): ?>
+                                    <div class="submit_box">
+                                        <div class="available">
+                                            <p>空室あり</p>
+                                            <p class="rest">残り<span class="room_count"><?= htmlspecialchars($room["remaining"],  ENT_QUOTES, "UTF-8") ?></span>室</p>
+                                            <div class="total">
+                                                <p>合計金額</p>
+                                                <p class="total_price" data-plan="premium">￥<?= number_format((int)($_GET["total_price"] ?? 0)) ?></p>
+                                            </div>
+                                        </div>
+                                        <button class="plan_card" type="submit" name="plan" value="premium">予約する</button>
+                                    </div>
+                                <?php endif ?>
                             </div>
-                        <?php endif ?>
 
-                        <input type="hidden" name="plan" value="premium">
-                        <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
-                        <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
-                        <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
-                        <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
-                        <input type="hidden" name="total_price" class="hidden_total_price" data-plan="premium">
+                            <input type="hidden" name="plan" value="premium">
+                            <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="adult" value="<?= htmlspecialchars($adult, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="children" value="<?= htmlspecialchars($children, ENT_QUOTES, "UTF-8") ?>">
+                            <input type="hidden" name="total_price" class="hidden_total_price" data-plan="premium">
 
-                        <button class="plan_card" type="submit" name="plan" value="premium">予約する</button>
+                        </form>
                     </div>
-                </form>
-            </div>
-        <?php endif ?>
-    <?php endforeach ?>
-
-    <footer id="page_footer">
-        <div id="page_footer_info">
-            <div class="page_footer_info">
-                <p class="main-logo">鳥沢温泉</p>
-                <address>
-                    <p>〒×××-×××× 岩手県小鳥市11-111</p>
-                    <p>tel.0000-00-0000/9:00~18:00</p>
-                </address>
-            </div>
-
-            <nav id="page_footer_nav">
-                <div class="nav-v">
-                    <ul class="nav-v-list">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">温泉</a></li>
-                        <li><a href="">お部屋</a></li>
-                        <li><a href="">お食事</a></li>
-                        <li><a href="">交通案内</a></li>
-                    </ul>
-                </div>
-
-                <div class="nav-w">
-                    <ul class="nav-w-list">
-                        <li><a href="">よくある質問</a></li>
-                        <li><a href="">お問い合わせ</a></li>
-                    </ul>
-                </div>
-            </nav>
+                <?php endif ?>
+            <?php endforeach ?>
         </div>
-    </footer>
 
+        <footer id="page_footer">
+            <div id="page_footer_info">
+                <div class="page_footer_info">
+                    <p class="main-logo">鳥沢温泉</p>
+                    <address>
+                        <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                        <p>tel.0000-00-0000/9:00~18:00</p>
+                    </address>
+                </div>
+
+                <nav id="page_footer_nav">
+                    <div class="nav-v">
+                        <ul class="nav-v-list">
+                            <li><a href="">ホーム</a></li>
+                            <li><a href="">温泉</a></li>
+                            <li><a href="">お部屋</a></li>
+                            <li><a href="">お食事</a></li>
+                            <li><a href="">交通案内</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-w">
+                        <ul class="nav-w-list">
+                            <li><a href="">よくある質問</a></li>
+                            <li><a href="">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </footer>
+    </div>
 </body>
 
 
