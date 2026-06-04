@@ -1,0 +1,28 @@
+.vertical{
+    margin: 0 auto;
+}
+.reservation_detail{
+    display: flex;
+}
+
+.vertical_group{
+    width: 50%;
+}
+.contens_label{
+    width: 35%;
+}
+
+.thanks_message{
+    width: 70%;
+    font-size: 1.5rem;
+    line-height: 50px;
+    text-align: center;
+    margin: 120px auto 120px;
+    padding: 10px;
+    border: 1px solid var(--box-border-color);
+    background-color: #f2f1ec;
+    border-radius: 10px;
+}
+.vertical_button{
+    text-align: center;
+}

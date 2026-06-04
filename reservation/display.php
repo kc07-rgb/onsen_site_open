@@ -18,56 +18,179 @@ $plan_names = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+JP:wght@200..900&family=Yuji+Boku&display=swap"
+        rel="stylesheet">
+    <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./reservation.css">
+    <link rel="stylesheet" href="./display.css">
+    <link rel="stylesheet" href="../css/page_header.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
+
     <title>鳥沢温泉 | 予約確認</title>
 </head>
 
 <body>
+
+    <header id="header">
+        <div id="header-top">
+            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+
+            <nav class="header-top-nav">
+                <ul class="header-top-list">
+                    <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                    <li><a href="">よくあるご質問</a></li>
+                    <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                    <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                    <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="header-vew">
+            <a href="" class="main-logo">鳥沢温泉</a>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li><a href="">温泉</a></li>
+                    <li><a href="">お部屋</a></li>
+                    <li><a href="">お食事</a></li>
+                    <li><a href="">交通案内</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="reservation">
+        <h2 class="re_ja">ご予約内容の確認・お客様情報の入力</h2>
+        <p class="re_text">下記内容をご確認のうえ、必要事項をご入力ください。</p>
+    </div>
+
     <form action="confirm.php" method="POST">
-        <div>
-            <p>大人：<?= (int)$adult ?></p>
-            <input type="hidden" name="adult" value="<?= (int)$adult ?>">
-            <p>子ども：<?= (int)$children ?></p>
-            <input type="hidden" name="children" value="<?= (int)$children ?>">
-            <p>チェックイン：<?= htmlspecialchars($checkin, ENT_QUOTES, 'UTF-8') ?></p>
-            <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_COMPAT, "UTF-8") ?>">
-            <p>チェックアウト：<?= htmlspecialchars($checkout, ENT_QUOTES, 'UTF-8') ?></p>
-            <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_COMPAT, "UTF-8") ?>">
-            <p>プラン：<?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
-            <input type="hidden" name="plan" value="<?= htmlentities($plan, ENT_QUOTES, "UTF-8") ?>">
-            <p>合計金額：<?= htmlspecialchars(number_format($total_price), ENT_QUOTES, 'UTF-8') ?>円</p>
-            <input type="hidden" name="total_price" value="<?= htmlentities($total_price, ENT_QUOTES, "UTF-8") ?>">
+        <div class="vertical">
+
+            <div class="vertical_group">
+                <p class="vertical_title">ご予約内容</p>
+                <div class="contents">
+                    <div class="contens_pieces">
+                        <p class="contens_label">大人</p>
+                        <p><?= (int)$adult ?>名</p>
+                        <input type="hidden" name="adult" value="<?= (int)$adult ?>">
+                    </div>
+                    <div class="contens_pieces">
+                        <p class="contens_label">子ども</p>
+                        <p><?= (int)$children ?>名</p>
+                        <input type="hidden" name="children" value="<?= (int)$children ?>">
+                    </div>
+                    <div class="contens_pieces">
+                        <p class="contens_label">チェックイン</p>
+                        <p><?= date("Y年m月d日", strtotime($checkin)) ?></p>
+                        <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_COMPAT, "UTF-8") ?>">
+                    </div>
+                    <div class="contens_pieces">
+                        <p class="contens_label">チェックアウト</p>
+                        <p><?= date("Y年m月d日", strtotime($checkout)) ?></p>
+                        <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_COMPAT, "UTF-8") ?>">
+                    </div>
+                    <div class="contens_pieces">
+                        <p class="contens_label">プラン</p>
+                        <p><?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
+                        <input type="hidden" name="plan" value="<?= htmlentities($plan, ENT_QUOTES, "UTF-8") ?>">
+                    </div>
+                    <div class="contens_pieces">
+                        <p class="contens_label">合計金額</p>
+                        <p class="contens_price">￥<?= htmlspecialchars(number_format($total_price), ENT_QUOTES, 'UTF-8') ?>円</p>
+                        <input type="hidden" name="total_price" value="<?= htmlentities($total_price, ENT_QUOTES, "UTF-8") ?>">
+                    </div>
+                </div>
+            </div>
+
+            <div class="vertical_group_two">
+                <p class="vertical_title">お客様情報の入力</p>
+
+                <div class="customer_item">
+                    <label for="name">お名前<span class="required">必須</span></label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div class="customer_item">
+                    <label for="tel">お電話番号<span class="required">必須</span></label>
+                    <input type="tel" name="tel" id="tel" required>
+                </div>
+                <div class="customer_item">
+                    <label for="email">メールアドレス<span class="required">必須</span></label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="customer_item">
+                    <label for="zipcode">郵便番号<span class="required">必須</span></label>
+
+                    <div class="zipcode_row">
+                        <input type="text" name="zipcode" id="zipcode" placeholder="1000001" require>
+                        <button class="zippcoe_button" type="button" id="searchBtn">住所検索</button>
+                    </div>
+                </div>
+                <div class="customer_item">
+                    <label for="address1">都道府県<span class="required">必須</span></label>
+                    <input type="text" name="address1" id="address1" require>
+                </div>
+                <div class="customer_item">
+                    <label for="address2">市区町村<span class="required">必須</span></label>
+                    <input type="text" name="address2" id="address2" require>
+                </div>
+                <div class="customer_item">
+                    <label for="address3">番地<span class="required">必須</span></label>
+                    <input type="text" name="address3" id="address3" require>
+                </div>
+                <div class="customer_item">
+                    <label for="address4">その他</label>
+                    <input type="text" name="address4" id="address4">
+                </div>
+                <div class="customer_item">
+                    <label for="message">ご要望・アレルギーなど</label>
+                    <textarea name="message" id="message" rows="5" cols="30"></textarea>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <p>お客様情報</p>
-
-            <label for="name">お名前</label>
-            <input type="text" name="name" id="name" required>
-
-            <label for="tel">お電話番号</label>
-            <input type="tel" name="tel" id="tel" required>
-
-            <label for="email">メールアドレス</label>
-            <input type="email" name="email" id="email" required>
-
-            <label for="zipcode">郵便番号</label>
-            <input type="text" name="zipcode" id="zipcode" placeholder="1000001">
-            <button type="button" id="searchBtn">住所検索</button>
-            <label for="address1">都道府県</label>
-            <input type="text" name="address1" id="address1">
-            <label for="address2">市区町村</label>
-            <input type="text" name="address2" id="address2">
-            <label for="address3">番地</label>
-            <input type="text" name="address3" id="address3">
-            <label for="address4">その他</label>
-            <input type="text" name="address4" id="address4">
-
-            <label for="message">ご要望・アレルギーなど</label>
-            <textarea name="message" id="message" rows="5" cols="30"></textarea>
-        </div>
-
-        <button type="submit">予約を確定する</button>
+        <button class="vertical_button" type="submit">予約を確定する</button>
     </form>
+
+
+
+    <footer id="page_footer">
+        <div id="page_footer_info">
+            <div class="page_footer_info">
+                <p class="main-logo">鳥沢温泉</p>
+                <address>
+                    <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                    <p>tel.0000-00-0000/9:00~18:00</p>
+                </address>
+            </div>
+
+            <nav id="page_footer_nav">
+                <div class="nav-v">
+                    <ul class="nav-v-list">
+                        <li><a href="">ホーム</a></li>
+                        <li><a href="">温泉</a></li>
+                        <li><a href="">お部屋</a></li>
+                        <li><a href="">お食事</a></li>
+                        <li><a href="">交通案内</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-w">
+                    <ul class="nav-w-list">
+                        <li><a href="">よくある質問</a></li>
+                        <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </footer>
 
     <script>
         document.getElementById("searchBtn").addEventListener("click", async () => {

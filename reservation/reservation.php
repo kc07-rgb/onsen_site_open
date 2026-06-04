@@ -293,6 +293,7 @@ foreach ($stocks as $planName => $stock) {
                 <?php endif ?>
             <?php endforeach ?>
         </div>
+    </div>
 
         <footer id="page_footer">
             <div id="page_footer_info">
@@ -324,7 +325,6 @@ foreach ($stocks as $planName => $stock) {
                 </nav>
             </div>
         </footer>
-    </div>
 </body>
 
 

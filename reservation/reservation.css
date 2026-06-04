@@ -9,6 +9,13 @@ a {
     color: #2c241d;
     text-decoration: none;
 }
+:root{
+    --bg-color: #f4f0e8;
+    --text-color: #2c241d;
+    --box-bg-color: #f9f7f5;
+    --box-border-color: #cfc8c2;
+    --price-color: rgb(195, 10, 10);
+}
 
 /**/
 .plan_card{
@@ -16,7 +23,7 @@ a {
     align-items: center;
 }
 body{
-    background-color: #f4f0e8 !important;
+    background-color: var(--bg-color) !important;
     font-family: "Noto Serif JP", serif;
 }
 
@@ -27,6 +34,7 @@ body{
 }
 .re_ja{
     font-size: 3rem;
+    margin-bottom: 20px;
 }
 .re_en{
     font-size: 1.5rem;
@@ -61,7 +69,8 @@ body{
     min-width: 80px;
 }
 
-.search_button{
+button,
+.vertical_button{
     width: 150px;
     font-size: 1.2rem;
     background-color: #2c241d;
@@ -71,18 +80,17 @@ body{
     cursor: pointer;
     transition: all 0.2s;
 }
-.search_button:hover{
+button:hover,
+.vertical_button:hover{
     background-color: #493c32;
 }
-.search_button:active{
+button:active,
+.vertical_button:active{
     transform: translateY(4px);
     background-color: #1f1915;
 }
 
 /*plan*/
-.plan_all{
-   
-}
 .plan_box{
     display: flex;
     align-items: center;
@@ -170,12 +178,5 @@ body{
     text-align: center;
     letter-spacing: 15px;
     cursor: pointer;
-    transition: all 0.2s;
+    padding: 0;
 }    
-.plan_card:hover{
-    background-color: #493c32;
-}
-.plan_card:active{
-    transform: translateY(4px);
-    background-color: #1f1915;
-}
