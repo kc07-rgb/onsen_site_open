@@ -78,12 +78,31 @@
                 <li><a href="">交通案内</a></li>
             </ul>
         </nav>
-        <div class="hamburger">
-            <div class="top"></div>
-            <div class="middle"></div>
-            <div class="bottom"></div>
-        </div>
     </main>
+
+    <div class="hamburger">
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+    <div class="hamburger-container">
+        <h2>鳥沢温泉</h2>
+        <nav class="hamburger-nav">
+            <ul class="hamburger-nav-list left">
+                <li><a href="">温泉</a></li>
+                <li><a href="">お部屋</a></li>
+                <li><a href="">お食事</a></li>
+                <li><a href="">交通案内</a></li>
+            </ul>
+            <ul class="hamburger-nav-list right">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
 
     <section id="intro-title">
         <p class="intro-title-text">喧騒を離れ、静けさに身を委ねるひととき。<br>

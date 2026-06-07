@@ -31,11 +31,9 @@ featureApper.forEach(element => {
 
 //hamburger
 const hamburger = document.querySelector(".hamburger");
-const hamburgerHeader = document.getElementById("header");
-const mainNav =  document.querySelector(".main-nav");
+const container = document.querySelector(".hamburger-container");
 
 hamburger.addEventListener("click", ()=>{
   hamburger.classList.toggle("active");
-  hamburgerHeader.classList.toggle("active");
-  mainNav.classList.toggle("active");
+  container.classList.toggle("active");
 });
