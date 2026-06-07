@@ -8,10 +8,13 @@ window.addEventListener("scroll", ()=>{
   } else{
     header.classList.remove("active")
   }
-    if(window.scrollY + 500 > introTitlText.offsetTop){
-    introTitlText.classList.add("active");
+    const rect = introTitlText.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight * 0.9) {
+        introTitlText.classList.add("active");
     }
 });
+
 
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach(entry => {
@@ -25,6 +28,11 @@ const observer = new IntersectionObserver((entries) =>{
 featureApper.forEach(element => {
   observer.observe(element);
 });
+
+console.log(window.scrollY);
+console.log(window.innerHeight);
+console.log(introTitlText.offsetTop);
+
 
 //window.addEventListener("scroll", ()=>{
 //  introTitlText.forEach((element, index) => {

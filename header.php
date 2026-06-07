@@ -17,11 +17,11 @@
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="./style.css">
-    
+
 </head>
 
 <body>
-    
+
     <!--header-->
     <header id="header">
         <div id="header-top">
@@ -70,17 +70,20 @@
         </div>
         <div class="intro"></div>
 
-         <nav class="main-nav">
-                <ul class="main-nav-list">
-                    <li><a href="">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
-                </ul>
-            </nav>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a href="">温泉</a></li>
+                <li><a href="">お部屋</a></li>
+                <li><a href="">お食事</a></li>
+                <li><a href="">交通案内</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+        </div>
     </main>
-
-
 
     <section id="intro-title">
         <p class="intro-title-text">喧騒を離れ、静けさに身を委ねるひととき。<br>
@@ -93,7 +96,7 @@
         <section class="feature-section spa">
             <div class="feature-wappaer">
                 <div class="feature-img">
-                    <img src="./img/AdobeStock_473645076.jpeg" alt="">
+                    <img src="./img/22403402_m.jpg" loading="lazy" alt="">
                 </div>
                 <div class="feature-text">
                     <div class="logo"><i class='bx  bx-heat-wave' style='color:#00688c'></i></div>
@@ -112,11 +115,10 @@
         </section>
 
 
-
         <section class="feature-section room">
             <div class="feature-wappaer">
                 <div class="feature-img">
-                    <img src="./img/22403402_m.jpg" alt="">
+                    <img src="./img/22403402_m.jpg" loading="lazy" alt="">
                 </div>
                 <div class="feature-text">
                     <div class="logo"><i class='bx  bx-door-open-alt' style='color:#00688c'></i></i></div>
@@ -139,7 +141,7 @@
         <section class="feature-section dish">
             <div class="feature-wappaer">
                 <div class="feature-img">
-                    <img src="./img/YAMA_DSC1959_TP_V.webp" alt="">
+                    <img src="./img/YAMA_DSC1959_TP_V.webp" loading="lazy" alt="">
                 </div>
                 <div class="feature-text">
                     <div class="logo"><i class='bx  bx-dish' style='color:#00688c'></i></i></div>
@@ -163,7 +165,7 @@
     <div id="footer-intro">
     </div>
 
-    <div class="intro"></div>
+
     <footer id="footer">
 
         <div id="info">

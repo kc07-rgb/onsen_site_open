@@ -175,8 +175,8 @@ $pdo = null;
                                     <div class="news_box_text">
                                         <div class="day_category">
                                             <time class="created_at"><?= date("Y.m.d", strtotime($news["created_at"])); ?></time>
-                                            <p class="current_category">
-                                                <<?= htmlspecialchars($categories[$news["category"]]) ?? "" ?>>
+                                            <p class="current_category <?= htmlspecialchars($news["category"]) ?>">
+                                                <?= htmlspecialchars($categories[$news["category"]]) ?? "" ?>
                                             </p>
                                         </div>
                                         <p class="title"><?= htmlspecialchars($news["title"], ENT_QUOTES) ?></p>
@@ -203,54 +203,50 @@ $pdo = null;
 
             <!--前へ-->
             <?php if ($page > 1): ?>
-                <a href="?page=<?= $page - 1 ?>&category=<?= htmlspecialchars($current) ?>">前へ</a>
+                <a class="page_move" href="?page=<?= $page - 1 ?>&category=<?= htmlspecialchars($current) ?>">前へ</a>
             <?php endif; ?>
 
             <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
-                <?php if ($i == $page) : ?>
-                    <strong><?= $i ?></strong>
-                <?php else : ?>
-                    <a href="?page=<?= $i ?>&category=<?= htmlspecialchars($current) ?>"><?= $i ?></a>
-                <?php endif; ?>
+                <a class="<?= ($page == $i) ? "active" : "" ?>" href="?page=<?= $i ?>&category=<?= htmlspecialchars($current) ?>"><?= $i ?></a>
             <?php endfor; ?>
 
             <!--次へ-->
             <?php if ($page < $total_pages): ?>
-                <a href="?page=<?= $page + 1 ?>&category=<?= htmlspecialchars($current) ?>">次へ</a>
+                <a class="page_move" href="?page=<?= $page + 1 ?>&category=<?= htmlspecialchars($current) ?>">次へ</a>
             <?php endif; ?>
         </div>
     </div>
 
-        <footer id="page_footer">
-            <div id="page_footer_info">
-                <div class="page_footer_info">
-                    <p class="main-logo">鳥沢温泉</p>
-                    <address>
-                        <p>〒×××-×××× 岩手県小鳥市11-111</p>
-                        <p>tel.0000-00-0000/9:00~18:00</p>
-                    </address>
+    <footer id="page_footer">
+        <div id="page_footer_info">
+            <div class="page_footer_info">
+                <p class="main-logo">鳥沢温泉</p>
+                <address>
+                    <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                    <p>tel.0000-00-0000/9:00~18:00</p>
+                </address>
+            </div>
+
+            <nav id="page_footer_nav">
+                <div class="nav-v">
+                    <ul class="nav-v-list">
+                        <li><a href="">ホーム</a></li>
+                        <li><a href="">温泉</a></li>
+                        <li><a href="">お部屋</a></li>
+                        <li><a href="">お食事</a></li>
+                        <li><a href="">交通案内</a></li>
+                    </ul>
                 </div>
 
-                <nav id="page_footer_nav">
-                    <div class="nav-v">
-                        <ul class="nav-v-list">
-                            <li><a href="">ホーム</a></li>
-                            <li><a href="">温泉</a></li>
-                            <li><a href="">お部屋</a></li>
-                            <li><a href="">お食事</a></li>
-                            <li><a href="">交通案内</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="nav-w">
-                        <ul class="nav-w-list">
-                            <li><a href="">よくある質問</a></li>
-                            <li><a href="">お問い合わせ</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </footer>
+                <div class="nav-w">
+                    <ul class="nav-w-list">
+                        <li><a href="">よくある質問</a></li>
+                        <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </footer>
 
 </body>
 
