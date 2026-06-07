@@ -2,7 +2,6 @@ const introTitlText = document.querySelector(".intro-title-text");
 const featureApper = document.querySelectorAll(".feature-wappaer");
 const header = document.getElementById("header-vew");
 
-
 window.addEventListener("scroll", ()=>{
   if(window.scrollY > 300){
     header.classList.add("active")
@@ -33,6 +32,12 @@ featureApper.forEach(element => {
 console.log(window.scrollY);
 console.log(window.innerHeight);
 console.log(introTitlText.offsetTop);
+
+//hamburger
+const hamburger = document.querySelector(".hamburger");
+const hamburgerTop = document.querySelector(".top");
+const hamburgerMiddle = document.querySelector(".middle");
+const hamburgerBottom = document.querySelector(".bottom");
 
 
 //window.addEventListener("scroll", ()=>{
