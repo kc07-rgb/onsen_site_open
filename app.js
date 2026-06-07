@@ -4,7 +4,7 @@ const header = document.getElementById("header-vew");
 
 window.addEventListener("scroll", ()=>{
   if(window.scrollY > 300){
-    header.classList.add("active")
+    header.classList.toggle("active")
   } else{
     header.classList.remove("active")
   }
@@ -29,34 +29,12 @@ featureApper.forEach(element => {
   observer.observe(element);
 });
 
-console.log(window.scrollY);
-console.log(window.innerHeight);
-console.log(introTitlText.offsetTop);
-
 //hamburger
 const hamburger = document.querySelector(".hamburger");
 const hamburgerTop = document.querySelector(".top");
 const hamburgerMiddle = document.querySelector(".middle");
 const hamburgerBottom = document.querySelector(".bottom");
 
-
-//window.addEventListener("scroll", ()=>{
-//  introTitlText.forEach((element, index) => {
-//  element.classList.add('active');
-//});
-//});
-
-
-
-//for(let i = 0; i < introTitlText.length; i++){
-//
-//    //.introTitlTextのオフセットの高さを取得
-//    var targetTop = introTitlText[i].offsetTop;
-//
-//    //画面のスクロール量 + 300px > .introTitlTextのオフセットの高さを取得
-//    if(window.scrollY + 500 > targetTop){
-//    
-//      //書くintroTitlTextにクラスshowを追加
-//      introTitlText[i].classList.add('active');
-//    }
-//  }
+hamburger.addEventListener("click", ()=>{
+  hamburger.classList.toggle("active");
+});

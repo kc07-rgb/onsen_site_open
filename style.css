@@ -563,9 +563,9 @@ footer
 /*mediaquery*/
 @media screen and (min-width:375px) and (max-width:428px) {
     /*atode*/
-    *{
+    /**{
         outline: 1px solid red;
-    }
+    }*/
     html{
         font-size: 14px;
     }
@@ -608,9 +608,11 @@ footer
         width: 80%;
         height: 2px;
         background-color: #fff;
+        transition: 0.5s;
     }
     .top.active{
-        transform: rotate(90deg);
+        top: 50%;
+        transform: translateX(-50%) rotate(45deg);
     }
     .middle{
         position: absolute;
@@ -620,9 +622,10 @@ footer
         width: 80%;
         height: 2px;
         background-color: #fff;
+        transition: 0.5s;
     }
     .middle.active{
-        display: nonde;
+        opacity: 0;
     }
     .bottom{
         position: absolute;
@@ -632,9 +635,11 @@ footer
         width: 80%;
         height: 2px;
         background-color: #fff;
+        transition: 0.5s;
     }
     .bottom.active{
-        transform: rotate(-90deg);
+        top: 50%;
+        transform: translateX(-50%) rotate(-45deg);
     }
 
     /*intro*/
