@@ -2,6 +2,7 @@ const introTitlText = document.querySelector(".intro-title-text");
 const featureApper = document.querySelectorAll(".feature-wappaer");
 const header = document.getElementById("header-vew");
 
+
 window.addEventListener("scroll", ()=>{
   if(window.scrollY > 300){
     header.classList.add("active")
