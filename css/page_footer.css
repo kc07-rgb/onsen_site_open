@@ -27,8 +27,8 @@ page_footer
     margin-bottom: 20px;
 }
 
-.page_footer_info {
-    display: flex;
+.page_footer_info{
+    display: flex; 
     align-items: center;
     justify-content: center;
     gap: 40px;
@@ -37,7 +37,7 @@ page_footer
     font-size: 1.5rem;
     font-weight: 700;
 }
-.info address{
+.page_footer_info address p{
     font-size: 1.1rem;
 }
 
@@ -49,8 +49,6 @@ page_footer
 
 .nav-v {
     writing-mode: vertical-lr;
-}
-.nav-v {
     line-height: 60px;
     margin-bottom: 20px;
 }
@@ -72,4 +70,35 @@ page_footer
 .nav-w a:hover{
     color: #f4f0e8;
 }
+ /*smartphon*/
+    @media screen and (min-width:375px) and (max-width:428px) {
+        html{
+            font-size: 14px;
+        }
+        #page_footer{
+            height: 20vh;
+        }
+        .page_footer_info{
+            flex-direction: column;
+            gap: 10px;
+        }
+        .main-logo{
+            font-size: 1.2rem;
+        }
+        .page_footer_info address p{
+            font-size: 0.8rem;
+        }
+        #page_footer_nav{
+            font-size: 1rem;
+        }
+        .nav-v{
+            line-height: 2rem;
+            margin-bottom: 5px;
+        }
 
+    }
+/*tblet
+    @media screen and (min-width:768px) and (max-width:960px){
+
+    }
+    */

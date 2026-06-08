@@ -554,7 +554,7 @@ footer
     background: linear-gradient(antiquewhite, rgba(149, 141, 141, 0.207));
 }
 
-#info {
+#footer_info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -566,12 +566,12 @@ footer
     background: linear-gradient(rgba(149, 141, 141, 0), rgb(206, 190, 169));
 }
 
-.info {
+.footer_info {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.info address{
+.footer_info address{
     font-weight: 500;
     font-family: "Noto Serif JP", serif;
 }
@@ -837,13 +837,13 @@ footer
             background-size: cover;
             background-attachment: scroll;
         }
-        #info{
+        #footer_info{
             position: relative;
             top: 0;
             justify-content: center;
             padding: 0;
         }
-        .info{
+        .footer_info{
             position: absolute;
             top: 0;
             flex-direction: column;
@@ -1028,13 +1028,13 @@ footer
             background-size: cover;
             background-attachment: scroll;
         }
-        #info{
+        #footer_info{
             position: relative;
             top: 10%;
             justify-content: center;
             padding: 0;
         }
-        .info{
+        .footer_info{
             position: absolute;
             top: 0;
             flex-direction: column;
@@ -1047,7 +1047,7 @@ footer
         .main-logo{
             font-size: 4rem;
         }
-        .info address{
+        .footer_info address{
             font-size: 2rem;
         }
         #nav{

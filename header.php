@@ -187,8 +187,8 @@
 
     <footer id="footer">
 
-        <div id="info">
-            <div class="info">
+        <div id="footer_info">
+            <div class="footer_info">
                 <p class="main-logo">鳥沢温泉</p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
