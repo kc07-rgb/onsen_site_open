@@ -177,3 +177,26 @@ header-vew
 .header-nav-list a:visited {
     color: #fff;
 }
+
+/*smartphon*/
+@media screen and (min-width:375px) and (max-width:428px) {
+    #header{
+        width: 100%;
+    }
+    #header-top{
+        display: none;
+    }
+    #header-vew{
+        font-display: none;
+    }
+}
+
+/*tblet*/
+@media screen and (min-width:768px) and (max-width:960px){
+    #header-top{
+        display: none;
+    }
+    #header-vew{
+        font-display: none;
+    }
+}
