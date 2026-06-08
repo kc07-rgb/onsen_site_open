@@ -85,6 +85,7 @@ foreach ($stocks as $planName => $stock) {
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./reservation.css">
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../css/page_footer.css">
@@ -120,6 +121,32 @@ foreach ($stocks as $planName => $stock) {
             </nav>
         </div>
     </header>
+
+    <!--hamburger-->
+    <div class="hamburger">
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+
+    <div class="hamburger-container">
+        <h2><a href="../header.php">鳥沢温泉</a></h2>
+        <nav class="hamburger-nav">
+            <ul class="hamburger-nav-list left">
+                <li><a href="">温泉</a></li>
+                <li><a href="">お部屋</a></li>
+                <li><a href="">お食事</a></li>
+                <li><a href="">交通案内</a></li>
+            </ul>
+            <ul class="hamburger-nav-list right">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
 
     <div class="reservation">
         <h2 class="re_ja">ご宿泊予約</h2>
@@ -179,7 +206,7 @@ foreach ($stocks as $planName => $stock) {
                                 <div class="plan_name">
                                     <p class="plan_title">素泊まりプラン</p>
                                     <p class="plan_descriptin">夕食・朝食なし ￥6,000~/人</p>
-                                    <p>気軽に温泉を楽しみたい方にお勧めのプランです。</p>
+                                    <p class="plan_text">気軽に温泉を楽しみたい方にお勧めのプランです。</p>
                                 </div>
                                 <?php if (isset($_GET["submit"])): ?>
                                     <div class="submit_box">
@@ -222,7 +249,7 @@ foreach ($stocks as $planName => $stock) {
                             <div class="plan_name">
                                 <p class="plan_title">スタンダードプラン</p>
                                 <p class="plan_descriptin">夕食・朝食付き ￥18,000~/人</p>
-                                <p>季節の会食料理を楽しめる当館で人気のプランです。</p>
+                                <p class="plan_text">季節の会食料理を楽しめる当館で人気のプランです。</p>
                             </div>
                             <?php if (isset($_GET["submit"])): ?>
                                 <div class="submit_box">
@@ -263,7 +290,7 @@ foreach ($stocks as $planName => $stock) {
                                 <div class="plan_name">
                                     <p class="plan_title">プレミアムプラン</p>
                                     <p class="plan_descriptin">個室料理・個室露天風呂付き ￥32,000~/人</p>
-                                    <p>個室料理・個室露天風呂付き<br>
+                                    <p class="plan_text">個室料理・個室露天風呂付き<br>
                                         特別な時間を過ごしたい方へ、贅沢なひとときをご提供します。</p>
                                 </div>
                                 <?php if (isset($_GET["submit"])): ?>
@@ -295,39 +322,39 @@ foreach ($stocks as $planName => $stock) {
         </div>
     </div>
 
-        <footer id="page_footer">
-            <div id="page_footer_info">
-                <div class="page_footer_info">
-                    <p class="main-logo">鳥沢温泉</p>
-                    <address>
-                        <p>〒×××-×××× 岩手県小鳥市11-111</p>
-                        <p>tel.0000-00-0000/9:00~18:00</p>
-                    </address>
+    <footer id="page_footer">
+        <div id="page_footer_info">
+            <div class="page_footer_info">
+                <p class="main-logo">鳥沢温泉</p>
+                <address>
+                    <p>〒×××-×××× 岩手県小鳥市11-111</p>
+                    <p>tel.0000-00-0000/9:00~18:00</p>
+                </address>
+            </div>
+
+            <nav id="page_footer_nav">
+                <div class="nav-v">
+                    <ul class="nav-v-list">
+                        <li><a href="">ホーム</a></li>
+                        <li><a href="">温泉</a></li>
+                        <li><a href="">お部屋</a></li>
+                        <li><a href="">お食事</a></li>
+                        <li><a href="">交通案内</a></li>
+                    </ul>
                 </div>
 
-                <nav id="page_footer_nav">
-                    <div class="nav-v">
-                        <ul class="nav-v-list">
-                            <li><a href="">ホーム</a></li>
-                            <li><a href="">温泉</a></li>
-                            <li><a href="">お部屋</a></li>
-                            <li><a href="">お食事</a></li>
-                            <li><a href="">交通案内</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="nav-w">
-                        <ul class="nav-w-list">
-                            <li><a href="">よくある質問</a></li>
-                            <li><a href="">お問い合わせ</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </footer>
+                <div class="nav-w">
+                    <ul class="nav-w-list">
+                        <li><a href="">よくある質問</a></li>
+                        <li><a href="">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </footer>
 </body>
 
-
+<script src="../app.js"></script>
 <script>
     //プラン表示    
     document.querySelectorAll('input[name="plan"]').forEach(radio => {

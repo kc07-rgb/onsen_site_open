@@ -344,6 +344,7 @@ main {
     z-index: 0;
     background-color: #1b728f75;
     opacity: 0;
+    visibility: hidden;
     transition: 0.5s;
 }
 
@@ -702,6 +703,7 @@ footer
         /*hamburger-container*/
         .hamburger-container.active{
             opacity: 1;
+            visibility: inherit;
             position: fixed;
             top: 0;
             z-index: 20;

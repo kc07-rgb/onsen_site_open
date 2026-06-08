@@ -30,7 +30,7 @@ body{
 /*reservation*/
 .reservation{
     text-align: center;
-    margin: 120px 0;
+    padding-top: 150px;
 }
 .re_ja{
     font-size: 3rem;
@@ -42,6 +42,7 @@ body{
 }
 .re_text{
     font-size: 1.2rem;
+    margin-bottom: 100px;
 }
 
 /*search*/
@@ -52,7 +53,7 @@ body{
     margin: 0 auto;
     gap: 4.5rem;
     height: 150px;
-    width: 60%;
+    width: 90%;
     font-size: 1.5rem;
     border: #cfc8c2 1px solid;
     background-color: #f9f7f5;
@@ -66,7 +67,6 @@ body{
 .search select{
     height: 50px;
     font-size: 1rem;
-    min-width: 80px;
 }
 
 button,
@@ -179,4 +179,101 @@ button:active,
     letter-spacing: 15px;
     cursor: pointer;
     padding: 0;
-}    
+}
+
+/*smartphone*/
+    @media screen and (min-width:340px) and (max-width:767px) {
+        .reservation{
+            width: 90%;
+            padding-top: 30px;
+            margin: 0 auto 30px;
+        }
+        .re_ja{
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .re_en{
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        .re_text{
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        /*search*/
+        .search{
+            width: 95%;
+            height: 110px;
+            gap: 1.5rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .search input,
+        .search select{
+            height: 20px;
+            font-size: 0.8rem;
+        }
+        button,
+        .vertical_button{
+            width: 70px;
+            font-size: 1rem;
+            padding: 3px;
+        }
+
+        /*plan*/
+        .plan_all{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .plan_box{
+            flex-direction: column;
+            width: 100%;
+            padding: 30px 0;
+            height: auto;
+            gap: 10px;
+        }
+        .plan_img{
+            margin-bottom: 30px;
+            width: 80%;
+        }
+        .plan_name{
+            width: 90%;
+            height: auto;
+            text-align: center;
+        }
+        .plan_title{
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        .plan_descriptin{
+            font-size: 0.7rem;
+            margin-bottom: 20px;
+        }
+        .plan_text{
+            font-size: 1rem;
+        }
+        .plan_name::after{
+            display: none;
+        }
+    }
+    /*tablet*/
+@media screen and (min-width:768px) and (max-width:960px) {
+    /*search*/
+        .search{
+            width: 95%;
+            height: 110px;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .search input,
+        .search select{
+            height: 30px;
+        }
+        button,
+        .vertical_button{
+            width: 100px;
+            padding: 4px;
+            margin-left: 20px;
+        }
+}
