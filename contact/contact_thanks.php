@@ -39,10 +39,10 @@
             <a href="" class="main-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
+                    <li><a href="../header.php#spa">温泉</a></li>
+                    <li><a href="../header.php#room">お部屋</a></li>
+                    <li><a href="../header.php#dish">お食事</a></li>
+                    <li><a href="../header.php#footer">交通案内</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,36 +66,34 @@
     </div>
 
 
-    <footer id="footer">
-
-        <div id="footer_info">
-            <div class="footer_info">
-                <p class="main-logo"><a href="#">鳥沢温泉</a></p>
+  <footer id="page_footer">
+        <div id="page_footer_info">
+            <div class="page_footer_info">
+                <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>
                 </address>
             </div>
 
-            <nav id="nav">
+            <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">温泉</a></li>
-                        <li><a href="">お部屋</a></li>
-                        <li><a href="">お食事</a></li>
-                        <li><a href="">交通案内</a></li>
+                        <li><a href="../header.php">ホーム</a></li>
+                        <li><a href="../header.php#spa">温泉</a></li>
+                        <li><a href="../header.php#room">お部屋</a></li>
+                        <li><a href="../header.php#dish">お食事</a></li>
+                        <li><a href="../header.php#footer">交通案内</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-w">
                     <ul class="nav-w-list">
                         <li><a href="">よくある質問</a></li>
-                        <li><a href="">お問い合わせ</a></li>
+                        <li><a href="../contact/contact.html">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>
-
         </div>
     </footer>
     <script src="../app.js"></script>
