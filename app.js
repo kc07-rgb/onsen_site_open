@@ -3,19 +3,23 @@ const featureApper = document.querySelectorAll(".feature-wappaer");
 const header = document.getElementById("header-vew");
 
 window.addEventListener("scroll", ()=>{
+  if(header){
   if(window.scrollY > 300){
     header.classList.toggle("active")
   } else{
     header.classList.remove("active")
   }
+}
+if(introTitlText){
     const rect = introTitlText.getBoundingClientRect();
 
     if (rect.top < window.innerHeight * 0.9) {
         introTitlText.classList.add("active");
     }
+  }
 });
 
-
+if(featureApper){
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -28,12 +32,15 @@ const observer = new IntersectionObserver((entries) =>{
 featureApper.forEach(element => {
   observer.observe(element);
 });
+}
 
 //hamburger
 const hamburger = document.querySelector(".hamburger");
 const container = document.querySelector(".hamburger-container");
 
+if(hamburger && container){
 hamburger.addEventListener("click", ()=>{
   hamburger.classList.toggle("active");
   container.classList.toggle("active");
 });
+}
