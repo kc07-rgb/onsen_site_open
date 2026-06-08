@@ -34,6 +34,8 @@
         background-size: cover;
         background-position: center 24%;
         background-repeat: no-repeat;
+        position: relative;
+        color: var(--bg-color);
     }
 
     .page_tatile{
@@ -44,23 +46,26 @@
     .jp{
         font-size: 3rem;
         font-weight: 700;
-        letter-spacing: 2rem;
+        letter-spacing: 1.5rem;
     }
     .em{
         font-size: 2.5rem;
         font-weight: 700;
-        letter-spacing: 2rem;
+        letter-spacing: 1rem;
     }
     .description{
         font-size: 1.5rem;
         font-width: 700;
-        letter-spacing: 1.5rem;
+        letter-spacing: 1rem;
     }
 
     /**********
     wave
     **********/
 
+    .smartphon_wave{
+        display: none;
+    }
     .custom-shape-divider-bottom-1779276235 {
         position: absolute;
         top: 370px;
@@ -96,6 +101,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 7rem;
         height: 100px;
         width: 100%;
@@ -124,13 +130,14 @@
     news_pieces
     **********/
     .fresh_news{
+        position: relative;
         width: 90%;
         margin: 0 auto;
+        z-index: 10;
     }
     .news_box{
         width: 80%;
         margin: 120px auto;
-        z-index: 20;
     }
     .news_box .news_pieces {
         display: flex;
@@ -294,21 +301,52 @@
     }
 
     /*smartphon*/
-    @media screen and (min-width:375px) and (max-width:428px) {
+    @media screen and (min-width:340px) and (max-width:767px) {
         html{
             font-size: 14px;
         }
 
         /*page*/
+        #page{
+            height: 200px;
+            color: var(--bg-color);
+        }
+        .jp{
+            font-size: 2rem;
+            letter-spacing: 1rem;
+        }
+        .em{
+            font-size: 1rem;
+            letter-spacing: 1rem;
+        }
+        .description{
+            font-size: 1rem;
+            letter-spacing: 0;
+        }
+        /*wave*/
+        .custom-shape-divider-bottom-1779276235{
+            display: none;
+        }
+        .smartphon_wave{
+            display: block;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        .smartphon_wave svg{
+        display: block;
+        width: 100%;
+        height: 50px;
+        }
 
         /*news_list*/
         .current_category{
             font-size: 1rem;
         }
         .category{
-            flex-wrap: wrap;
             gap: 2rem;
             font-size: 1rem;
+            margin-top: 60px;
         }
         .category a{
             padding: 5px 15px;
@@ -370,8 +408,11 @@
 }
 
 
-    /*tblet
+    /*tblet*/
     @media screen and (min-width:768px) and (max-width:960px){
-
+        .news_box{
+        width: 100%;
+        margin: 120px auto;
+        z-index: 20;
+       }
     }
-    */

@@ -85,6 +85,7 @@
         <div class="middle"></div>
         <div class="bottom"></div>
     </div>
+    
     <div class="hamburger-container">
         <h2>鳥沢温泉</h2>
         <nav class="hamburger-nav">

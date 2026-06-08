@@ -616,7 +616,7 @@ footer
 
 
 /*smartphone*/
-    @media screen and (min-width:375px) and (max-width:428px) {
+    @media screen and (min-width:340px) and (max-width:767px) {
         
        /* *{
             outline: 1px solid red;

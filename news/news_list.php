@@ -128,8 +128,46 @@ $pdo = null;
                 <p class="description">鳥沢温泉からみなさまへの<br>
                     大切なお知らせをお届けいたします。</p>
             </div>
+            <!--wave-->
+            <div class="pc_wave custom-shape-divider-bottom-1779276235">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="smartphon_wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#f4f0e8" d="M0,192L60,202.7C120,213,240,235,360,218.7C480,203,600,149,720,149.3C840,149,960,203,1080,208C1200,213,1320,171,1380,149.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                </svg>
+            </div>
         </div>
     </header>
+
+<!--hamburger-->
+    <div class="hamburger">
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+    
+    <div class="hamburger-container">
+        <h2>鳥沢温泉</h2>
+        <nav class="hamburger-nav">
+            <ul class="hamburger-nav-list left">
+                <li><a href="">温泉</a></li>
+                <li><a href="">お部屋</a></li>
+                <li><a href="">お食事</a></li>
+                <li><a href="">交通案内</a></li>
+            </ul>
+            <ul class="hamburger-nav-list right">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
+
 
     <div class="nav">
         <nav>
@@ -141,11 +179,7 @@ $pdo = null;
         </nav>
     </div>
 
-    <div class="custom-shape-divider-bottom-1779276235">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-        </svg>
-    </div>
+
 
     <div class="news_list">
         <ul class="category">
@@ -248,6 +282,6 @@ $pdo = null;
         </div>
     </footer>
 
+<script src="../app.js"></script>
 </body>
-
 </html>
