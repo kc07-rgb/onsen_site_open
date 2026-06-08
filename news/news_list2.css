@@ -46,7 +46,7 @@
     .jp{
         font-size: 3rem;
         font-weight: 700;
-        letter-spacing: 1.5rem;
+        letter-spacing: 1rem;
     }
     .em{
         font-size: 2.5rem;
@@ -56,7 +56,7 @@
     .description{
         font-size: 1.5rem;
         font-width: 700;
-        letter-spacing: 1rem;
+        
     }
 
     /**********
@@ -313,15 +313,12 @@
         }
         .jp{
             font-size: 2rem;
-            letter-spacing: 1rem;
         }
         .em{
             font-size: 1rem;
-            letter-spacing: 1rem;
         }
         .description{
             font-size: 1rem;
-            letter-spacing: 0;
         }
         /*wave*/
         .custom-shape-divider-bottom-1779276235{

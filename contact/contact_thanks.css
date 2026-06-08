@@ -13,10 +13,10 @@ body{
 }
 
 .thanks{
-    padding-top: 150px;
+    width: 90%;
+    margin: 150px auto;
     text-align: center;
     background-color: #f4f0e8;
-    padding-bottom: 300px;
 }
 .thanks h2{
     font-size: 2rem;
@@ -27,22 +27,24 @@ body{
 .thanks p{
     font-size: 1.2rem;
     font-weight: 300;
-    letter-spacing: 5px;
     line-height: 50px;
-    margin-bottom: 60px;
 }
 
+
 .thanks a{
+    display: inline-block;
     position: relative;
-    letter-spacing: 5px;
     padding: 20px;
     color: #edecec;
-    background-color: #434940;
-    transition: all 0.5s ease;
+    background-color: var(--text-color);
+    color: var(--box-bg-color);
+    border: #434940 solid 1px;
+    margin-top: 60px;
     z-index: 20;
+    transition: all 0.5s ease;
 }
 .thanks a:hover{
-    color: #434940;
     background-color: #edecec;
+    color: #434940;
     border: #434940 solid 1px;
 }
