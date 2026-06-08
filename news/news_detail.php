@@ -65,7 +65,7 @@ $next = $nextStm->fetch();
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../css/page_header.css">
+    
     <link rel="stylesheet" href="./news_list2.css">
     <link rel="stylesheet" href="./news_detail.css">
     <link rel="stylesheet" href="../css/page_footer.css">
@@ -73,10 +73,10 @@ $next = $nextStm->fetch();
 
 <body>
 
+    <!--header-->
     <header id="header">
         <div id="header-top">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
-
+            <a href="" class="main-logo">鳥沢温泉</a>
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
@@ -89,7 +89,7 @@ $next = $nextStm->fetch();
         </div>
 
         <div id="header-vew">
-            <a href="" class="main-logo"><a href="../header.php"></a>鳥沢温泉</a>
+            <a href="" class="main-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li><a href="">温泉</a></li>

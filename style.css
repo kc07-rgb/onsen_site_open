@@ -4,7 +4,7 @@ Author: 千翔
 */
 :root{
     --bg-color: #f4f0e8;
-    --text-color: #2c241d;
+    --text-color: #443930;
     --box-bg-color: #f9f7f5;
     --box-border-color: #cfc8c2;
     --price-color: rgb(195, 10, 10);
@@ -19,7 +19,7 @@ Author: 千翔
 
 a {
     text-decoration: none;
-    color: #f9f7f5;
+    color: inherit;
 }
 
 body {
@@ -559,30 +559,25 @@ footer
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 100px 20px 50px;
+    padding: 100px 200px 50px;
     position: absolute;
     width: 100%;
     bottom: 0;
-    background: linear-gradient(rgba(149, 141, 141, 0), rgb(206, 190, 169));
+    color: var(--text-color);
+    background: linear-gradient(transparent, #f4f0e8 33%);
 }
 
-.footer_info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .footer_info address{
     font-weight: 500;
     font-family: "Noto Serif JP", serif;
 }
 .main-logo{
-    font-family:  "Yuji Boku", serif;
-}
-
-#footer a {
-    font-family: "Noto Serif JP", serif;
+    font-family: "Yuji Boku", serif;
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 3rem !important;
+    letter-spacing: 1rem;
+    margin-bottom: 30px;
+    
 }
 
 .nav-v {
@@ -591,7 +586,9 @@ footer
 
 #footer #nav {
     text-align: left;
-    font-size: 18px;
+    font-size: 2rem;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
 }
 
 .nav-v {
@@ -600,13 +597,13 @@ footer
 }
 .nav-v-list a,
 .nav-w-list a{
-    color: #1f1f1f;
+    color: var(--text-color);
     cursor: pointer;
     transition: 0.5s;
 }
 .nav-v-list a:hover,
 .nav-w-list a:hover{
-    color: var(--bg-color);
+    color: #bcb6b0 !important;
 }
 
 .nav-w {
@@ -1045,7 +1042,7 @@ footer
             color: var(--bg-color);
         }
         .main-logo{
-            font-size: 4rem;
+            font-size: 3rem;
         }
         .footer_info address{
             font-size: 2rem;
