@@ -116,7 +116,7 @@ body {
             width: 95%;
             padding: 10px 20px;
             font-size: 1rem;
-            position: relative;
+            position: static;
             top: auto;
             left: auto;
             transform: none;

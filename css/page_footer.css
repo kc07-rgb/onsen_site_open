@@ -2,16 +2,7 @@
 page_footer
 */
 #page_footer {
-    position: relative;
-    height: 30vh;
-    background: linear-gradient(
-        to top,
-        #484038 0%,
-        #89786b 40%,
-        #f4f0e8 100%
-    );
     color: #2c241d;
-    margin-top: 250px;
 }
 
 #page_footer_info {
@@ -20,11 +11,15 @@ page_footer
     align-items: center;
     margin: 0 auto;
     padding: 10px;
-    position: absolute;
     width: 100%;
     bottom: 0;
     font-weight: 500;
-    margin-bottom: 20px;
+        background: linear-gradient(
+        to top,
+        #484038 0%,
+        #89786b 40%,
+        #f4f0e8 100%
+    );
 }
 
 .page_footer_info{
@@ -75,15 +70,14 @@ page_footer
         html{
             font-size: 14px;
         }
-        #page_footer{
-            height: 20vh;
-        }
+
         .page_footer_info{
             flex-direction: column;
             gap: 10px;
         }
         .main-logo{
-            font-size: 1.2rem;
+            font-size: 2rem !important;
+            margin-bottom: 10px;
         }
         .page_footer_info address p{
             font-size: 0.8rem;

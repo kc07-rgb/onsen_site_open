@@ -114,9 +114,9 @@ $pdo = null;
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li><a href="../header.php#spa">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
+                    <li><a href="../header.php#room">お部屋</a></li>
+                    <li><a href="../header.php#dish">お食事</a></li>
+                    <li><a href="../header.php#footer">交通案内</a></li>
                 </ul>
             </nav>
         </div>
@@ -153,10 +153,10 @@ $pdo = null;
         <h2><a href="../header.php">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
-                <li><a href="">温泉</a></li>
-                <li><a href="">お部屋</a></li>
-                <li><a href="">お食事</a></li>
-                <li><a href="">交通案内</a></li>
+                <li><a href="../header.php#spa">温泉</a></li>
+                <li><a href="../header.php#room">お部屋</a></li>
+                <li><a href="../header.php#dish">お食事</a></li>
+                <li><a href="../header.php#footer">交通案内</a></li>
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
@@ -264,11 +264,11 @@ $pdo = null;
             <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">温泉</a></li>
-                        <li><a href="">お部屋</a></li>
-                        <li><a href="">お食事</a></li>
-                        <li><a href="">交通案内</a></li>
+                        <li><a href="../header.php">ホーム</a></li>
+                        <li><a href="../header.php#spa">温泉</a></li>
+                        <li><a href="../header.php#room">お部屋</a></li>
+                        <li><a href="../header.php#dish">お食事</a></li>
+                        <li><a href="../header.php#footer">交通案内</a></li>
                     </ul>
                 </div>
 
