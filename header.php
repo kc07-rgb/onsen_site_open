@@ -87,7 +87,7 @@
     </div>
     
     <div class="hamburger-container">
-        <h2>鳥沢温泉</h2>
+        <h2><a href="#">鳥沢温泉></a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
                 <li><a href="">温泉</a></li>
@@ -190,7 +190,7 @@
 
         <div id="footer_info">
             <div class="footer_info">
-                <p class="main-logo">鳥沢温泉</p>
+                <p class="main-logo"><a href="#">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>

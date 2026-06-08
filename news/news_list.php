@@ -110,7 +110,7 @@ $pdo = null;
         </div>
 
         <div id="header-vew">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="../header.php" class="main-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li><a href="">温泉</a></li>
@@ -150,7 +150,7 @@ $pdo = null;
     </div>
     
     <div class="hamburger-container">
-        <h2>鳥沢温泉</h2>
+        <h2><a href="../header.php">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
                 <li><a href="">温泉</a></li>
@@ -254,7 +254,7 @@ $pdo = null;
     <footer id="page_footer">
         <div id="page_footer_info">
             <div class="page_footer_info">
-                <p class="main-logo">鳥沢温泉</p>
+                <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>
@@ -275,7 +275,7 @@ $pdo = null;
                 <div class="nav-w">
                     <ul class="nav-w-list">
                         <li><a href="">よくある質問</a></li>
-                        <li><a href="">お問い合わせ</a></li>
+                        <li><a href="../contact/contact.html">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>
