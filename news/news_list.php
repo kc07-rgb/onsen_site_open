@@ -113,7 +113,7 @@ $pdo = null;
             <a href="../header.php" class="main-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="">温泉</a></li>
+                    <li><a href="../header.php#spa">温泉</a></li>
                     <li><a href="">お部屋</a></li>
                     <li><a href="">お食事</a></li>
                     <li><a href="">交通案内</a></li>

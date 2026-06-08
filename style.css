@@ -2,6 +2,9 @@
 Theme Name: Onsen Theme
 Author: 千翔
 */
+html{
+    scroll-behavior: smooth;
+}
 :root{
     --bg-color: #f4f0e8;
     --text-color: #443930;
@@ -412,6 +415,9 @@ feature
     );
     position: absolute;
 }
+#spa{
+    scroll-margin-top: -500px;
+}
 .feature-section.spa{
     padding-top: 500px;
 }
@@ -768,6 +774,9 @@ footer
         }
         .feature-section.spa{
             padding-top: 0px;
+        }
+        #spa,#room,#dish{
+            scroll-margin-top: -200px;
         }
 
         .feature-wappaer{

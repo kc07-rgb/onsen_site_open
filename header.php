@@ -25,7 +25,7 @@
     <!--header-->
     <header id="header">
         <div id="header-top">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="#header" class="main-logo">鳥沢温泉</a>
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
