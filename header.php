@@ -25,7 +25,7 @@
     <!--header-->
     <header id="header">
         <div id="header-top">
-            <a href="#header" class="main-logo">鳥沢温泉</a>
+            <a href="#header" class="header-logo">鳥沢温泉</a>
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
@@ -38,7 +38,7 @@
         </div>
 
         <div id="header-vew">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="" class="header-vew-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li><a href="#spa">温泉</a></li>
@@ -66,7 +66,7 @@
         <div class="main-text">
             <p class="main-catch">心ほどける<br>
                 至福の湯宿</p>
-            <h1 class="main-logo">鳥沢温泉</h1>
+            <h1 class="center-logo">鳥沢温泉</h1>
         </div>
         <div class="intro"></div>
 
@@ -87,7 +87,7 @@
     </div>
     
     <div class="hamburger-container">
-        <h2><a href="#">鳥沢温泉></a></h2>
+        <h2><a href="#">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
                 <li><a href="#spa">温泉</a></li>

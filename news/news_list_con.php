@@ -252,7 +252,7 @@ $pdo = null;
     </div>
 
     <footer id="page_footer">
-        <div id="page_footer_info">
+        <div id="page_footer_info_box">
             <div class="page_footer_info">
                 <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
                 <address>

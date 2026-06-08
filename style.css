@@ -49,13 +49,13 @@ header
 }
 
 
-#header-top .main-logo {
+#header-top .header-logo {
     color: #fff;
     font-size: 30px;
     letter-spacing: 15px;
 }
 
-#header-top .main-logo:visited {
+#header-top .header-logo:visited {
     color: #fff;
 }
 
@@ -134,13 +134,13 @@ header-vew
 
 }
 
-#header-vew .main-logo {
+#header-vew .header-vew-logo {
     color: #fff;
     font-size: 30px;
     letter-spacing: 15px;
 }
 
-#header-vew .main-logo:visited {
+#header-vew .header-vew-logo:visited {
     color: #fff;
 }
 
@@ -321,7 +321,7 @@ main {
     font-family: "Noto Serif JP", serif;
 }
 
-.main-logo {
+.center-logo {
     text-align: center;
     letter-spacing:2rem;
     font-size: 3.5rem;
@@ -340,10 +340,10 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     z-index: 0;
     background-color: #1b728f75;
     opacity: 0;
+    pointer-events: none; 
     visibility: hidden;
     transition: 0.5s;
 }
@@ -643,9 +643,10 @@ footer
         .main-catch{
             font-size: 1rem;
         }
-        .main-logo{
-            font-size: 2rem;
+        .header-logo{
+            font-size: 1rem;
             letter-spacing: 1rem;
+            color: #00688c;
         }
 
         /*hamburger*/
@@ -759,6 +760,13 @@ footer
         .main-nav.active{
             opacity: 1;
             background-color: #00688c;
+        }
+        .main-catch{
+            letter-spacing: 0.5rem;
+        }
+        .center-logo{
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
         }
 
         /*intro*/
@@ -951,6 +959,7 @@ footer
             z-index: 20;
             width: 100%;
             height: 100vh;
+            visibility: visible;
             background-color: #1b728f75;
             transition: 0.5s;
         }

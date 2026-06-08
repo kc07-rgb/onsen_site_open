@@ -33,13 +33,13 @@ header
 }
 
 
-#header-top .main-logo {
+#header-top .header-logo {
     color: #fff;
     font-size: 30px;
     letter-spacing: 15px;
 }
 
-#header-top .main-logo:visited {
+#header-top .header-logo:visited {
     color: #fff;
 }
 
@@ -118,13 +118,13 @@ header-vew
 
 }
 
-#header-vew .main-logo {
+#header-vew .header-vew-logo {
     color: #fff;
     font-size: 30px;
     letter-spacing: 15px;
 }
 
-#header-vew .main-logo:visited {
+#header-vew .header-vew-logo:visited {
     color: #fff;
 }
 
