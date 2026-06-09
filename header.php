@@ -80,12 +80,13 @@
         </nav>
     </main>
 
+    <!--hamburger-->
     <div class="hamburger">
         <div class="top"></div>
         <div class="middle"></div>
         <div class="bottom"></div>
     </div>
-    
+
     <div class="hamburger-container">
         <h2><a href="#">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">

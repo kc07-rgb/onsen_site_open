@@ -96,7 +96,7 @@ $pdo = null;
     <!--header-->
     <header id="header">
         <div id="header-top">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+            <a href="../header.php" class="header-logo">鳥沢温泉</a>
 
             <nav class="header-top-nav">
                 <ul class="header-top-list">
@@ -110,16 +110,17 @@ $pdo = null;
         </div>
 
         <div id="header-vew">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+            <a href="" class="header-vew-logo"><a href="../header.php"></a>鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
                     <li><a href="../header.php#spa">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
+                    <li><a href="../header.php#room">お部屋</a></li>
+                    <li><a href="../header.php#dish">お食事</a></li>
+                    <li><a href="../header.php#footer">交通案内</a></li>
                 </ul>
             </nav>
         </div>
+
 
         <div id="page">
             <div class="page_tatile">
@@ -142,21 +143,21 @@ $pdo = null;
         </div>
     </header>
 
-<!--hamburger-->
+    <!--hamburger-->
     <div class="hamburger">
         <div class="top"></div>
         <div class="middle"></div>
         <div class="bottom"></div>
     </div>
-    
+
     <div class="hamburger-container">
         <h2><a href="../header.php">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
-                <li><a href="">温泉</a></li>
-                <li><a href="">お部屋</a></li>
-                <li><a href="">お食事</a></li>
-                <li><a href="">交通案内</a></li>
+                <li><a href="../header.php#spa">温泉</a></li>
+                <li><a href="../header.php#room">お部屋</a></li>
+                <li><a href="../header.php#dish">お食事</a></li>
+                <li><a href="../header.php#footer">交通案内</a></li>
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
@@ -167,7 +168,6 @@ $pdo = null;
             </ul>
         </nav>
     </div>
-
 
     <div class="nav">
         <nav>
@@ -282,6 +282,7 @@ $pdo = null;
         </div>
     </footer>
 
-<script src="../app.js"></script>
+    <script src="../app.js"></script>
 </body>
+
 </html>

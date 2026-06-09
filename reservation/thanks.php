@@ -72,9 +72,10 @@ $plan_names = [
 
 <body>
 
+    <!--header-->
     <header id="header">
         <div id="header-top">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+            <a href="../header.php" class="header-logo">鳥沢温泉</a>
 
             <nav class="header-top-nav">
                 <ul class="header-top-list">
@@ -88,17 +89,53 @@ $plan_names = [
         </div>
 
         <div id="header-vew">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="" class="header-vew-logo"><a href="../header.php"></a>鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
+                    <li><a href="../header.php#spa">温泉</a></li>
+                    <li><a href="../header.php#room">お部屋</a></li>
+                    <li><a href="../header.php#dish">お食事</a></li>
+                    <li><a href="../header.php#footer">交通案内</a></li>
                 </ul>
             </nav>
         </div>
+
+        <div id="page">
+            <div class="page_tatile">
+                <h2 class="jp">お問い合わせ</h2>
+                <p class="em">Contact</p>
+                <p class="description">ご不明な点やご相談など、お気軽にお問い合わせください。<br>
+                    スタッフが丁寧にご対応させていただきます。</p>
+            </div>
+        </div>
     </header>
+
+    <!--hamburger-->
+    <div class="hamburger">
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+
+    <div class="hamburger-container">
+        <h2><a href="../header.php">鳥沢温泉</a></h2>
+        <nav class="hamburger-nav">
+            <ul class="hamburger-nav-list left">
+                <li><a href="../header.php#spa">温泉</a></li>
+                <li><a href="../header.php#room">お部屋</a></li>
+                <li><a href="../header.php#dish">お食事</a></li>
+                <li><a href="../header.php#footer">交通案内</a></li>
+            </ul>
+            <ul class="hamburger-nav-list right">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
+
 
     <div class="reservation">
         <h2 class="re_ja">ご予約が完了しました。</h2>
@@ -142,28 +179,28 @@ $plan_names = [
             </div>
         </div>
 
-            <div class="vertical_group">
-                <p class="vertical_title">お客様情報</p>
-                <div class="contents">
-                    <div class="contens_pieces">
-                        <p class="contens_label">お名前</p>
-                        <p><?= htmlspecialchars($name, ENT_QUOTES, "UTF-8") ?>様</p>
-                    </div>
-                    <div class="contens_pieces">
-                        <p class="contens_label">お電話番号</p>
-                        <p><?= htmlspecialchars($tel, ENT_QUOTES, "UTF-8") ?></p>
-                    </div>
-                    <div class="contens_pieces">
-                        <p class="contens_label">メールアドレス</p>
-                        <p><?= htmlspecialchars($email, ENT_QUOTES, "UTF-8") ?></p>
-                    </div>
-                    <div class="contens_pieces">
-                        <p class="contens_label">住所</p>
-                        <p><?= htmlspecialchars("〒" . $zipcode, ENT_QUOTES, "UTF-8") ?><br>
-                            <?= htmlspecialchars($address1 . $address2 . $address3 . $address4, ENT_QUOTES, "UTF-8") ?></p>
-                    </div>
+        <div class="vertical_group">
+            <p class="vertical_title">お客様情報</p>
+            <div class="contents">
+                <div class="contens_pieces">
+                    <p class="contens_label">お名前</p>
+                    <p><?= htmlspecialchars($name, ENT_QUOTES, "UTF-8") ?>様</p>
+                </div>
+                <div class="contens_pieces">
+                    <p class="contens_label">お電話番号</p>
+                    <p><?= htmlspecialchars($tel, ENT_QUOTES, "UTF-8") ?></p>
+                </div>
+                <div class="contens_pieces">
+                    <p class="contens_label">メールアドレス</p>
+                    <p><?= htmlspecialchars($email, ENT_QUOTES, "UTF-8") ?></p>
+                </div>
+                <div class="contens_pieces">
+                    <p class="contens_label">住所</p>
+                    <p><?= htmlspecialchars("〒" . $zipcode, ENT_QUOTES, "UTF-8") ?><br>
+                        <?= htmlspecialchars($address1 . $address2 . $address3 . $address4, ENT_QUOTES, "UTF-8") ?></p>
                 </div>
             </div>
+        </div>
     </div>
 
     <div class="thanks_message">

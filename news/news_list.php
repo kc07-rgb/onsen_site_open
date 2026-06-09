@@ -93,33 +93,33 @@ $pdo = null;
 </head>
 
 <body>
-    <!--header-->
-    <header id="header">
-        <div id="header-top">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+<header id="header">
+    <div id="header-top">
+        <a href="../header.php" class="header-logo">鳥沢温泉</a>
 
-            <nav class="header-top-nav">
-                <ul class="header-top-list">
-                    <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
-                    <li><a href="">よくあるご質問</a></li>
-                    <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
-                    <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
-                    <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="header-top-nav">
+            <ul class="header-top-list">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
 
-        <div id="header-vew">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
-            <nav class="header-nav">
-                <ul class="header-nav-list">
-                    <li><a href="../header.php#spa">温泉</a></li>
-                    <li><a href="../header.php#room">お部屋</a></li>
-                    <li><a href="../header.php#dish">お食事</a></li>
-                    <li><a href="../header.php#footer">交通案内</a></li>
-                </ul>
-            </nav>
-        </div>
+    <div id="header-vew">
+        <a href="" class="header-vew-logo"><a href="../header.php"></a>鳥沢温泉</a>
+        <nav class="header-nav">
+            <ul class="header-nav-list">
+                <li><a href="">温泉</a></li>
+                <li><a href="">お部屋</a></li>
+                <li><a href="">お食事</a></li>
+                <li><a href="">交通案内</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
         <div id="page">
             <div class="page_tatile">

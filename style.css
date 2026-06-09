@@ -336,7 +336,6 @@ main {
 
 
 .hamburger-container{
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -345,6 +344,7 @@ main {
     opacity: 0;
     pointer-events: none; 
     visibility: hidden;
+    pointer-events: auto;
     transition: 0.5s;
 }
 
@@ -775,7 +775,7 @@ footer
         }
         #intro-title{
             height: 80vh;
-            padding-top: 0px;
+            padding-top: 90px;
         }
 
         /*feauture*/
@@ -962,6 +962,7 @@ footer
             visibility: visible;
             background-color: #1b728f75;
             transition: 0.5s;
+            pointer-events: auto;
         }
         .hamburger-container h2{
             display: block;
