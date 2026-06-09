@@ -1,44 +1,44 @@
-* {
+    * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     list-style: none;
-}
-a {
+    }
+    a {
     color: #2c241d;
     text-decoration: none;
-}
-body{
+    }
+    body{
     background-color: #f4f0e8 !important;
     font-family: "Noto Serif JP", serif;
-}
+    }
 
-.vertical{
+    .vertical{
     display: flex;
     width: 90%;
     margin: 0 auto;
     gap: 50px;
     align-items: flex-start;
-}
-.vertical_group{
+    }
+    .vertical_group{
     width: 40%;
     border: #cfc8c2 1px solid;
     background-color: #f9f7f5;
-}
-.vertical_group_two{
+    }
+    .vertical_group_two{
     width: 60%;
     border: #cfc8c2 1px solid;
     background-color: #f9f7f5;
-}
-.vertical_title{
+    }
+   .vertical_title{
     font-size: 2rem;
     font-weight: 750;
     color: #8a7460;
     padding: 30px;
     position: relative;
     margin-bottom: 20px;
-}
-.vertical_title::after{
+   }
+   .vertical_title::after{
     content: "";
     width: 100%;
     height: 2px;
@@ -46,7 +46,7 @@ body{
     bottom: -10%;
     left: 0;
     position: absolute;
-}
+   }
     .contens_pieces{
     display: flex;
     align-items: center;
@@ -72,13 +72,13 @@ body{
         display: none;
     }
     .contens_price{
-        color: rgb(195, 10, 10);
+        color: var(--price-color);
         font-weight: 500;
         font-size: 2rem;
     }
-.repuired_box{
+    .repuired_box{
     display: flex;
-}
+    }
     .customer_item{
     display: flex;   
     flex-direction: column;
@@ -153,4 +153,77 @@ body{
         font-size: 1.5rem;
         letter-spacing: 10px;
         margin: 100px auto;
+    }
+
+    /*smartphone*/
+    @media screen and (min-width:340px) and (max-width:767px) {
+        .vertical{
+            display: block;
+        }
+        .vertical_group,
+        .vertical_group_two{
+            width: 100%;
+        }
+        .vertical_group{
+            margin-bottom: 50px;
+        }
+        .vertical_title{
+            font-size: 1.5rem;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .contens_pieces{
+            gap: 1rem;
+            padding: 10px 20px;
+            font-size: 1rem;
+            line-height: normal;
+        }
+        .contens_price{
+            font-size: 1.3rem;
+        }
+
+        /*custmoer*/
+        .customer_item{
+            font-size: 1rem;
+            position: 10px 20px;
+            line-height: normal;
+        }
+        .customer_item input{
+        height: 20px;
+        }
+        .customer_item textarea{
+        height: 100px;
+        }
+        .customer_item label{
+        margin-bottom: 10px;
+        }
+
+        /*zipcode*/
+        .zippcoe_button{
+            font-size: 0.8rem;
+            height: 20px;
+            padding: 0 10px;
+            margin-right: 120px;
+            margin-left: 0;
+        }
+
+        /*required*/
+        .required{
+            font-size: 0.8rem;
+            padding: 1px 5px;
+            letter-spacing: 0;
+            margin-left: 20px;
+        }
+
+        /*vertical_button*/
+        .vertical_button{
+            width: 40%;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin: 50px auto 100px;
+        }
+    }
+    /*tblet*/
+    @media screen and (min-width:768px) and (max-width:1280px){
     }
