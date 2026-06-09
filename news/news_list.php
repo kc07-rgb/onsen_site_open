@@ -108,17 +108,17 @@ $pdo = null;
         </nav>
     </div>
 
-    <div id="header-vew">
-        <a href="" class="header-vew-logo"><a href="../header.php"></a>鳥沢温泉</a>
-        <nav class="header-nav">
-            <ul class="header-nav-list">
-                <li><a href="">温泉</a></li>
-                <li><a href="">お部屋</a></li>
-                <li><a href="">お食事</a></li>
-                <li><a href="">交通案内</a></li>
-            </ul>
-        </nav>
-    </div>
+        <div id="header-vew">
+            <a href="../header.php" class="header-vew-logo">鳥沢温泉</a>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li><a href="../header.php#spa">温泉</a></li>
+                    <li><a href="../header.php#room">お部屋</a></li>
+                    <li><a href="../header.php#dish">お食事</a></li>
+                    <li><a href="../header.php#footer_info">交通案内</a></li>
+                </ul>
+            </nav>
+        </div>
 </header>
 
         <div id="page">
