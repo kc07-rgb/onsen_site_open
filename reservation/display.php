@@ -68,7 +68,6 @@ $plan_names = [
             </nav>
         </div>
     </header>
-
     <!--hamburger-->
     <div class="hamburger">
         <div class="top"></div>
