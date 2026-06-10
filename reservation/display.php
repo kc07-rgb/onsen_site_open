@@ -103,33 +103,32 @@ $plan_names = [
 
     <form action="confirm.php" method="POST">
         <div class="vertical">
-
             <div class="vertical_group">
                 <p class="vertical_title">ご予約内容</p>
                 <div class="contents">
                     <div class="contens_pieces">
                         <p class="contens_label">大人</p>
-                        <p><?= (int)$adult ?>名</p>
+                        <p class="contens_date"><?= (int)$adult ?>名</p>
                         <input type="hidden" name="adult" value="<?= (int)$adult ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">子ども</p>
-                        <p><?= (int)$children ?>名</p>
+                        <p class="contens_date"><?= (int)$children ?>名</p>
                         <input type="hidden" name="children" value="<?= (int)$children ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">チェックイン</p>
-                        <p><?= date("Y年m月d日", strtotime($checkin)) ?></p>
+                        <p class="contens_date"><?= date("Y年m月d日", strtotime($checkin)) ?></p>
                         <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_COMPAT, "UTF-8") ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">チェックアウト</p>
-                        <p><?= date("Y年m月d日", strtotime($checkout)) ?></p>
+                        <p class="contens_date"><?= date("Y年m月d日", strtotime($checkout)) ?></p>
                         <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_COMPAT, "UTF-8") ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">プラン</p>
-                        <p><?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
+                        <p class="contens_date"><?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
                         <input type="hidden" name="plan" value="<?= htmlentities($plan, ENT_QUOTES, "UTF-8") ?>">
                     </div>
                     <div class="contens_pieces">
@@ -240,6 +239,9 @@ $plan_names = [
                     result.address2 + result.address3;
             }
         });
+
+        document.body.scrollHeight;
+        window.innerHeight;
     </script>
 </body>
 

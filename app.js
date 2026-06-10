@@ -4,7 +4,7 @@ const header = document.getElementById("header-vew");
 
 window.addEventListener("scroll", ()=>{
   if(header){
-  if(window.scrollY > 300){
+  if(window.scrollY > 100){
     header.classList.add("active")
   } else{
     header.classList.remove("active")

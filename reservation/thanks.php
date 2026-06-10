@@ -61,18 +61,18 @@ $plan_names = [
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/page_header.css">
+    <link rel="stylesheet" href="../css/page_footer.css">
     <link rel="stylesheet" href="./reservation.css">
     <link rel="stylesheet" href="./display.css">
     <link rel="stylesheet" href="./thanks.css">
-    <link rel="stylesheet" href="../css/page_header.css">
-    <link rel="stylesheet" href="../css/page_footer.css">
 
     <title>鳥沢温泉 | 予約完了</title>
 </head>
 
 <body>
 
-    <!--header-->
     <header id="header">
         <div id="header-top">
             <a href="../header.php" class="header-logo">鳥沢温泉</a>
@@ -99,17 +99,7 @@ $plan_names = [
                 </ul>
             </nav>
         </div>
-
-        <div id="page">
-            <div class="page_tatile">
-                <h2 class="jp">お問い合わせ</h2>
-                <p class="em">Contact</p>
-                <p class="description">ご不明な点やご相談など、お気軽にお問い合わせください。<br>
-                    スタッフが丁寧にご対応させていただきます。</p>
-            </div>
-        </div>
     </header>
-
     <!--hamburger-->
     <div class="hamburger">
         <div class="top"></div>
@@ -135,6 +125,8 @@ $plan_names = [
             </ul>
         </nav>
     </div>
+
+
 
 
     <div class="reservation">
@@ -179,7 +171,7 @@ $plan_names = [
             </div>
         </div>
 
-        <div class="vertical_group">
+        <div class="vertical_group_two">
             <p class="vertical_title">お客様情報</p>
             <div class="contents">
                 <div class="contens_pieces">
@@ -211,9 +203,9 @@ $plan_names = [
     <a class="vertical_button" href="/温泉/header.php">ホームへ戻る</a>
 
     <footer id="page_footer">
-        <div id="page_footer_info">
+        <div id="page_footer_info_box">
             <div class="page_footer_info">
-                <p class="main-logo">鳥沢温泉</p>
+                <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>
@@ -223,24 +215,25 @@ $plan_names = [
             <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">温泉</a></li>
-                        <li><a href="">お部屋</a></li>
-                        <li><a href="">お食事</a></li>
-                        <li><a href="">交通案内</a></li>
+                        <li><a href="../header.php">ホーム</a></li>
+                        <li><a href="../header.php#spa">温泉</a></li>
+                        <li><a href="../header.php#room">お部屋</a></li>
+                        <li><a href="../header.php#dish">お食事</a></li>
+                        <li><a href="../header.php#footer">交通案内</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-w">
                     <ul class="nav-w-list">
                         <li><a href="">よくある質問</a></li>
-                        <li><a href="">お問い合わせ</a></li>
+                        <li><a href="../contact/contact.html">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </footer>
 
+    <script src="../app.js"></script>
 </body>
 
 </html>

@@ -619,7 +619,6 @@ footer
     line-height: 2.0;
 }
 
-
 /*smartphone*/
     @media screen and (min-width:340px) and (max-width:767px) {
         
