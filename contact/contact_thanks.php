@@ -10,6 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+JP:wght@200..900&family=Yuji+Boku&display=swap"
+        rel="stylesheet">
+    <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../news/news_list2.css">
     <link rel="stylesheet" href="../style.css">
@@ -94,10 +101,9 @@
     </div>
 
 
-    <footer id="footer">
-
-        <div id="footer_info">
-            <div class="footer_info">
+    <footer id="page_footer">
+        <div id="page_footer_info_box">
+            <div class="page_footer_info">
                 <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
@@ -105,7 +111,7 @@
                 </address>
             </div>
 
-            <nav id="nav">
+            <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
                         <li><a href="../header.php">ホーム</a></li>
@@ -123,7 +129,6 @@
                     </ul>
                 </div>
             </nav>
-
         </div>
     </footer>
     <script src="../app.js"></script>

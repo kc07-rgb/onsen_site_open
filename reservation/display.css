@@ -72,6 +72,12 @@
     .contens_pieces:last-child::after{
         display: none;
     }
+
+    .pisces_text{
+        width: 90%;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
     .contens_price{
         color: var(--price-color);
         font-weight: 500;
@@ -127,6 +133,9 @@
         margin-left: 0;
     }
     .zippcoe_button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1.5rem;
         height: 50px;
         padding: 0 20px;
@@ -232,6 +241,7 @@
         font-size: 14px;
        }
         .vertical{
+            width: 95%;
             justify-content: center;
             gap: 20px;
             min-height: 1280px;

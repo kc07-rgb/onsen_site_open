@@ -229,9 +229,10 @@ button:active,
         /*plan*/
         .plan{
             margin-bottom: 150px;
+            width: 90%;
+            margin: 0 auto;
         }
         .plan_all{
-            width: 90%;
             margin: 0 auto;
         }
         .plan_box{

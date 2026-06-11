@@ -61,12 +61,12 @@ $plan_names = [
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../css/page_footer.css">
     <link rel="stylesheet" href="./reservation.css">
     <link rel="stylesheet" href="./display.css">
     <link rel="stylesheet" href="./thanks.css">
+    <link rel="stylesheet" href="../style.css">
 
     <title>鳥沢温泉 | 予約完了</title>
 </head>
@@ -161,10 +161,6 @@ $plan_names = [
                     <p><?= $checkout ?></p>
                 </div>
                 <div class="contens_pieces">
-                    <p class="contens_label">ご要望・アレルギーなど</p>
-                    <p><?= htmlspecialchars($message, ENT_QUOTES, "UTF-8") ?></p>
-                </div>
-                <div class="contens_pieces">
                     <p class="contens_label">料金</p>
                     <p class="contens_price"><?= number_format((int)$total_price) ?>円</p>
                 </div>
@@ -191,9 +187,16 @@ $plan_names = [
                     <p><?= htmlspecialchars("〒" . $zipcode, ENT_QUOTES, "UTF-8") ?><br>
                         <?= htmlspecialchars($address1 . $address2 . $address3 . $address4, ENT_QUOTES, "UTF-8") ?></p>
                 </div>
+                <div class="contens_pieces_box">
+                    <p class="contens_label">ご要望・アレルギーなど</p>
+                    <p class="pisces_text"><?= htmlspecialchars($message, ENT_QUOTES, "UTF-8") ?></p>
+                </div>
             </div>
         </div>
     </div>
+
+
+
 
     <div class="thanks_message">
         <p>ご予約内容の確認メールをお送りしましたので、必ずご確認ください。<br>

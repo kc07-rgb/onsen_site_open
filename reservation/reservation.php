@@ -87,10 +87,11 @@ $searched = !empty($_GET["checkin"]) && !empty($_GET["checkout"]);
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./reservation.css">
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../css/page_footer.css">
+    <link rel="stylesheet" href="../style.css">
+
     <title>鳥沢温泉 | 予約</title>
 </head>
 

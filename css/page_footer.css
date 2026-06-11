@@ -2,6 +2,7 @@
 page_footer
 */
 #page_footer {
+    width: 100%;
     color: #2c241d;
     background: linear-gradient(
         to top,

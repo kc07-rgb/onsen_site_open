@@ -575,11 +575,11 @@ footer
     background: linear-gradient(transparent, #f4f0e8 33%);
 }
 
-.footer_info address{
+#footer .footer_info address{
     font-weight: 500;
     font-family: "Noto Serif JP", serif;
 }
-.top-main-logo{
+#footer .top-main-logo{
     font-family: "Yuji Boku", serif;
     font-weight: 800;
     font-size: 3rem !important;
@@ -588,7 +588,7 @@ footer
     
 }
 
-.nav-v {
+#footer .nav-v {
     writing-mode: vertical-lr;
 }
 
@@ -599,22 +599,22 @@ footer
     font-weight: 500;
 }
 
-.nav-v {
+#footer .nav-v {
     line-height: 60px;
     margin-bottom: 50px;
 }
-.nav-v-list a,
-.nav-w-list a{
+#footer .nav-v-list a,
+#footer .nav-w-list a{
     color: var(--text-color);
     cursor: pointer;
     transition: 0.5s;
 }
-.nav-v-list a:hover,
-.nav-w-list a:hover{
+#footer .nav-v-list a:hover,
+#footer .nav-w-list a:hover{
     color: #bcb6b0 !important;
 }
 
-.nav-w {
+#footer .nav-w {
     text-align: center;
     line-height: 2.0;
 }
@@ -859,7 +859,7 @@ footer
             justify-content: center;
             padding: 0;
         }
-        .footer_info{
+        #footer .footer_info{
             position: absolute;
             top: 0;
             flex-direction: column;
@@ -1052,7 +1052,7 @@ footer
             justify-content: center;
             padding: 0;
         }
-        .footer_info{
+        #footer .footer_info{
             position: absolute;
             top: 0;
             flex-direction: column;
@@ -1062,13 +1062,13 @@ footer
             margin-top: 2rem;
             color: var(--bg-color);
         }
-        .top-main-logo{
+        #footer .top-main-logo{
             font-size: 3rem;
         }
-        .footer_info address{
+        #footer .footer_info address{
             font-size: 2rem;
         }
-        #nav{
+        #footer #nav{
             display: none;
         }
 }

@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ</title>
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+JP:wght@200..900&family=Yuji+Boku&display=swap"
+        rel="stylesheet">
+    <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../news/news_list2.css">
@@ -77,42 +84,42 @@
         </nav>
     </div>
 
-        <div class="contact">
-            <div class="contact_explanation">
-                <h3>お問い合わせフォーム</h3>
-                <p>下記フォームに必要事項をご入力の上、送信してください。</p>
+    <div class="contact">
+        <div class="contact_explanation">
+            <h3>お問い合わせフォーム</h3>
+            <p>下記フォームに必要事項をご入力の上、送信してください。</p>
+        </div>
+
+        <form action="./contact.php" method="POST">
+
+            <div class="form_item">
+                <label for="name">お名前</label>
+                <input type="text" name="name" id="name" required>
             </div>
 
-            <form action="./contact.php" method="POST">
+            <div class="form_item">
+                <label for="kana">ふりがな</label>
+                <input type="text" name="kana" id="kana" required>
+            </div>
 
-                <div class="form_item">
-                    <label for="name">お名前</label>
-                    <input type="text" name="name" id="name" required>
-                </div>
+            <div class="form_item">
+                <label for="email">メールアドレス</label>
+                <input type="email" name="email" id="email">
+            </div>
 
-                <div class="form_item">
-                    <label for="kana">ふりがな</label>
-                    <input type="text" name="kana" id="kana" required>
-                </div>
+            <div class="form_item">
+                <label for="tel">お電話番号(任意)</label>
+                <input type="tel" name="tel" id="tel">
+            </div>
 
-                <div class="form_item">
-                    <label for="email">メールアドレス</label>
-                    <input type="email" name="email" id="email">
-                </div>
+            <div class="form_item">
+                <label for="message">お問い合わせ内容</label>
+                <textarea name="message" id="message" rows="10" cols="40" required></textarea>
+            </div>
 
-                <div class="form_item">
-                    <label for="tel">お電話番号(任意)</label>
-                    <input type="tel" name="tel" id="tel">
-                </div>
-
-                <div class="form_item">
-                    <label for="message">お問い合わせ内容</label>
-                    <textarea name="message" id="message" rows="10" cols="40" required></textarea>
-                </div>
-
-                <button class="contact_btn" type="submit">送信する</button>
-            </form>
-        </div>
+            <button class="contact_btn" type="submit">送信する</button>
+        </form>
+    </div>
 
 
     <footer id="page_footer">
