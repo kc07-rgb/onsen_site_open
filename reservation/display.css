@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     gap: 5rem;
-    padding: 0 20px;
+    padding: 0 5px;
     font-size: 1.5rem;
     line-height: 100px;
     position: relative;
@@ -73,8 +73,19 @@
         display: none;
     }
 
+    .contens_pieces_box{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    font-size: 1.5rem;
+    }
+    .contens_pieces_box .contens_label{
+        width: 45%;
+        margin-bottom: 20px;
+    }
     .pisces_text{
-        width: 90%;
+        width: 100%;
+        text-align: left;
         overflow-wrap: break-word;
         white-space: pre-wrap;
     }
@@ -83,9 +94,19 @@
         font-weight: 500;
         font-size: 2rem;
     }
-    .repuired_box{
+    .contens_pieces .repuired_box{
     display: flex;
     }
+    .post_number{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.5rem;
+        min-height: 150px;
+        height: 90px;
+    }
+
     .customer_item{
     display: flex;   
     flex-direction: column;
@@ -160,7 +181,7 @@
 
     .vertical_button{
         display: block;
-        width: 20%;
+        width: 50%;
         font-size: 1.5rem;
         letter-spacing: 10px;
         margin: 100px auto;
@@ -241,18 +262,18 @@
         font-size: 14px;
        }
         .vertical{
+            flex-direction: column;
             width: 95%;
             justify-content: center;
-            gap: 20px;
+            gap: 100px;
             min-height: 1280px;
         }
-        .vertical_group{
-            width: 50%;
-        }
+        .vertical_group,
         .vertical_group_two{
-            width: 50%;
+            width: 100%;
         }
         .vertical_title{
+            text-align: center;
             padding: 10px;
             margin-bottom: 10px;
         }
@@ -267,7 +288,7 @@
             padding: 5px;
         }
         .contens_price{
-        font-size: 1.5rem;
+        font-size: 2rem;
         }
         .customer_item{
             line-height: 50px;
@@ -277,23 +298,25 @@
             margin-bottom: 10px;
         }
         .customer_item input{
-        height: 30px;
+        height: 40px;
         margin-bottom: 10px;
         }
         .customer_item textarea{
-        height: 100px;
+        height: 130px;
         }
         .zipcode_row input{
             width: 50%;
         }
+        .zipcode_row{
+            align-items: center;
+        }
         .zippcoe_button{
-            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: 10px;
-            margin-right: 100px;
-            height: 20px;
+            margin-right: 300px;
+            height: 30px;
             font-size: 1rem;
             padding: 10px 10px;
         }

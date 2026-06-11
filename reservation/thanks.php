@@ -154,11 +154,11 @@ $plan_names = [
                 </div>
                 <div class="contens_pieces">
                     <p class="contens_label">チェックイン</p>
-                    <p><?= $checkin ?></p>
+                    <p><?= date("Y年m月d日", strtotime($checkin)) ?></p>
                 </div>
                 <div class="contens_pieces">
                     <p class="contens_label">チェックアウト</p>
-                    <p><?= $checkout ?></p>
+                    <p><?= date("Y年m月d日", strtotime($checkout)) ?></p>
                 </div>
                 <div class="contens_pieces">
                     <p class="contens_label">料金</p>
@@ -184,8 +184,12 @@ $plan_names = [
                 </div>
                 <div class="contens_pieces">
                     <p class="contens_label">住所</p>
-                    <p><?= htmlspecialchars("〒" . $zipcode, ENT_QUOTES, "UTF-8") ?><br>
-                        <?= htmlspecialchars($address1 . $address2 . $address3 . $address4, ENT_QUOTES, "UTF-8") ?></p>
+                    <div class="post_number">
+                        <p class="pisces_text"><?= htmlspecialchars("〒" . $zipcode, ENT_QUOTES, "UTF-8") ?></p>
+                        <p class="pisces_text"><?= htmlspecialchars($address1 . $address2, ENT_QUOTES, "UTF-8") ?></p>
+                        <p class="pisces_text"><?= htmlspecialchars($address3, ENT_QUOTES, "UTF-8") ?></p>
+                        <p class="pisces_text"><?= htmlspecialchars($address4, ENT_QUOTES, "UTF-8") ?></p>
+                    </div>
                 </div>
                 <div class="contens_pieces_box">
                     <p class="contens_label">ご要望・アレルギーなど</p>
