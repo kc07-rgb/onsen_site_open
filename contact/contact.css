@@ -11,8 +11,8 @@ a {
 
 body {
     background-color: var(--bg-color);
-    
 }
+
 
 
 /*contact*/
@@ -27,7 +27,7 @@ body {
     background-color: var(--box-bg-color);
     border: 1px solid var(--box-border-color);
     width: 70%;
-    margin: -280px auto 80px;
+    margin: -5vw auto 80px;
     padding: 40px;
     color: var(--text-color);
     z-index: 10;
@@ -38,7 +38,6 @@ body {
     text-align: center;
     line-height: 4rem;
 }
-
 
 .form_item{
     width: 100%;

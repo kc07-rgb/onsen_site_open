@@ -579,7 +579,7 @@ footer
     font-weight: 500;
     font-family: "Noto Serif JP", serif;
 }
-.main-logo{
+.top-main-logo{
     font-family: "Yuji Boku", serif;
     font-weight: 800;
     font-size: 3rem !important;
@@ -894,7 +894,7 @@ footer
             font-size: 1.5rem;
             letter-spacing: 1rem;
         }
-        .main-logo{
+        .top-main-logo{
             font-size: 3rem;
             letter-spacing: 1rem;
         }
@@ -1062,7 +1062,7 @@ footer
             margin-top: 2rem;
             color: var(--bg-color);
         }
-        .main-logo{
+        .top-main-logo{
             font-size: 3rem;
         }
         .footer_info address{
