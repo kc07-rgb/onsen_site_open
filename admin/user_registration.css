@@ -33,3 +33,12 @@ html{
     font-size: 1rem;
     margin-top: 60px;
 }
+
+.done{
+    text-align: center;
+}
+.reg_btn{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}

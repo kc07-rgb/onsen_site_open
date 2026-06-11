@@ -48,7 +48,7 @@ if (isset($_POST["submit"])) {
             $stmt->bindParam(":birthday", $birthday);
             $stmt->execute();
 
-            echo "登録が完了しました";
+            $done = "登録が完了しました";
         } catch (PDOException $e) {
             if ($e->errorInfo[1] === 1062) {
                 $error = "このユーザー名は既に使用されています";
@@ -108,7 +108,11 @@ if (isset($_POST["submit"])) {
         <?php endif; ?>
     </form>
 
-    <a href="/温泉/news/news_list.php" class="reg_btn">ログイン画面へ戻る</a>
+    <?php if (!empty($done)): ?>
+        <p class="done"><?= ($done) ?></p>
+    <?php endif; ?>
+
+    <a href="./dashboard.php" class="reg_btn">ログイン画面へ戻る</a>
 
     <script>
         const yearSelect = document.getElementById("year");

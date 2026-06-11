@@ -24,7 +24,7 @@ if (isset($_POST["login"])) {
         $_SESSION["username"] = $user["username"];
 
         echo "ログイン成功";
-        header("Location:./admin/news_list_adm.php");
+        header("Location:../news/news_list.php");
         exit;
     } else {
         $error = "ユーザーネームまたはパスワードが違います";
