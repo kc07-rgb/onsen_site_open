@@ -102,6 +102,7 @@ header-vew
     display: flex;
     justify-content: space-between;
     align-items: center;
+    top: 0;
     width: 100%;
     padding: 10px 60px;
     background-color: #1f1f1f9f;
@@ -178,7 +179,6 @@ header-vew
 .header-nav-list a:visited {
     color: #fff;
 }
-
 /*smartphon*/
 @media screen and (min-width:340px) and (max-width:767px) {
     #header{

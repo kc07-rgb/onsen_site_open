@@ -109,6 +109,12 @@ header
     color: #fff;
 }
 
+/*admin*/
+#header-vew.admin.active{
+    top: 0;
+}
+
+
 
 /*
 header-vew

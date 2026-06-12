@@ -293,6 +293,20 @@
         z-index: 60;
     }
 
+    .admin_header{
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .admin_header a{
+        position: relative;
+        margin-left: 50px;
+        cursor: pointer;
+        z-index: 50;
+    }
+
     /*smartphon*/
     @media screen and (min-width:340px) and (max-width:767px) {
         html{
