@@ -33,6 +33,7 @@ $plan_names = [
     <link rel="stylesheet" href="./display.css">
     <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../css/page_footer.css">
+    <link rel="stylesheet" href="../style.css">
 
     <title>鳥沢温泉 | 予約確認</title>
 </head>
@@ -41,7 +42,7 @@ $plan_names = [
 
     <header id="header">
         <div id="header-top">
-            <a href="../header.php" class="main-logo">鳥沢温泉</a>
+            <a href="../header.php" class="header-logo">鳥沢温泉</a>
 
             <nav class="header-top-nav">
                 <ul class="header-top-list">
@@ -55,17 +56,44 @@ $plan_names = [
         </div>
 
         <div id="header-vew">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="../header.php" class="header-vew-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
+                    <li><a href="../header.php#spa">温泉</a></li>
+                    <li><a href="../header.php#room">お部屋</a></li>
+                    <li><a href="../header.php#dish">お食事</a></li>
+                    <li><a href="../header.php#footer_info">交通案内</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <!--hamburger-->
+    <div class="hamburger">
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+
+    <div class="hamburger-container">
+        <h2><a href="../header.php">鳥沢温泉</a></h2>
+        <nav class="hamburger-nav">
+            <ul class="hamburger-nav-list left">
+                <li><a href="../header.php#spa">温泉</a></li>
+                <li><a href="../header.php#room">お部屋</a></li>
+                <li><a href="../header.php#dish">お食事</a></li>
+                <li><a href="../header.php#footer">交通案内</a></li>
+            </ul>
+            <ul class="hamburger-nav-list right">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
+
+
 
     <div class="reservation">
         <h2 class="re_ja">ご予約内容の確認・お客様情報の入力</h2>
@@ -74,33 +102,32 @@ $plan_names = [
 
     <form action="confirm.php" method="POST">
         <div class="vertical">
-
             <div class="vertical_group">
                 <p class="vertical_title">ご予約内容</p>
                 <div class="contents">
                     <div class="contens_pieces">
                         <p class="contens_label">大人</p>
-                        <p><?= (int)$adult ?>名</p>
+                        <p class="contens_date"><?= (int)$adult ?>名</p>
                         <input type="hidden" name="adult" value="<?= (int)$adult ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">子ども</p>
-                        <p><?= (int)$children ?>名</p>
+                        <p class="contens_date"><?= (int)$children ?>名</p>
                         <input type="hidden" name="children" value="<?= (int)$children ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">チェックイン</p>
-                        <p><?= date("Y年m月d日", strtotime($checkin)) ?></p>
+                        <p class="contens_date"><?= date("Y年m月d日", strtotime($checkin)) ?></p>
                         <input type="hidden" name="checkin" value="<?= htmlspecialchars($checkin, ENT_COMPAT, "UTF-8") ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">チェックアウト</p>
-                        <p><?= date("Y年m月d日", strtotime($checkout)) ?></p>
+                        <p class="contens_date"><?= date("Y年m月d日", strtotime($checkout)) ?></p>
                         <input type="hidden" name="checkout" value="<?= htmlspecialchars($checkout, ENT_COMPAT, "UTF-8") ?>">
                     </div>
                     <div class="contens_pieces">
                         <p class="contens_label">プラン</p>
-                        <p><?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
+                        <p class="contens_date"><?= htmlspecialchars($plan_names[$plan], ENT_QUOTES, 'UTF-8') ?></p>
                         <input type="hidden" name="plan" value="<?= htmlentities($plan, ENT_QUOTES, "UTF-8") ?>">
                     </div>
                     <div class="contens_pieces">
@@ -162,9 +189,9 @@ $plan_names = [
 
 
     <footer id="page_footer">
-        <div id="page_footer_info">
+        <div id="page_footer_info_box">
             <div class="page_footer_info">
-                <p class="main-logo">鳥沢温泉</p>
+                <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>
@@ -174,24 +201,25 @@ $plan_names = [
             <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">温泉</a></li>
-                        <li><a href="">お部屋</a></li>
-                        <li><a href="">お食事</a></li>
-                        <li><a href="">交通案内</a></li>
+                        <li><a href="../header.php">ホーム</a></li>
+                        <li><a href="../header.php#spa">温泉</a></li>
+                        <li><a href="../header.php#room">お部屋</a></li>
+                        <li><a href="../header.php#dish">お食事</a></li>
+                        <li><a href="../header.php#footer">交通案内</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-w">
                     <ul class="nav-w-list">
                         <li><a href="">よくある質問</a></li>
-                        <li><a href="">お問い合わせ</a></li>
+                        <li><a href="../contact/contact.html">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </footer>
 
+    <script src="../app.js"></script>
     <script>
         document.getElementById("searchBtn").addEventListener("click", async () => {
             const zipcode = document.getElementById("zipcode").value;
@@ -210,6 +238,9 @@ $plan_names = [
                     result.address2 + result.address3;
             }
         });
+
+        document.body.scrollHeight;
+        window.innerHeight;
     </script>
 </body>
 

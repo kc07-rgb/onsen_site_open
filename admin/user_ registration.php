@@ -48,7 +48,7 @@ if (isset($_POST["submit"])) {
             $stmt->bindParam(":birthday", $birthday);
             $stmt->execute();
 
-            echo "登録が完了しました";
+            $done = "登録が完了しました";
         } catch (PDOException $e) {
             if ($e->errorInfo[1] === 1062) {
                 $error = "このユーザー名は既に使用されています";
@@ -69,34 +69,50 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー登録画面</title>
+
+    <link rel="stylesheet" href="./user_registration.css">
 </head>
 
 <body>
-    <a href="/温泉/news/news_list.php">戻る</a>
-    <form method="POST">
-        <label for="username">ユーザーネーム</label>
-        <input type="text" name="username" id="username">
 
-        <label for="password">パスワード8文字以上</label>
-        <input type="password" name="password" id="password">
+    <h1 class="reg_title">ユーザー登録</h1>
 
-        <select name="year" id="year">
-            <option value="" disabled selected>年</option>
-        </select>
-        <select name="month" id="month">
-            <option value="" disabled selected>月</option>
-        </select>
-        <select name="day" id="day">
-            <option value="" disabled selected>日</option>
-        </select>
+    <form method="POST" class="reg_form">
 
-        <button type="submit" name="submit">登録</button>
+        <div class="reg_item">
+            <label for="username">ユーザーネーム</label>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div class="reg_item">
+            <label for="password">パスワード8文字以上</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div class="reg_item">
+            <label for="year">生年月日</label>
+            <select name="year" id="year">
+                <option value="" disabled selected>年</option>
+            </select>
+            <select name="month" id="month">
+                <option value="" disabled selected>月</option>
+            </select>
+            <select name="day" id="day">
+                <option value="" disabled selected>日</option>
+            </select>
+        </div>
+
+        <button type="submit" name="submit" class="reg_submit">登録</button>
 
         <?php if (!empty($error)): ?>
             <p><?= $error; ?></p>
         <?php endif; ?>
-
     </form>
+
+    <?php if (!empty($done)): ?>
+        <p class="done"><?= ($done) ?></p>
+    <?php endif; ?>
+
+    <a href="./dashboard.php" class="reg_btn">ログイン画面へ戻る</a>
 
     <script>
         const yearSelect = document.getElementById("year");

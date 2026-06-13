@@ -1,17 +1,3 @@
-.vertical{
-    margin: 0 auto;
-}
-.reservation_detail{
-    display: flex;
-}
-
-.vertical_group{
-    width: 50%;
-}
-.contens_label{
-    width: 35%;
-}
-
 .thanks_message{
     width: 70%;
     font-size: 1.5rem;
@@ -25,4 +11,21 @@
 }
 .vertical_button{
     text-align: center;
+}
+
+@media screen and (min-width:340px) and (max-width:767px) {
+    .contens_pieces_box{
+        font-size: 1rem;
+    }
+    .contens_pieces_box .contens_label{
+        width: 100%;
+    }
+
+    .thanks_message{
+        width: 90%;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin: 50px auto;
+    }
+
 }

@@ -10,27 +10,27 @@ a {
 }
 
 body {
-    background-color: #f4f0e8;
-    margin-bottom: 130vh;
+    background-color: var(--bg-color);
 }
+
 
 
 /*contact*/
 .contact{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 20;
     font-size: 1.5rem;
     font-weight: 500;
-    background-color: antiquewhite;
+    background-color: var(--box-bg-color);
+    border: 1px solid var(--box-border-color);
     width: 70%;
-    top: 50%;
-    left: 50%;
-    transform: translateZ(-50%);
-    transform: translateX(-50%);
+    margin: -5vw auto 80px;
     padding: 40px;
+    color: var(--text-color);
+    z-index: 10;
 }
 
 .contact_explanation{
@@ -38,7 +38,6 @@ body {
     text-align: center;
     line-height: 4rem;
 }
-
 
 .form_item{
     width: 100%;
@@ -54,20 +53,20 @@ body {
     position: absolute;
     width: 100%;
     height: 1px;
-    border-bottom: 1px solid #9f9f9f;
+    border-bottom: 1px solid var(--box-border-color);
     bottom: -50%;
     transform: translateY(-50%);
     left: 0;
 }
 .form_item:last-of-type::after{
-    bottom: -12%;
+    display: none;
 }
 .form_item:first-of-type::before{
     content: "";
     position: absolute;
     width: 100%;
     height: 1px;
-    border-bottom: 1px solid #9f9f9f;
+    border-bottom: 1px solid var(--box-border-color);
     top: -50%;
     transform: translateY(-50%);
     left: 0;
@@ -90,15 +89,16 @@ body {
     height: 40px;
 }
 
+/*contact_btn*/
 .contact_btn{
     display: block;
-    margin: 0 auto;
+    margin: 60px auto 30px;
     text-align: center;
     width: 20%;
     height: 50px;
     font-size: 1.2rem;
-    background-color: #434940;
-    color: #dddddd;
+    background-color: var(--text-color);
+    color: var(--box-bg-color);
     cursor: pointer;
     transition: all 0.5s ease;
 }
@@ -107,6 +107,56 @@ body {
     color: #434940;
 }
 
-#page_footer{
-    bottom: -1700px;
+
+
+/*smartphone*/
+    @media screen and (min-width:340px) and (max-width:767px) {
+        .contact{
+            width: 95%;
+            padding: 10px 20px;
+            font-size: 1rem;
+            position: static;
+            top: auto;
+            left: auto;
+            transform: none;
+            margin: 60px auto;
+        }
+        .contact_explanation{
+            line-height: 2rem;
+            margin-bottom: 50px;
+        }
+        .form_item{
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .form_item label{
+            font-size: 0.8em;
+            width: 30%;
+        }
+        .form_item input{
+            width: 70%;
+            height: 20px;
+        }
+        .form_item textarea{
+            height: 100px;
+        }
+
+        /*contact_btn*/
+        .contact_btn{
+            height: 20px;
+            font-size: 0.8rem;
+        }
+
+        #page_footer{
+            margin-bottom: 0;
+        }
+
+    }
+
+/*tablet*/
+@media screen and (min-width:768px) and (max-width:960px) {
+    .contact{
+        width: 95%;
+        margin-top: -80px;
+    }
 }

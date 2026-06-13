@@ -25,7 +25,7 @@
     <!--header-->
     <header id="header">
         <div id="header-top">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="#header" class="header-logo">鳥沢温泉</a>
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
@@ -38,13 +38,13 @@
         </div>
 
         <div id="header-vew">
-            <a href="" class="main-logo">鳥沢温泉</a>
+            <a href="" class="header-vew-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="">温泉</a></li>
-                    <li><a href="">お部屋</a></li>
-                    <li><a href="">お食事</a></li>
-                    <li><a href="">交通案内</a></li>
+                    <li><a href="#spa">温泉</a></li>
+                    <li><a href="#room">お部屋</a></li>
+                    <li><a href="#dish">お食事</a></li>
+                    <li><a href="#footer_info">交通案内</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,24 +66,45 @@
         <div class="main-text">
             <p class="main-catch">心ほどける<br>
                 至福の湯宿</p>
-            <h1 class="main-logo">鳥沢温泉</h1>
+            <h1 class="center-logo">鳥沢温泉</h1>
         </div>
         <div class="intro"></div>
 
         <nav class="main-nav">
             <ul class="main-nav-list">
-                <li><a href="">温泉</a></li>
-                <li><a href="">お部屋</a></li>
-                <li><a href="">お食事</a></li>
-                <li><a href="">交通案内</a></li>
+                <li><a href="#spa">温泉</a></li>
+                <li><a href="#room">お部屋</a></li>
+                <li><a href="#dish">お食事</a></li>
+                <li><a href="#footer_info">交通案内</a></li>
             </ul>
         </nav>
-        <div class="hamburger">
-            <div class="top"></div>
-            <div class="middle"></div>
-            <div class="bottom"></div>
-        </div>
     </main>
+
+    <!--hamburger-->
+    <div class="hamburger">
+        <div class="top"></div>
+        <div class="middle"></div>
+        <div class="bottom"></div>
+    </div>
+
+    <div class="hamburger-container">
+        <h2><a href="../header.php">鳥沢温泉</a></h2>
+        <nav class="hamburger-nav">
+            <ul class="hamburger-nav-list left">
+                <li><a href="../header.php#spa">温泉</a></li>
+                <li><a href="../header.php#room">お部屋</a></li>
+                <li><a href="../header.php#dish">お食事</a></li>
+                <li><a href="../header.php#footer">交通案内</a></li>
+            </ul>
+            <ul class="hamburger-nav-list right">
+                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
+            </ul>
+        </nav>
+    </div>
 
     <section id="intro-title">
         <p class="intro-title-text">喧騒を離れ、静けさに身を委ねるひととき。<br>
@@ -93,7 +114,7 @@
     </section>
 
     <div class="feature">
-        <section class="feature-section spa">
+        <section class="feature-section spa" id="spa">
             <div class="feature-wappaer">
                 <div class="feature-img">
                     <img src="./img/22403402_m.jpg" loading="lazy" alt="">
@@ -115,7 +136,7 @@
         </section>
 
 
-        <section class="feature-section room">
+        <section class="feature-section room" id="room">
             <div class="feature-wappaer">
                 <div class="feature-img">
                     <img src="./img/22403402_m.jpg" loading="lazy" alt="">
@@ -138,7 +159,7 @@
         </section>
 
 
-        <section class="feature-section dish">
+        <section class="feature-section dish" id="dish">
             <div class="feature-wappaer">
                 <div class="feature-img">
                     <img src="./img/YAMA_DSC1959_TP_V.webp" loading="lazy" alt="">
@@ -168,9 +189,9 @@
 
     <footer id="footer">
 
-        <div id="info">
-            <div class="info">
-                <p class="main-logo">鳥沢温泉</p>
+        <div id="footer_info">
+            <div class="footer_info">
+                <p class="top-main-logo"><a href="#">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>
@@ -180,18 +201,18 @@
             <nav id="nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="">ホーム</a></li>
-                        <li><a href="">温泉</a></li>
-                        <li><a href="">お部屋</a></li>
-                        <li><a href="">お食事</a></li>
-                        <li><a href="">交通案内</a></li>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#spa">温泉</a></li>
+                        <li><a href="#room">お部屋</a></li>
+                        <li><a href="#dish">お食事</a></li>
+                        <li><a href="#footer_info">交通案内</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-w">
                     <ul class="nav-w-list">
                         <li><a href="">よくある質問</a></li>
-                        <li><a href="">お問い合わせ</a></li>
+                        <li><a href="../contact/contact.html">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>

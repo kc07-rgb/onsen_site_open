@@ -2,32 +2,28 @@
 page_footer
 */
 #page_footer {
-    position: relative;
-    height: 30vh;
+    width: 100%;
+    color: #2c241d;
     background: linear-gradient(
         to top,
         #484038 0%,
         #89786b 40%,
         #f4f0e8 100%
     );
-    color: #2c241d;
-    margin-top: 250px;
 }
 
-#page_footer_info {
+#page_footer_info_box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
     padding: 10px;
-    position: absolute;
     width: 100%;
     bottom: 0;
     font-weight: 500;
-    margin-bottom: 20px;
 }
 
-.page_footer_info {
+.page_footer_info{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +33,7 @@ page_footer
     font-size: 1.5rem;
     font-weight: 700;
 }
-.info address{
+.page_footer_info address p{
     font-size: 1.1rem;
 }
 
@@ -49,8 +45,6 @@ page_footer
 
 .nav-v {
     writing-mode: vertical-lr;
-}
-.nav-v {
     line-height: 60px;
     margin-bottom: 20px;
 }
@@ -72,4 +66,37 @@ page_footer
 .nav-w a:hover{
     color: #f4f0e8;
 }
+ /*smartphon*/
+    @media screen and (min-width:340px) and (max-width:767px) {
+        html{
+            font-size: 14px;
+        }
 
+        .page_footer_info{
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .main-logo{
+            font-size: 2rem !important;
+            margin-bottom: 10px;
+        }
+        .page_footer_info address p{
+            font-size: 0.8rem;
+        }
+        #page_footer_nav{
+            font-size: 1rem;
+        }
+        .nav-v{
+            line-height: 2rem;
+            margin-bottom: 5px;
+        }
+
+    }
+/*tblet*/
+    @media screen and (min-width:768px) and (max-width:1024px){
+        .main-logo{
+            font-size: 1rem;
+        }
+    }
+    

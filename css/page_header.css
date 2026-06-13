@@ -18,6 +18,7 @@ header
 */
 #header{
     display: block;
+    position: relative;
 }
 #header-top {
     display: flex;
@@ -32,13 +33,13 @@ header
 }
 
 
-#header-top .main-logo {
+#header-top .header-logo {
     color: #fff;
     font-size: 30px;
     letter-spacing: 15px;
 }
 
-#header-top .main-logo:visited {
+#header-top .header-logo:visited {
     color: #fff;
 }
 
@@ -101,6 +102,7 @@ header-vew
     display: flex;
     justify-content: space-between;
     align-items: center;
+    top: 0;
     width: 100%;
     padding: 10px 60px;
     background-color: #1f1f1f9f;
@@ -117,13 +119,13 @@ header-vew
 
 }
 
-#header-vew .main-logo {
+#header-vew .header-vew-logo {
     color: #fff;
     font-size: 30px;
     letter-spacing: 15px;
 }
 
-#header-vew .main-logo:visited {
+#header-vew .header-vew-logo:visited {
     color: #fff;
 }
 
@@ -176,4 +178,26 @@ header-vew
 
 .header-nav-list a:visited {
     color: #fff;
+}
+/*smartphon*/
+@media screen and (min-width:340px) and (max-width:767px) {
+    #header{
+        width: 100%;
+    }
+    #header-top{
+        display: none;
+    }
+    #header-vew{
+        display: none;
+    }
+}
+
+/*tblet*/
+@media screen and (min-width:768px) and (max-width:1023px){
+    #header-top{
+        display: none;
+    }
+    #header-vew{
+        display: none;
+    }
 }

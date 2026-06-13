@@ -1,7 +1,9 @@
-.preview{
-    width: 200px;
-    height: 200px;
-}
-.preview img{
-    object-fit: cover;
+.post_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    width: 10%;
+    margin: 0 auto;
+    cursor: pointer;
 }

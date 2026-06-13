@@ -2,22 +2,24 @@ const introTitlText = document.querySelector(".intro-title-text");
 const featureApper = document.querySelectorAll(".feature-wappaer");
 const header = document.getElementById("header-vew");
 
-76dbbb0 
-
 window.addEventListener("scroll", ()=>{
-  if(window.scrollY > 300){
+  if(header){
+  if(window.scrollY > 100){
     header.classList.add("active")
   } else{
     header.classList.remove("active")
   }
+}
+if(introTitlText){
     const rect = introTitlText.getBoundingClientRect();
 
     if (rect.top < window.innerHeight * 0.9) {
         introTitlText.classList.add("active");
     }
+  }
 });
 
-
+if(featureApper){
 const observer = new IntersectionObserver((entries) =>{
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -30,29 +32,15 @@ const observer = new IntersectionObserver((entries) =>{
 featureApper.forEach(element => {
   observer.observe(element);
 });
+}
 
-console.log(window.scrollY);
-console.log(window.innerHeight);
-console.log(introTitlText.offsetTop);
+//hamburger
+const hamburger = document.querySelector(".hamburger");
+const container = document.querySelector(".hamburger-container");
 
-
-//window.addEventListener("scroll", ()=>{
-//  introTitlText.forEach((element, index) => {
-//  element.classList.add('active');
-//});
-//});
-
-
-
-//for(let i = 0; i < introTitlText.length; i++){
-//
-//    //.introTitlTextのオフセットの高さを取得
-//    var targetTop = introTitlText[i].offsetTop;
-//
-//    //画面のスクロール量 + 300px > .introTitlTextのオフセットの高さを取得
-//    if(window.scrollY + 500 > targetTop){
-//    
-//      //書くintroTitlTextにクラスshowを追加
-//      introTitlText[i].classList.add('active');
-//    }
-//  }
+if(hamburger && container){
+hamburger.addEventListener("click", ()=>{
+  hamburger.classList.toggle("active");
+  container.classList.toggle("active");
+});
+}
