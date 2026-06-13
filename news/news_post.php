@@ -35,14 +35,14 @@
         $image = $_FILES["image"]["name"];
         $tmp = $_FILES["image"]["tmp_name"];
         if (move_uploaded_file($tmp, "../upload/" . $image)) {
-            echo "アップロード成功";
+            header("Location: ./news_comlation.php");
         } else{
-            echo "アップロード成功";
+            header("Location: ./news_comlation.php");
         }
 
         $title = $_POST['title'];
         $comment = $_POST['comment'];
-        $category = $_POST['category'];
+        $category = $_POST['category']?? "info";
 
 
         try {
@@ -66,19 +66,3 @@
     $pdo = null;
 
     ?>
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-
-    <body>
-        <a href="/温泉/header.php">ホームへ戻る</a>
-        <a href="/温泉/news/news_list.php">ニュースリストへ</a>
-    </body>
-
-    </html>

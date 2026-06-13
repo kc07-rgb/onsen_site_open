@@ -163,10 +163,11 @@
         z-index: 0;
     }
 
-    .news_box .news_line{
+    .news_line{
         position: relative;
         z-index: 20;
     }
+
 
     .no_img{
         width: 250px;
@@ -277,14 +278,6 @@
 
     }
 
-
-    .edit{
-        display: flex;
-        justify-content: end;
-        gap: 40px;
-    }
-
-
     /* nav */
     .nav{
         position: relative;
@@ -300,12 +293,31 @@
         font-size: 2rem;
         text-align: center;
     }
+    .admin_header nav ul{
+        display: flex;
+    }
     .admin_header a{
         position: relative;
         margin-left: 50px;
         cursor: pointer;
         z-index: 50;
     }
+
+    /*edit*/
+    .edit{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 10px;
+        display: flex;
+        gap: 20px;
+        z-index: 20;
+        font-size: 1.5rem;
+    }
+    .edit a:hover{
+        color: red;
+    }
+
 
     /*smartphon*/
     @media screen and (min-width:340px) and (max-width:767px) {
