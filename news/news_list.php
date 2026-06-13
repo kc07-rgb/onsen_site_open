@@ -99,7 +99,7 @@ $pdo = null;
             <nav>
                 <ul>
                     <li><a href="./news_form.php">ニュース投稿</a></li>
-                    <li><a href="/温泉/users/logout.php">ログアウト</a></li>
+                    <li><a href="/温泉/admin/logout.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>

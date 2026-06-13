@@ -55,7 +55,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
             <nav>
                 <ul>
                     <li><a href="./news_list.php">ニュースリストへ</a></li>
-                    <li><a href="/温泉/users/logout.php">ログアウト</a></li>
+                    <li><a href="/温泉/admin/logout.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>
