@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ</title>
-    
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+JP:wght@200..900&family=Yuji+Boku&display=swap"
         rel="stylesheet">
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="../css/page_header.css">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./qa.css">
     <link rel="stylesheet" href="../news/news_list2.css">
-    <link rel="stylesheet" href="./contact.css">
     <link rel="stylesheet" href="../css/page_footer.css">
+
 </head>
 
 <body>
-    <!--header-->
+
     <header id="header">
         <div id="header-top">
             <a href="../header.php" class="header-logo">鳥沢温泉</a>
@@ -36,7 +37,7 @@
             </nav>
         </div>
 
-        <div id="header-vew">
+        <div id="header-vew" class="<?= isset($_SESSION[" user_id"]) ? "admin" : "" ?>">
             <a href="../header.php" class="header-vew-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
@@ -48,14 +49,31 @@
             </nav>
         </div>
 
-        <div id="page">
-            <div class="page_tatile">
-                <h2 class="jp">お問い合わせ</h2>
-                <p class="em">Contact</p>
-                <p class="description">ご不明な点やご相談など、お気軽にお問い合わせください。<br>
-                    スタッフが丁寧にご対応させていただきます。</p>
-            </div>
+    </header>
+
+    <div id="page">
+        <div class="page_tatile">
+            <h2 class="jp">よくあるご質問</h2>
+            <p class="em">Q & A</p>
+            <p class="description">お客様からよく寄せられるお問い合わせをまとめました。</p>
         </div>
+        <!--wave-->
+        <div class="pc_wave custom-shape-divider-bottom-1779276235">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="smartphon_wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#f4f0e8"
+                    d="M0,192L60,202.7C120,213,240,235,360,218.7C480,203,600,149,720,149.3C840,149,960,203,1080,208C1200,213,1320,171,1380,149.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </div>
     </header>
 
     <!--hamburger-->
@@ -76,7 +94,7 @@
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
-                <li><a href="../qa/qa.html">よくあるご質問</a></li>
+                <li><a href="">よくあるご質問</a></li>
                 <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
                 <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
                 <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
@@ -84,41 +102,16 @@
         </nav>
     </div>
 
-    <div class="contact">
-        <div class="contact_explanation">
-            <h3>お問い合わせフォーム</h3>
-            <p>下記フォームに必要事項をご入力の上、送信してください。</p>
-        </div>
+    <main>
+        <details>
+            <summary>チェックイン・チェックアウトの時間は？</summary>
+            <p class="answer"> チェックインは15:00から、
+                チェックアウトは10:00までです。</p>
+        </details>
+    </main>
 
-        <form action="./contact.php" method="POST">
 
-            <div class="form_item">
-                <label for="name">お名前</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-
-            <div class="form_item">
-                <label for="kana">ふりがな</label>
-                <input type="text" name="kana" id="kana" required>
-            </div>
-
-            <div class="form_item">
-                <label for="email">メールアドレス</label>
-                <input type="email" name="email" id="email">
-            </div>
-
-            <div class="form_item">
-                <label for="tel">お電話番号(任意)</label>
-                <input type="tel" name="tel" id="tel">
-            </div>
-
-            <div class="form_item">
-                <label for="message">お問い合わせ内容</label>
-                <textarea name="message" id="message" rows="10" cols="40" required></textarea>
-            </div>
-
-            <button class="contact_btn" type="submit">送信する</button>
-        </form>
+    <div id="footer-intro">
     </div>
 
 
@@ -152,8 +145,8 @@
             </nav>
         </div>
     </footer>
-    <script src="../app.js"></script>
 
+    <script src="../app.js"></script>
 </body>
 
 </html>

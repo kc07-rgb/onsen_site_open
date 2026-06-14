@@ -95,7 +95,7 @@ $next = $nextStm->fetch();
                 <nav class="header-top-nav">
                     <ul class="header-top-list">
                         <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
-                        <li><a href="">よくあるご質問</a></li>
+                        <li><a href="../qa/qa.html">よくあるご質問</a></li>
                         <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
                         <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
                         <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
@@ -238,7 +238,7 @@ $next = $nextStm->fetch();
 
                 <div class="nav-w">
                     <ul class="nav-w-list">
-                        <li><a href="">よくある質問</a></li>
+                        <li><a href="../qa/qa.html">よくあるご質問</a></li>
                         <li><a href="../contact/contact.html">お問い合わせ</a></li>
                     </ul>
                 </div>
