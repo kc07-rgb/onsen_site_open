@@ -103,11 +103,65 @@
     </div>
 
     <main>
-        <details>
-            <summary>チェックイン・チェックアウトの時間は？</summary>
-            <p class="answer"> チェックインは15:00から、
-                チェックアウトは10:00までです。</p>
-        </details>
+        <div class="details">
+            <div class="qe_box">
+                <img class="q_icon" src="../icon/question.svg" alt="質問のアイコン">
+                <p class="qe">チェックイン・チェックアウトの時間は？</p>
+            </div>
+            <div class="an_box">
+                <img class="a_icon" src="../icon/answer.svg" alt="回答のアイコン">
+                <p class="an"> チェックインは15:00から、
+                    チェックアウトは10:00までです。</p>
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="qe_box">
+                <img class="q_icon" src="../icon/question.svg" alt="質問のアイコン">
+                <p class="qe">駐車場はありますか？</p>
+            </div>
+            <div class="an_box">
+                <img class="a_icon" src="../icon/answer.svg" alt="回答のアイコン">
+                <p class="an"> はい。無料の駐車場をご用意しております。ご予約は不要です。</p>
+            </div>
+        </div>
+
+
+        <div class="details">
+            <div class="qe_box">
+                <img class="q_icon" src="../icon/question.svg" alt="質問のアイコン">
+                <p class="qe">日帰り入浴はできますか？</p>
+            </div>
+            <div class="an_box">
+                <img class="a_icon" src="../icon/answer.svg" alt="回答のアイコン">
+                <p class="an">はい、可能です。営業時間は11:00~21:00(最終受付は20:30)です。</p>
+            </div>
+        </div>
+
+
+        <div class="details">
+            <div class="qe_box">
+                <img class="q_icon" src="../icon/question.svg" alt="質問のアイコン">
+                <p class="qe">タオルやアメニティは準備されていますか？</p>
+            </div>
+            <div class="an_box">
+                <img class="a_icon" src="../icon/answer.svg" alt="回答のアイコン">
+                <p class="an">バスタオル、フェイスタオル、歯ブラシ、浴衣、シャンプーなどは、客室および大浴場にご用意しております。</p>
+            </div>
+        </div>
+
+
+        <div class="details">
+            <div class="qe_box">
+                <img class="q_icon" src="../icon/question.svg" alt="質問のアイコン">
+                <p class="qe">Wi-Fiは使用できますか？</p>
+            </div>
+            <div class="an_box">
+                <img class="a_icon" src="../icon/answer.svg" alt="回答のアイコン">
+                <p class="an">はい、館内の客室およびロビーにてWi-Fiをご利用いただけます。</p>
+            </div>
+        </div>
+
     </main>
 
 
@@ -147,6 +201,15 @@
     </footer>
 
     <script src="../app.js"></script>
+    <script>
+        const details = document.querySelectorAll(".details");
+
+        details.forEach(detaList => {
+            detaList.addEventListener("click", () => {
+                detaList.classList.toggle("active");
+            });
+        });
+    </script>
 </body>
 
 </html>

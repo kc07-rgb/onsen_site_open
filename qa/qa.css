@@ -1,51 +1,137 @@
-main{
-    width: 100%;
-}
-details{
+.details{
     position: relative;
     width: 50%;
-    margin: 0 auto;
+    height: 90px;
+    margin: 0 auto 60px;
     font-size: 2rem;
     background-color: var(--box-bg-color);
     border: 1px solid var(--box-border-color);
     padding: 20px;
+    transition: 0.2s;
 }
-.answer{
-    max-height: 0;
-    margin-top: 50px;
-    overflow: hidden;
-    transition: all 0.5s;
-    position: relative;
+.details.active{
+    height: auto;
 }
-details[open] .answer{
-    max-height: 200px;
-    border-top: 1px solid var(--box-border-color);
-    margin-top: 20px;
-    padding-top: 20px;
-}
-summary{
-    position: relative;
-}
-summary::after{
+
+/*+-*/
+.details::after{
     content: "";
-    width: 17px;
-    height: 1px;
-    background-color: #1f1f1f;
+    width: 30px;
+    height: 1.5px;
     top: 50%;
-    right: 0;
-    margin-right: 50px;
+    right: 135px;
+    background-color: var(--box-border-color);
     position: absolute;
+    
 }
-summary::before{
+.details.active::after{
+    top: 26%;
+}
+.details::before{
     content: "";
-    width: 1px;
-    height: 17px;
-    background-color: #1f1f1f;
+    width: 1.5px;
+    height: 30px;
     top: 35%;
-    right: 8px;
-    margin-right: 50px;
+    right: 150px;
+    background-color: var(--box-border-color);
+    position: absolute;
+    transition: 0.2s;
+}
+.details.active::before{
+    opacity: 0;
+}
+
+/*qabox*/
+.qe_box,
+.an_box{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+.q_icon{
+    width: 50px;
+    height: 50px;
+}
+.qe{
+    position: relative;
+}
+
+/*border*/
+.details.active .qe_box::after{
+    content: "";
+    width: 98%;
+    height: 1px;
+    background-color: var(--box-border-color);
+    bottom: -50%;   
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
     position: absolute;
 }
-details[open] summary::before{
-    display: none;
+.an_box{
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 50px 0 0;
+    position: relative;
+    transition: 0.2s;
 }
+.details.active .an_box{
+    opacity: 1;
+    height: auto;
+}
+.a_icon{
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+.details.active .a_icon{
+    opacity: 1;
+}
+
+ @media screen and (min-width:340px) and (max-width:1280px) {
+    main{
+        min-height: 550px;
+    }
+    .details{
+        font-size: 14px;
+        width: 98%;
+        height: 45px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .qe_box,
+    .an_box{
+        width: 100%;
+        gap: 10px;
+    }
+    .q_icon,
+    .a_icon{
+        width: 20px;
+        height: 20px;
+    }
+    .an_box{
+        margin: 10px 0 0 ;
+    }
+
+    /*+-*/
+    .details::after{
+        width: 15px;
+        height: 1px;
+        top: 50%;
+        right: 20px;
+    }
+    .details::before{
+        width: 1px;
+        height: 15px;
+        right: 27px;
+    }
+
+    /*border*/
+    .details.active .qe_box::after{
+        bottom: -40%;
+    }
+
+
+ }
