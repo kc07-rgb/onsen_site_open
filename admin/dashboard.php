@@ -2,7 +2,12 @@
 session_start();
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=onsen_hotel_site', "root", "", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $pdo = new PDO(
+        'mysql:host=localhost;dbname=konsent_onsen',
+        "konsent_onsen",
+        "Tika0724",
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
 } catch (PDOException $e) {
     echo $e->getMessage();
     exit("接続エラー");
@@ -40,7 +45,8 @@ if (isset($_POST["login"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鳥沢温泉 | 管理画面</title>
-    <link rel="icon" href="./img/favicon.png"></link>
+    <link rel="icon" href="./img/favicon.png">
+    </link>
 
     <link rel="stylesheet" href="./dashboard.css">
 </head>
@@ -58,7 +64,7 @@ if (isset($_POST["login"])) {
             <?php if (!empty($error)): ?>
                 <p class="error"><?= $error ?></p>
             <?php endif; ?>
-            
+
         </form>
         <div class="reg">
             <a href="./user_ registration.php">ユーザー登録</a>

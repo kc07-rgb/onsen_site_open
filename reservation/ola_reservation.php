@@ -1,9 +1,9 @@
 <?php
 try {
     $pdo = new PDO(
-        'mysql:host=localhost;dbname=onsen_hotel_site',
-        'root',
-        '',
+        'mysql:host=localhost;dbname=konsent_onsen',
+        "konsent_onsen",
+        "Tika0724",
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 } catch (PDOException $e) {
@@ -53,6 +53,8 @@ if ($remaining <= 0){
 
     <link rel="stylesheet" href="./reservation.css">
     <title>鳥沢温泉 | 予約</title>
+    <link rel="icon" href="./img/favicon.png"></link>
+
 </head>
 
 <body>

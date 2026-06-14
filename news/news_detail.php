@@ -3,7 +3,7 @@ $id = $_GET['id'];
 
 try {
     $pdo = new PDO(
-        'mysql:host=localhost;dbname=onsen_hotel_site',
+        'mysql:host=localhost;dbname=konsent_onsen',
         "konsent_onsen",
         "Tika0724"
     );
