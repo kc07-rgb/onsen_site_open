@@ -64,7 +64,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
 
     <header id="header">
         <div id="header-top">
-            <a href="../header.php" class="header-logo">鳥沢温泉</a>
+            <a href="../index.php" class="header-logo">鳥沢温泉</a>
 
             <nav class="header-top-nav">
                 <ul class="header-top-list">
@@ -78,13 +78,13 @@ unset($_SESSION["error"], $_SESSION["old"]);
         </div>
 
         <div id="header-vew" class="<?= isset($_SESSION["user_id"]) ? "admin" : "" ?>">
-            <a href="../header.php" class="header-vew-logo">鳥沢温泉</a>
+            <a href="../index.php" class="header-vew-logo">鳥沢温泉</a>
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="../header.php#spa">温泉</a></li>
-                    <li><a href="../header.php#room">お部屋</a></li>
-                    <li><a href="../header.php#dish">お食事</a></li>
-                    <li><a href="../header.php#footer_info">交通案内</a></li>
+                    <li><a href="../index.php#spa">温泉</a></li>
+                    <li><a href="../index.php#room">お部屋</a></li>
+                    <li><a href="../index.php#dish">お食事</a></li>
+                    <li><a href="../index.php#footer_info">交通案内</a></li>
                 </ul>
             </nav>
         </div>
@@ -120,13 +120,13 @@ unset($_SESSION["error"], $_SESSION["old"]);
     </div>
 
     <div class="hamburger-container">
-        <h2><a href="../header.php">鳥沢温泉</a></h2>
+        <h2><a href="../index.php">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
-                <li><a href="../header.php#spa">温泉</a></li>
-                <li><a href="../header.php#room">お部屋</a></li>
-                <li><a href="../header.php#dish">お食事</a></li>
-                <li><a href="../header.php#footer">交通案内</a></li>
+                <li><a href="../index.php#spa">温泉</a></li>
+                <li><a href="../index.php#room">お部屋</a></li>
+                <li><a href="../index.php#dish">お食事</a></li>
+                <li><a href="../index.php#footer">交通案内</a></li>
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
@@ -172,7 +172,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
         <footer id="page_footer">
         <div id="page_footer_info_box">
             <div class="page_footer_info">
-                <p class="main-logo"><a href="../header.php">鳥沢温泉</a></p>
+                <p class="main-logo"><a href="../index.php">鳥沢温泉</a></p>
                 <address>
                     <p>〒×××-×××× 岩手県小鳥市11-111</p>
                     <p>tel.0000-00-0000/9:00~18:00</p>
@@ -182,11 +182,11 @@ unset($_SESSION["error"], $_SESSION["old"]);
             <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="../header.php">ホーム</a></li>
-                        <li><a href="../header.php#spa">温泉</a></li>
-                        <li><a href="../header.php#room">お部屋</a></li>
-                        <li><a href="../header.php#dish">お食事</a></li>
-                        <li><a href="../header.php#footer">交通案内</a></li>
+                        <li><a href="../index.php">ホーム</a></li>
+                        <li><a href="../index.php#spa">温泉</a></li>
+                        <li><a href="../index.php#room">お部屋</a></li>
+                        <li><a href="../index.php#dish">お食事</a></li>
+                        <li><a href="../index.php#footer">交通案内</a></li>
                     </ul>
                 </div>
 

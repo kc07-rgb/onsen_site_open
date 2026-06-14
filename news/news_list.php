@@ -266,11 +266,11 @@ $pdo = null;
             <nav id="page_footer_nav">
                 <div class="nav-v">
                     <ul class="nav-v-list">
-                        <li><a href="../header.php">ホーム</a></li>
-                        <li><a href="../header.php#spa">温泉</a></li>
-                        <li><a href="../header.php#room">お部屋</a></li>
-                        <li><a href="../header.php#dish">お食事</a></li>
-                        <li><a href="../header.php#footer">交通案内</a></li>
+                        <li><a href="../index.php">ホーム</a></li>
+                        <li><a href="../index.php#spa">温泉</a></li>
+                        <li><a href="../index.php#room">お部屋</a></li>
+                        <li><a href="../index.php#dish">お食事</a></li>
+                        <li><a href="../index.php#footer">交通案内</a></li>
                     </ul>
                 </div>
 
