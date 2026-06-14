@@ -64,7 +64,8 @@ try {
     $mail2->setFrom('pokemonn0724@gmail.com');
     $mail2->addAddress($email);
     $mail2->Subject = 'お問い合わせありがとうございます';
-    $mail2->Body    = "{$name} 様\n\nお問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n{$message}\n\n折り返しご連絡いたします。";
+    $mail2->Body    = "{$name} 様\n\nお問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n{$message}\n\n内容を確認のうえ、担当者より順次ご返信いたします。
+今しばらくお待ちくださいませ。";
     $mail2->send(); 
     header('Location: contact_thanks.php');
     exit;

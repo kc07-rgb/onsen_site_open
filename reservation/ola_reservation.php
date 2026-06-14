@@ -53,7 +53,7 @@ if ($remaining <= 0){
 
     <link rel="stylesheet" href="./reservation.css">
     <title>鳥沢温泉 | 予約</title>
-    <link rel="icon" href="./img/favicon.png"></link>
+    <link rel="icon" href="../img/favicon.png">
 
 </head>
 

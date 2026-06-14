@@ -93,7 +93,7 @@ $searched = !empty($_GET["checkin"]) && !empty($_GET["checkout"]);
     <link rel="stylesheet" href="../style.css">
 
     <title>鳥沢温泉 | 予約</title>
-    <link rel="icon" href="./img/favicon.png"></link>
+    <link rel="icon" href="../img/favicon.png">
 </head>
 
 <body>

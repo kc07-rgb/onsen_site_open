@@ -10,9 +10,9 @@ if (!$data) {
 
 try {
     $pdo = new PDO(
-        'mysql:host=localhost;dbname=onsen_hotel_site',
-        "root",
-        "",
+        'mysql:host=localhost;dbname=konsent_onsen',
+        "konsent_onsen",
+        "Tika0724",
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 } catch (PDOException $e) {
@@ -69,7 +69,7 @@ $plan_names = [
     <link rel="stylesheet" href="../style.css">
 
     <title>鳥沢温泉 | 予約完了</title>
-    <link rel="icon" href="./img/favicon.png"></link>
+    <link rel="icon" href="../img/favicon.png">
 </head>
 
 <body>

@@ -72,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鳥沢温泉 | ニュース</title>
+    <link rel="icon" href="../img/favicon.png">
 
     <link rel="stylesheet" href="./news_detail.css">
     <link rel="stylesheet" href="./news_form.css">
