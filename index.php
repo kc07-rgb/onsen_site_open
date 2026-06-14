@@ -89,13 +89,13 @@
     </div>
 
     <div class="hamburger-container">
-        <h2><a href="../header.php">鳥沢温泉</a></h2>
+        <h2><a href="./index.php">鳥沢温泉</a></h2>
         <nav class="hamburger-nav">
             <ul class="hamburger-nav-list left">
-                <li><a href="../header.php#spa">温泉</a></li>
-                <li><a href="../header.php#room">お部屋</a></li>
-                <li><a href="../header.php#dish">お食事</a></li>
-                <li><a href="../header.php#footer">交通案内</a></li>
+                <li><a href="./index.php#spa">温泉</a></li>
+                <li><a href="./index.php#room">お部屋</a></li>
+                <li><a href="./index.php#dish">お食事</a></li>
+                <li><a href="./index.php#footer">交通案内</a></li>
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
