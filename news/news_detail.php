@@ -55,6 +55,8 @@ $next = $nextStm->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鳥沢温泉|<?= $news["title"] ?></title>
+    <link rel="icon" href="./img/favicon.png"></link>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,7 +82,7 @@ $next = $nextStm->fetch();
             <nav>
                 <ul>
                     <li><a href="./news_form.php">ニュース投稿</a></li>
-                    <li><a href="/温泉/users/logout.php">ログアウト</a></li>
+                    <li><a href="/onsen/users/logout.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>
@@ -94,10 +96,10 @@ $next = $nextStm->fetch();
 
                 <nav class="header-top-nav">
                     <ul class="header-top-list">
-                        <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                        <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
                         <li><a href="../qa/qa.html">よくあるご質問</a></li>
-                        <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
-                        <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                        <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
+                        <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                         <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
                     </ul>
                 </nav>
@@ -157,10 +159,10 @@ $next = $nextStm->fetch();
                 <li><a href="../header.php#footer">交通案内</a></li>
             </ul>
             <ul class="hamburger-nav-list right">
-                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
                 <li><a href="">よくあるご質問</a></li>
-                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
-                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                 <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
             </ul>
         </nav>

@@ -69,6 +69,7 @@ $plan_names = [
     <link rel="stylesheet" href="../style.css">
 
     <title>鳥沢温泉 | 予約完了</title>
+    <link rel="icon" href="./img/favicon.png"></link>
 </head>
 
 <body>
@@ -79,10 +80,10 @@ $plan_names = [
 
             <nav class="header-top-nav">
                 <ul class="header-top-list">
-                    <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                    <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
                     <li><a href="../qa/qa.html">よくあるご質問</a></li>
-                    <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
-                    <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                    <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
+                    <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                     <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
                 </ul>
             </nav>
@@ -117,10 +118,10 @@ $plan_names = [
                 <li><a href="../header.php#footer">交通案内</a></li>
             </ul>
             <ul class="hamburger-nav-list right">
-                <li><a href="/温泉/news/news_list.php">お知らせ</a></li>
+                <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
                 <li><a href="">よくあるご質問</a></li>
-                <li><a href="/温泉/contact/contact.html">お問い合わせ</a></li>
-                <li><a href="/温泉/reservation/reservation.php">ご予約</a></li>
+                <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
+                <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                 <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
             </ul>
         </nav>
@@ -207,7 +208,7 @@ $plan_names = [
             当日は気を付けてお越しくださいませ。スタッフ一同、心よりお待ちしております。</p>
     </div>
 
-    <a class="vertical_button" href="/温泉/header.php">ホームへ戻る</a>
+    <a class="vertical_button" href="/onsen/header.php">ホームへ戻る</a>
 
     <footer id="page_footer">
         <div id="page_footer_info_box">

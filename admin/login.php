@@ -38,7 +38,8 @@ if (isset($_POST["login"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
+    <title>鳥沢温泉 | ログイン</title>
+    <link rel="icon" href="./img/favicon.png"></link>
 </head>
 
 <body>
