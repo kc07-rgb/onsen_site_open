@@ -130,6 +130,7 @@ header-vew
     font-family: "Yuji Boku", serif;
     z-index: 20;
     opacity: 0;
+    top: 0;
     transform: translateY(-30px);
     transition: all 0.4s ease;
 }

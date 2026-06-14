@@ -3,8 +3,8 @@
 try {
     $pdo = new PDO(
         'mysql:host=localhost;dbname=onsen_hotel_site',
-        "root",
-        ""
+        "konsent_onsen",
+        "Tika0724"
     );
 
     $stmt = $pdo->prepare("SELECT * FROM onsen_hotel_site_table WHERE id = :id");

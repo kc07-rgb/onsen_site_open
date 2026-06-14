@@ -19,7 +19,9 @@
     width: 30px;
     height: 1.5px;
     top: 50%;
-    right: 135px;
+    right: 20px;
+    transform: translateY(-50%);
+
     background-color: var(--box-border-color);
     position: absolute;
     
@@ -31,8 +33,10 @@
     content: "";
     width: 1.5px;
     height: 30px;
-    top: 35%;
-    right: 150px;
+    top: 50%;
+    right: 34px;
+    transform: translateY(-50%);
+
     background-color: var(--box-border-color);
     position: absolute;
     transition: 0.2s;
