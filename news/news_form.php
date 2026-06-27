@@ -11,6 +11,7 @@ try {
     exit("DB接続エラー");
 }
 
+//管理者ログイン
 session_start();
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -55,7 +56,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
             <p>鳥沢温泉/管理画面</p>
             <nav>
                 <ul>
-                    <li><a href="./news_list.php">ニュースリストへ</a></li>
+                    <li><a href="/onsen/news_list.php">ニュースリストへ</a></li>
                     <li><a href="/onsen/admin/logout.php">ログアウト</a></li>
                 </ul>
             </nav>
@@ -69,7 +70,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
-                    <li><a href="../qa/qa.html">よくあるご質問</a></li>
+                    <li><a href="/onsen/qa/qa.html">よくあるご質問</a></li>
                     <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
                     <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                     <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
@@ -130,7 +131,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
-                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/onsen/qa/qa.html">よくあるご質問</a></li>
                 <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
                 <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                 <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
@@ -204,6 +205,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
 
 <script src="../app.js"></script>
 <script>
+    //画像プレビュー
     document.getElementById("fileInput").addEventListener("change", function(event) {
         const file = event.target.files[0];
 
@@ -220,6 +222,7 @@ unset($_SESSION["error"], $_SESSION["old"]);
         }
     });
 
+    //テキスト欄自動縦幅
     const textArea = document.getElementById("text");
 
     function aoutHeight() {

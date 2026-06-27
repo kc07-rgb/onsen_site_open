@@ -17,9 +17,8 @@ $message = trim($_POST["message"]);
 $mail = new PHPMailer(true);
 
 try {
-    // サーバの設定
+    // サーバ設定
     $mail->isSMTP();                                            // SMTPを使用
-    //サーバーにアップ時は下記は削除 
     $mail->SMTPOptions = [
         'ssl' => [
             'verify_peer' => false,
@@ -28,16 +27,16 @@ try {
         ]
     ];
     $mail->Host       = 'smtp.gmail.com';                       // SMTPサーバを設定
-    $mail->SMTPAuth   = true;                                   // SMTP認証を有効に
-    $mail->Username   = 'pokemonn0724@gmail.com';                 // Gmailアカウント
-    $mail->Password   = 'apgb kshu nihh wdmm';                  // Gmailパスワード
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // 暗号化を有効に（TLS）
+    $mail->SMTPAuth   = true;                                   // SMTP認証を有効
+    $mail->Username   = '';                 // Gmailアカウント
+    $mail->Password   = '';                  // Gmailパスワード
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // 暗号化を有効（TLS）
     $mail->Port       = 587;                                    // TCPポートを設定
     $mail->CharSet    = 'UTF-8';
 
     // 受信者情報
-    $mail->setFrom('pokemonn0724@gmail.com');
-    $mail->addAddress('pokemonn0724@gmail.com');   // 受信者を追加
+    $mail->setFrom('');
+    $mail->addAddress('');   // 受信者を追加
 
     $mail->Subject = "お問い合わせが届きました";
     $mail->Body = "お名前: {$name}({$kana}) 様\nお電話番号： {$tel}\nメール: {$email}\n\n{$message}";
@@ -48,8 +47,8 @@ try {
     $mail2->isSMTP();
     $mail2->Host       = 'smtp.gmail.com';
     $mail2->SMTPAuth   = true;
-    $mail2->Username   = 'pokemonn0724@gmail.com';
-    $mail2->Password   = 'apgb kshu nihh wdmm';
+    $mail2->Username   = '';
+    $mail2->Password   = '';
     $mail2->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail2->Port       = 587;
     $mail2->CharSet    = 'UTF-8';
@@ -61,7 +60,7 @@ try {
         ]
     ];
 
-    $mail2->setFrom('pokemonn0724@gmail.com');
+    $mail2->setFrom('');
     $mail2->addAddress($email);
     $mail2->Subject = 'お問い合わせありがとうございます';
     $mail2->Body    = "{$name} 様\n\nお問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n{$message}\n\n内容を確認のうえ、担当者より順次ご返信いたします。

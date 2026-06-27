@@ -16,12 +16,6 @@ try {
     echo "エラー：" . $e->getMessage();
 }
 
-$id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-
-if(!$id){
-    exit("投稿がありません");
-}
-
 $stmt = $pdo->prepare("DELETE FROM onsen_hotel_site_table WHERE id = :id");
 $stmt->execute([':id' => $id]);
 

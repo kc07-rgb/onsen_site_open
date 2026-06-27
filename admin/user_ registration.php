@@ -120,6 +120,7 @@ if (isset($_POST["submit"])) {
         const monthSelect = document.getElementById("month");
         const daySelect = document.getElementById("day");
 
+        //年
         for (let i = 2026; i >= 1900; i--) {
             let option = document.createElement("option");
             option.value = i;
@@ -127,6 +128,7 @@ if (isset($_POST["submit"])) {
             yearSelect.appendChild(option);
         }
 
+        //月
         for (let i = 1; i <= 12; i++) {
             let option = document.createElement("option");
             option.value = i;
@@ -134,6 +136,7 @@ if (isset($_POST["submit"])) {
             monthSelect.appendChild(option);
         }
 
+        //日
         function updateDays() {
             const year = yearSelect.value;
             const month = monthSelect.value;
@@ -143,12 +146,14 @@ if (isset($_POST["submit"])) {
             if (!year || !month) return;
             let days;
 
+            //2月うるう年
             if (month == 2) {
                 if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
                     days = 29;
                 } else {
                     days = 28;
                 }
+                
             } else if ([4, 6, 9, 11].includes(Number(month))) {
                 days = 30;
             } else {
@@ -162,6 +167,7 @@ if (isset($_POST["submit"])) {
                 daySelect.appendChild(option);
             }
         }
+
         yearSelect.addEventListener("change", updateDays);
         monthSelect.addEventListener("change", updateDays);
     </script>

@@ -25,9 +25,9 @@ $categories = [
     "campaign" => "キャンペーン"
 ];
 
+//カテゴリーカウント
 $categorySql = "SELECT category , COUNT(*) AS count FROM onsen_hotel_site_table GROUP BY category";
 $categoryStm = $pdo->query($categorySql);
-
 $categoryCounts = [];
 
 while ($row = $categoryStm->fetch(PDO::FETCH_ASSOC)) {
@@ -160,7 +160,7 @@ $next = $nextStm->fetch();
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
-                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/onsen/qa/qa.html">よくあるご質問</a></li>
                 <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
                 <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                 <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>

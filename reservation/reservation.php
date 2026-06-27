@@ -9,7 +9,7 @@ try {
 } catch (PDOException $e) {
     exit("DB接続エラー");
 }
-$remaining = null;
+$remaining = null;//残客室数
 $error = "";
 $availablePlans = [];
 
@@ -36,15 +36,16 @@ $capacity = [
     "premium" => 4
 ];
 
+//人数制限
 foreach ($stocks as $planName => $stock) {
-    //人数制限
+
     $maxPeople = $capacity[$planName];
 
     if ($totalPeople > $maxPeople) {
         continue;
     }
 
-    //重複確認
+    //予約済み確認
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM reservation WHERE plan = ? AND checkin < ? AND checkout > ?");
     $stmt->execute([
         $planName,
@@ -105,7 +106,7 @@ $searched = !empty($_GET["checkin"]) && !empty($_GET["checkout"]);
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
-                    <li><a href="">よくあるご質問</a></li>
+                    <li><a href="/onsen/qa/qa.html">よくあるご質問</a></li>
                     <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
                     <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                     <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
@@ -392,35 +393,31 @@ $searched = !empty($_GET["checkin"]) && !empty($_GET["checkout"]);
             night = Math.floor((cout - cin) / 86400000);
         }
 
-        //Dateオブジェクトを使う
+
         const date = new Date();
 
         //時間を深夜0時に揃える
         date.setHours(0, 0, 0, 0);
 
-        //Dateオブジェクトの時間を使用しない
         const dateStr = date.toISOString().split("T")[0];
 
-        //チェックインとチェックアウトの最小日数を今日にする
+        //チェックインとチェックアウトの最小日数を今日に
         checkin.min = dateStr;
         checkout.min = dateStr;
 
 
-        //チェックアウトの最小値をチェックインの翌日にする
+        //チェックアウトの最小値をチェックインの翌日に
         checkin.addEventListener("change", () => {
-            //チェックアウトの値を空にする
             checkout.value = "";
 
-            //チェックインに値が入っている場合のオブジェクトを定義(cinDate)
+            //チェックインに値が入っている場合
             const cinDate = new Date(checkin.value);
 
-            //cinDateをコピー(next)
             const next = new Date(cinDate);
-
-            //nextの日付を取得した日付に1足す
+            
             next.setDate(next.getDate() + 1);
 
-            //チェックアウトの最小日を定義
+            //チェックアウトの最小日
             checkout.min = next.toISOString().split("T")[0];
 
         });

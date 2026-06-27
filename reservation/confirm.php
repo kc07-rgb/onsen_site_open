@@ -92,8 +92,8 @@ try {
     $mail2->isSMTP();
     $mail2->Host       = 'smtp.gmail.com';
     $mail2->SMTPAuth   = true;
-    $mail2->Username   = 'pokemonn0724@gmail.com';
-    $mail2->Password   = 'apgb kshu nihh wdmm';
+    $mail2->Username   = '';
+    $mail2->Password   = '';
     $mail2->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail2->Port       = 587;
     $mail2->CharSet    = 'UTF-8';
@@ -105,7 +105,7 @@ try {
         ]
     ];
 
-    $mail2->setFrom('pokemonn0724@gmail.com');
+    $mail2->setFrom('');
     $mail2->addAddress($email);
     $mail2->Subject = 'ご予約が確定しました。';
     $mail2->Body    = "{$name} 様\n\nご予約ありがとうございます。\n" .

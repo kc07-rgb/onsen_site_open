@@ -34,21 +34,13 @@ if ($current === "all") {
 }
 
 
-
+//表示数
 $limit = 5;
 
+//ページ数
 $total_news = $pdo->query("SELECT COUNT(*) FROM onsen_hotel_site_table $where")->fetchColumn();
-//$pdo->query("sql") sqlを実行する 
-//COUNT(*)件数を数える
-//->fetchColumn()　結果の一列目だけ取り出す　->$オブジェクト->の中の機能(メソッド)を使う記号
 $total_pages = ceil($total_news / $limit);
-//ceil切り上げ
-
-
-// 今何ページ目か取得（URLから）
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1; //?条件式 urlにpageがあるか　ある場合は数字:なければ1
-//issetその変数が存在していて、nullではないかを確認する関数
-//(int)$_GET['page']送らて来たurlを整数に変換(GETは文字列として送られてくる)
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 // マイナス防止
 if ($page < 1) $page = 1;
 
@@ -62,9 +54,8 @@ $sql = "
     ORDER BY created_at DESC
     LIMIT $limit OFFSET $offset 
 ";
-// LIMIT $limit OFFSET $offset  OFFSET数飛ばして 次のLIMIT数取得する
 
-$news_array = $pdo->query($sql); //sql は温泉のデータベース　$news_arrayを変数名にして、下で配列を取り出すようにする。
+$news_array = $pdo->query($sql);
 
 $pdo = null;
 
@@ -99,7 +90,7 @@ $pdo = null;
             <p>鳥沢温泉/管理画面</p>
             <nav>
                 <ul>
-                    <li><a href="./news_form.php">ニュース投稿</a></li>
+                    <li><a href="/onsen/news_form.php">ニュース投稿</a></li>
                     <li><a href="/onsen/admin/logout.php">ログアウト</a></li>
                 </ul>
             </nav>
@@ -113,7 +104,7 @@ $pdo = null;
             <nav class="header-top-nav">
                 <ul class="header-top-list">
                     <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
-                    <li><a href="../qa/qa.html">よくあるご質問</a></li>
+                    <li><a href="/onsen//qa/qa.html">よくあるご質問</a></li>
                     <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
                     <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                     <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>
@@ -174,7 +165,7 @@ $pdo = null;
             </ul>
             <ul class="hamburger-nav-list right">
                 <li><a href="/onsen/news/news_list.php">お知らせ</a></li>
-                <li><a href="">よくあるご質問</a></li>
+                <li><a href="/onsen/qa/qa.html">よくあるご質問</a></li>
                 <li><a href="/onsen/contact/contact.html">お問い合わせ</a></li>
                 <li><a href="/onsen/reservation/reservation.php">ご予約</a></li>
                 <li><a href=""><i class='bx  bx-camera-alt' style='color:#fff'></i> </a></li>

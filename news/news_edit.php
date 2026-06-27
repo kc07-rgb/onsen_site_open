@@ -16,9 +16,6 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // =====================
-    // 更新処理（POST）
-    // =====================
     $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
     if ($id === false || $id === null || $id <= 0 || $id >= 1000) {
         exit("不正なidです");
@@ -28,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $comment = $_POST["comment"];
     $category = $_POST["category"];
 
+    //画像更新
     if (!empty($_FILES["img"]["name"])) {
         $image_name = time() . "_" . $_FILES["img"]["name"];
         $tmp_path = $_FILES["img"]["tmp_name"];
@@ -36,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $image_name = $_POST["old_image"];
     }
 
+    //内容更新sql
     $stmt = $pdo->prepare("UPDATE onsen_hotel_site_table SET title=?, comment=?, image_name=?, category=? WHERE id=?");
     $stmt->execute([$title, $comment, $image_name, $category, $id,]);
 
@@ -43,9 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit;
 } else {
 
-    // =====================
-    // 初回表示（GET）
-    // =====================
+    //初回表示
     $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
     if (!$id) {
         exit("不正なidです");
@@ -216,20 +213,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <script src="../app.js"></script>
 <script>
-    document.getElementById("img").addEventListener("change", function(event) { //#imgを取得→チェンジイベント起こるたびに登録した処理{}を実行
-        const file = event.target.files[0]; //inputのfileプロパティ(type=file)の1番目を取り出す
+    //画像表示
+    document.getElementById("img").addEventListener("change", function(event) { 
+        const file = event.target.files[0];
 
-        if (file) { //ファイルが選択されていれば
-            const reader = new FileReader(); //読み込み準備
+        if (file) {
+            const reader = new FileReader();
 
-            reader.onload = function(e) { //読み込みが完了したときに実行
-                document.getElementById("preview").src = e.target.result; //読み込んだ画像データをpreviewのsrcに設定
+            reader.onload = function(e) {
+                document.getElementById("preview").src = e.target.result;
             }
 
-            reader.readAsDataURL(file); //表示できる形式に変換(DataURL形式（base64）)
+            reader.readAsDataURL(file);
         }
     });
 
+    //テキストエリア自動高さ調整
     const textArea = document.getElementById("text");
 
     function aoutHeight() {
